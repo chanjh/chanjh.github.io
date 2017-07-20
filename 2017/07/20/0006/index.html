@@ -1,0 +1,808 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Git, 开发工具," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.jpg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="前两天给工作室里大一的小朋友讲了一遍 Git 的基础知识，趁着还能记得，想把这样的分享记录下来，整理成一遍文章。演讲用的 keynote 在此：点击下载。演讲大纲如下：
+
+Git 是什么
+Git 怎么用
+Git 与团队协作">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git 入门指北">
+<meta property="og:url" content="http://yoursite.com/2017/07/20/0006/index.html">
+<meta property="og:site_name" content="iOSHub">
+<meta property="og:description" content="前两天给工作室里大一的小朋友讲了一遍 Git 的基础知识，趁着还能记得，想把这样的分享记录下来，整理成一遍文章。演讲用的 keynote 在此：点击下载。演讲大纲如下：
+
+Git 是什么
+Git 怎么用
+Git 与团队协作">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG102.jpeg">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-094243.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-094926.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095502.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095538.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095557.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095624.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG103.jpeg">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG102.jpeg">
+<meta property="og:updated_time" content="2017-07-20T06:28:44.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Git 入门指北">
+<meta name="twitter:description" content="前两天给工作室里大一的小朋友讲了一遍 Git 的基础知识，趁着还能记得，想把这样的分享记录下来，整理成一遍文章。演讲用的 keynote 在此：点击下载。演讲大纲如下：
+
+Git 是什么
+Git 怎么用
+Git 与团队协作">
+<meta name="twitter:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG102.jpeg">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/07/20/0006/"/>
+
+
+
+
+
+  <title> Git 入门指北 | iOSHub </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOSHub</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">还原 iOS Dev 乐趣</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/0006/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChanJH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOSHub">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                Git 入门指北
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-07-20T09:15:00+08:00">
+                2017-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前两天给工作室里大一的小朋友讲了一遍 Git 的基础知识，趁着还能记得，想把这样的分享记录下来，整理成一遍文章。演讲用的 keynote 在此：<a href="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/Git%20基础.key" target="_blank" rel="external">点击下载</a>。演讲大纲如下：</p>
+<ul>
+<li>Git 是什么</li>
+<li>Git 怎么用</li>
+<li>Git 与团队协作</li>
+</ul>
+<a id="more"></a>
+<h1 id="Git-是什么"><a href="#Git-是什么" class="headerlink" title="Git 是什么"></a>Git 是什么</h1><p>在回答 Git 是什么这个问题之前，我们首先需要知道版本控制是什么？</p>
+<p>版本控制其实很好理解， 版本控制系统就是对一个文件、文件系统的历史节点版本进行保存、回退等控制管理的系统。</p>
+<p>在 Mac 里，很多原生的应用都会自带一个我们理解的版本控制系统。就拿 keynote 为例子，打开一份 keynote 文件，点击 文件-&gt;复原到…-&gt;浏览所有版本，可以看到这样的一个界面。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG102.jpeg" alt=""></p>
+<p>这就是 Mac 应用里自带的版本控制系统，我们可以在右边的时间轴里随时找回此文件的不同历史版本，恢复到历史的某个版本来。</p>
+<p>那么在代码版本管理这里，我们用的是什么工具呢？在以前，CVS 和 SVN 都是比较流行版本控制系统，直到 Git 开始流行之前，SVN 还是一个是十分广泛使用的版本控制。SVN 与 Git 的差别是，SVN 是一种集中式的版本控制系统，而 Git 是一种分布式的版本控制系统。</p>
+<p>有些刚入门的小朋友很容易搞混的两个概念是「Git」和「GitHub」。Git 的概念如上文所述，而 GitHub 呢，实际上可以理解成一个社区，一个开源（当然也有一部分不开源的）代码的社区。在 GitHub 这个社区里，大家使用 Git 这个工具，将自己的代码共享到 GitHub 中去。当然 GitHub 在使用 Git 的时候也和基本的 Git 有一些区别，这些以后再讲。</p>
+<ul>
+<li>Git 怎么用<br>讲完了 Git 的作用，我们来讲讲 Git 的使用。 </li>
+</ul>
+<h2 id="先了解几个概念"><a href="#先了解几个概念" class="headerlink" title="先了解几个概念"></a>先了解几个概念</h2><p>首先，在讲解 Git 使用之前，我觉得你必须掌握「终端模拟器」这个工具。</p>
+<p>打开 Spotlight， 搜索『终端』或者「terminal」，就可以打开 Mac 上的终端模拟器。在终端模拟器里运行着一个叫做 shell 的软件。shell（「壳」的意思）这个软件会和计算机的内核进行通讯，用户通过在界面输入命令，达到和计算机进行通讯的功能。</p>
+<p>Git 的命令行使用需要用到 Terminal。在 Terminal 中输入 <code>git &lt;命令&gt;</code> 如 <code>git status</code> 即可执行一条 git 命令。</p>
+<p>接着讲讲 Git 使用前还需要了解的 Git 知识：Git 的四个区和 Git 分支。</p>
+<p>当我们初始化一个 Git 之后，我们会得到一个 Git 的版本库。Git 中，用四个区，分别是「工作目录」、「暂存区」、「本地版本」、「远端版本」。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-094243.png" alt=""></p>
+<p>工作目录是程序员平时在 IDE 里修改代码的时候实际工作的区域。当我们修改文件的时候，直接影响到了工作目录下的文件。当我们使用 <code>git add</code> 时，可以将工作目录下的文件版本同步到暂存区里去，使用 <code>git commit</code> 命令，则可以将代码发布到本地仓库中去。这样就完成了本地代码的一次更新。使用 <code>git push</code> 则可以将本地的代码发送到远端仓库中去，这样你就可以和同伴们共享自己修改的代码了。</p>
+<p>Git 分支实际上也是一个比较好理解的概念。当我们创建一个 Git 仓的时候，默认会生成一个 master 分支。在我们平时开发过程中，我们可能需要添加某些功能，可能每个人负责的功能不同，那么我们会在一个节点上，开出几个不同的分支，当我们开发完毕的时候再把它们合并在一起。这是分支使用的一个例子。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-094926.png" alt=""></p>
+<h2 id="Git-的基本命令"><a href="#Git-的基本命令" class="headerlink" title="Git 的基本命令"></a>Git 的基本命令</h2><p>终于要开始使用 Git 了。首先你需要安装 Git，如果你已经安装了最新的 Xcode，那恭喜你，你也已经安装好了 Git。如果你的 Mac 没有 Xcode，我倒是建议你安装一个。</p>
+<p>Git 的基本命令我觉得有如下几条：</p>
+<ul>
+<li>添加与提交</li>
+</ul>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095502.png" alt=""></p>
+<ul>
+<li>推送改动</li>
+</ul>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095538.png" alt=""></p>
+<ul>
+<li>分支操作</li>
+</ul>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095557.png" alt=""></p>
+<ul>
+<li>其他操作</li>
+</ul>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095624.png" alt=""></p>
+<h2 id="怎样开始一个-Git-项目？"><a href="#怎样开始一个-Git-项目？" class="headerlink" title="怎样开始一个 Git 项目？"></a>怎样开始一个 Git 项目？</h2><p>讲解一个东西最直观的方法还是开始一个 Demo。下面将演示一下 Git 使用的几个不同场景。</p>
+<ul>
+<li>本地-&gt;远端</li>
+<li>远端-&gt;本地</li>
+<li>分支操作</li>
+<li>冲突解决</li>
+</ul>
+<p>前面两点解决的是「怎么开始一个 Git 项目」，分别从两种场景来讲。后面两点是解决 Git 使用过程会遇到的两个场景。</p>
+<ul>
+<li>本地-&gt;远端<br>在本地创建一个空的 Git 仓库，需要使用 <code>git init</code> 命令。在终端中，使用 <code>cd &lt;目录&gt;</code> 进入你想要工作的空目录，在改目录下使用 <code>git init</code> 命令创建一个空的 Git 仓库。</li>
+</ul>
+<p>创建仓库后，在 finder 查看该目录好像并没有什么变化。那是因为 <code>git init</code> 执行之后创建了一个隐藏的 .git 文件，在 finder 里默认是无法查看的。使用 <code>ls -ah</code> 命令可以在 终端里查看到该目录下的隐藏文件和文件夹。</p>
+<p>接着，你就可以在工作目录下添加、修改你的代码。当你在编译器或者 IDE 里完成了修改之后，可以使用 <code>git add *</code> 将代码同步到暂存区中（还记得吧，这是第二个区），当你确定要提交这个代码版本到本地仓库时，使用 <code>git commit -m &lt;提交信息&gt;</code> 将此时的代码同步到本地仓库中去。为了方便了解本次提交修改或者添加了什么内容，提交信息需要填写本次提交的基本信息。关于提交信息的书写规范，在下文会描述。</p>
+<p>OK，这样你的本地仓库就有你最新的代码了。接着，你需要将本地的代码发布到远程仓库中，这样你就可以和你的同伴一起协作开发了。首先你需要添加一个远程仓库 <code>git remote add origin &lt;server&gt;</code> 然后使用 <code>git push origin master</code> 就可以将 master 分支 push 到 origin 远端仓库中。</p>
+<ul>
+<li>远端-&gt;本地</li>
+</ul>
+<p>从远端将代码拉动到本地需要用 <code>git clone &lt;server&gt;</code> 将远程的仓库下载到本地。完成修改之后，可以用上文相同的方式将代码同步到远程。</p>
+<ul>
+<li>分支操作</li>
+</ul>
+<p>在 Git 里面管理代码一定离不开分支的操作。常见的分支操作包括创建新的分支、检出分支、合并分支。命令如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">／／ 创建并检出新的分支</div><div class="line">git checkout -b search</div><div class="line">／／ 切换分支</div><div class="line">git checkout master</div><div class="line">／／ 查看分支情况</div><div class="line">git branch</div><div class="line">／／ 合并分支</div><div class="line">git merge search</div></pre></td></tr></table></figure>
+<ul>
+<li>合并冲突</li>
+</ul>
+<p>「冲突」在新手听起来可能是一件可怕的事情，但其实当我们遇到并解决它的时候并没有那么可怕。冲突的产生往往是因为两个不同的分支在不同的节点里进行了不一样的操作。当操作者把这两条分支合并在一起的时候，Git 并不知道要保留哪个分支下的版本，于是就产生了一个冲突。</p>
+<p>产生冲突的文件会以下格式的代码出现：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</div><div class="line">master hahahah</div><div class="line">=======</div><div class="line">search hahahahh</div><div class="line">&gt;&gt;&gt;&gt;&gt;&gt;&gt; search</div></pre></td></tr></table></figure>
+<p>新手看到这个可能有点怕，但是不用担心，这个东西很容易。在这个文件的这段代码代表：在当前分支下的代码为 <code>master hahahah</code> 在 search 这个分支下，代码则是 <code>search hahahahh</code>，请解决这个冲突。解决办法也很简答，你只要删除其中一个就可以。比如我想保留 HEAD 下的版本，那么只留下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">master hahahah</div></pre></td></tr></table></figure>
+<p>OK，然后使用 commit 命令提交代码即可。</p>
+<ul>
+<li>Git 的其他操作</li>
+</ul>
+<p>Git 还有很多其他操作。比如：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">git tag</div><div class="line">git stash</div><div class="line">git status</div><div class="line">git reset</div></pre></td></tr></table></figure>
+<p>这些一般我会使用可视化的工具 SourceTree 里管理，所以这里也不多累赘。</p>
+<ul>
+<li>重要</li>
+</ul>
+<p>我使用 Git 里有一句我觉得挺重要的结论，就是：<strong>Git 的高级操作是由基本操作组合完成的</strong>。掌握基本命令并灵活使用，可以完成 Git 的高级操作，比如说删除分支的某次提交。</p>
+<h1 id="Git-与团队协作"><a href="#Git-与团队协作" class="headerlink" title="Git 与团队协作"></a>Git 与团队协作</h1><p>OK，终于到了 Git 的实战阶段。我们使用 Git 很多时候和同伴一起使用。在 Git 中有着一些大家默认遵守的 Git 使用和管理的方法，使用这样的方法可以让我们的代码管理更加有条有理。有以下两点：</p>
+<ul>
+<li>Git Flow</li>
+<li>Git Commit</li>
+</ul>
+<h2 id="Git-Flow"><a href="#Git-Flow" class="headerlink" title="Git Flow"></a>Git Flow</h2><p>狭义来讲，Git Flow 是指 Git 的分支管理方法。如果不加以管理，团队在提交代码的时候，可能会不知道远端仓库的情况</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG103.jpeg" alt=""></p>
+<p>使用规范的 Git Flow，可以做到规范的提交 Git 分支，如下：</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG102.jpeg" alt=""></p>
+<p>每个分支的功能都不同：</p>
+<ul>
+<li><p>master——最为稳定功能最为完整的随时可发布的代码；<br>这个分支只能从其他分支合并，不能在这个分支直接修改</p>
+</li>
+<li><p>develop——永远是功能最新最全的分支；<br>这个分支是我们是我们的主开发分支，包含所有要发布到下一个Release的代码，这个主要合并与其他分支，比如Feature分支</p>
+</li>
+<li><p>hotfix——修复线上代码的 bug；<br>当我们在Production发现新的Bug时候，我们需要创建一个Hotfix, 完成Hotfix后，我们合并回Master和Develop分支，所以Hotfix的改动会进入下一个Release</p>
+</li>
+<li><p>feature——某个功能点正在开发阶段；<br>这个分支主要是用来开发一个新的功能，一旦开发完成，我们合并回Develop分支进入下一个Release</p>
+</li>
+<li><p>release——发布定期要上线的功能。<br>当你需要一个发布一个新Release的时候，我们基于Develop分支创建一个Release分支，完成Release后，我们合并到Master和Develop分支</p>
+</li>
+</ul>
+<p>更多详情的介绍，可以查看文末的链接。</p>
+<h2 id="Git-Commit"><a href="#Git-Commit" class="headerlink" title="Git Commit"></a>Git Commit</h2><p>Git Commit 是对 Git 的提交信息进行规范的一种约定。方便开发协作者查看每次修改的内容和重要性。具体格式如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">Header</div><div class="line">		feat：新功能（feature）</div><div class="line">		fix：修补bug</div><div class="line">		docs：文档（documentation）</div><div class="line">		style： 格式（不影响代码运行的变动）</div><div class="line">		refactor：重构（即不是新增功能，也不是修改bug的代码变动）</div><div class="line">		test：增加测试</div><div class="line">		chore：构建过程或辅助工具的变动</div><div class="line"></div><div class="line">Body</div><div class="line">Footer</div></pre></td></tr></table></figure>
+<p>同样的， Git Commit 的更多内容可以查看文末链接。</p>
+<h1 id="参考文章"><a href="#参考文章" class="headerlink" title="参考文章"></a>参考文章</h1><ul>
+<li><a href="https://www.liaoxuefeng.com/wiki/0013739516305929606dd18361248578c67b8067c8c017b000" target="_blank" rel="external">廖雪峰的 Git 教程</a></li>
+<li><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="external">Git Pro</a></li>
+<li><a href="rogerdudler.github.io/git-guide/index.zh.html">Git 简明教程</a></li>
+<li><a href="blog.yvesluo.cc/2017/01/25/GitFlow/">Git Flow</a></li>
+<li><a href="blog.yvesluo.cc/2017/01/25/Git之正确的commit姿势/">Git Commit</a></li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/Git-开发工具/" rel="tag"># Git, 开发工具</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/22/0005/" rel="next" title="MoSplash 开发日记（1）：被苹果拒绝后，我做了些什么">
+                <i class="fa fa-chevron-left"></i> MoSplash 开发日记（1）：被苹果拒绝后，我做了些什么
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ChanJH" />
+          <p class="site-author-name" itemprop="name">ChanJH</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-是什么"><span class="nav-number">1.</span> <span class="nav-text">Git 是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先了解几个概念"><span class="nav-number">1.1.</span> <span class="nav-text">先了解几个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-的基本命令"><span class="nav-number">1.2.</span> <span class="nav-text">Git 的基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎样开始一个-Git-项目？"><span class="nav-number">1.3.</span> <span class="nav-text">怎样开始一个 Git 项目？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-与团队协作"><span class="nav-number">2.</span> <span class="nav-text">Git 与团队协作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Flow"><span class="nav-number">2.1.</span> <span class="nav-text">Git Flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Commit"><span class="nav-number">2.2.</span> <span class="nav-text">Git Commit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChanJH</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
