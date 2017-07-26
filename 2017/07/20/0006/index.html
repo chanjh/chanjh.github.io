@@ -110,7 +110,7 @@ Git 与团队协作">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/QQ20170720-095624.png">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG103.jpeg">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/WechatIMG102.jpeg">
-<meta property="og:updated_time" content="2017-07-20T06:28:44.000Z">
+<meta property="og:updated_time" content="2017-07-26T00:58:01.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Git 入门指北">
 <meta name="twitter:description" content="前两天给工作室里大一的小朋友讲了一遍 Git 的基础知识，趁着还能记得，想把这样的分享记录下来，整理成一遍文章。演讲用的 keynote 在此：点击下载。演讲大纲如下：
@@ -132,7 +132,7 @@ Git 与团队协作">
     motion: true,
     duoshuo: {
       userId: '0',
-      author: '博主'
+      author: 'Author'
     },
     algolia: {
       applicationID: '',
@@ -218,7 +218,7 @@ Git 与团队协作">
             
               <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
             
-            首頁
+            Home
           </a>
         </li>
       
@@ -228,7 +228,7 @@ Git 与团队协作">
             
               <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
             
-            歸檔
+            Archives
           </a>
         </li>
       
@@ -238,7 +238,7 @@ Git 与团队协作">
             
               <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
             
-            標籤
+            Tags
           </a>
         </li>
       
@@ -248,7 +248,7 @@ Git 与团队协作">
             
               <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
             
-            關於
+            About
           </a>
         </li>
       
@@ -315,9 +315,9 @@ Git 与团队协作">
                 <i class="fa fa-calendar-o"></i>
               </span>
               
-                <span class="post-meta-item-text">發表於</span>
+                <span class="post-meta-item-text">Posted on</span>
               
-              <time title="創建於" itemprop="dateCreated datePublished" datetime="2017-07-20T09:15:00+08:00">
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-20T09:15:00+08:00">
                 2017-07-20
               </time>
             
@@ -367,9 +367,7 @@ Git 与团队协作">
 <p>这就是 Mac 应用里自带的版本控制系统，我们可以在右边的时间轴里随时找回此文件的不同历史版本，恢复到历史的某个版本来。</p>
 <p>那么在代码版本管理这里，我们用的是什么工具呢？在以前，CVS 和 SVN 都是比较流行版本控制系统，直到 Git 开始流行之前，SVN 还是一个是十分广泛使用的版本控制。SVN 与 Git 的差别是，SVN 是一种集中式的版本控制系统，而 Git 是一种分布式的版本控制系统。</p>
 <p>有些刚入门的小朋友很容易搞混的两个概念是「Git」和「GitHub」。Git 的概念如上文所述，而 GitHub 呢，实际上可以理解成一个社区，一个开源（当然也有一部分不开源的）代码的社区。在 GitHub 这个社区里，大家使用 Git 这个工具，将自己的代码共享到 GitHub 中去。当然 GitHub 在使用 Git 的时候也和基本的 Git 有一些区别，这些以后再讲。</p>
-<ul>
-<li>Git 怎么用<br>讲完了 Git 的作用，我们来讲讲 Git 的使用。 </li>
-</ul>
+<h1 id="Git-怎么用"><a href="#Git-怎么用" class="headerlink" title="Git 怎么用"></a>Git 怎么用</h1><p>讲完了 Git 的作用，我们来讲讲 Git 的使用。 </p>
 <h2 id="先了解几个概念"><a href="#先了解几个概念" class="headerlink" title="先了解几个概念"></a>先了解几个概念</h2><p>首先，在讲解 Git 使用之前，我觉得你必须掌握「终端模拟器」这个工具。</p>
 <p>打开 Spotlight， 搜索『终端』或者「terminal」，就可以打开 Mac 上的终端模拟器。在终端模拟器里运行着一个叫做 shell 的软件。shell（「壳」的意思）这个软件会和计算机的内核进行通讯，用户通过在界面输入命令，达到和计算机进行通讯的功能。</p>
 <p>Git 的命令行使用需要用到 Terminal。在 Terminal 中输入 <code>git &lt;命令&gt;</code> 如 <code>git status</code> 即可执行一条 git 命令。</p>
@@ -565,10 +563,10 @@ Git 与团队协作">
       
         <ul class="sidebar-nav motion-element">
           <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目錄
+            Table of Contents
           </li>
           <li class="sidebar-nav-overview" data-target="site-overview">
-            本站概覽
+            Overview
           </li>
         </ul>
       
@@ -589,7 +587,7 @@ Git 与团队协作">
             <div class="site-state-item site-state-posts">
               <a href="/archives">
                 <span class="site-state-item-count">7</span>
-                <span class="site-state-item-name">文章</span>
+                <span class="site-state-item-name">posts</span>
               </a>
             </div>
           
@@ -602,7 +600,7 @@ Git 与团队协作">
             <div class="site-state-item site-state-tags">
               <a href="/tags/index.html">
                 <span class="site-state-item-count">6</span>
-                <span class="site-state-item-name">標籤</span>
+                <span class="site-state-item-name">tags</span>
               </a>
             </div>
           
@@ -636,7 +634,7 @@ Git 与团队协作">
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-是什么"><span class="nav-number">1.</span> <span class="nav-text">Git 是什么</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先了解几个概念"><span class="nav-number">1.1.</span> <span class="nav-text">先了解几个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-的基本命令"><span class="nav-number">1.2.</span> <span class="nav-text">Git 的基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎样开始一个-Git-项目？"><span class="nav-number">1.3.</span> <span class="nav-text">怎样开始一个 Git 项目？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-与团队协作"><span class="nav-number">2.</span> <span class="nav-text">Git 与团队协作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Flow"><span class="nav-number">2.1.</span> <span class="nav-text">Git Flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Commit"><span class="nav-number">2.2.</span> <span class="nav-text">Git Commit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">3.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-是什么"><span class="nav-number">1.</span> <span class="nav-text">Git 是什么</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-怎么用"><span class="nav-number">2.</span> <span class="nav-text">Git 怎么用</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#先了解几个概念"><span class="nav-number">2.1.</span> <span class="nav-text">先了解几个概念</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-的基本命令"><span class="nav-number">2.2.</span> <span class="nav-text">Git 的基本命令</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#怎样开始一个-Git-项目？"><span class="nav-number">2.3.</span> <span class="nav-text">怎样开始一个 Git 项目？</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#Git-与团队协作"><span class="nav-number">3.</span> <span class="nav-text">Git 与团队协作</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Flow"><span class="nav-number">3.1.</span> <span class="nav-text">Git Flow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Git-Commit"><span class="nav-number">3.2.</span> <span class="nav-text">Git Commit</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#参考文章"><span class="nav-number">4.</span> <span class="nav-text">参考文章</span></a></li></ol></div>
             
 
           </div>
@@ -668,11 +666,11 @@ Git 与团队协作">
 
 
 <div class="powered-by">
-  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
 </div>
 
 <div class="theme-info">
-  主題 -
+  Theme -
   <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
     NexT.Muse
   </a>
