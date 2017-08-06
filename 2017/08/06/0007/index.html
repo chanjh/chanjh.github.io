@@ -93,7 +93,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/08/06/0007/index.html">
 <meta property="og:site_name" content="iOSHub">
 <meta property="og:description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。">
-<meta property="og:updated_time" content="2017-08-06T10:30:43.000Z">
+<meta property="og:updated_time" content="2017-08-06T11:41:39.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MoSplash 技术开源：iOS 文件下载器是怎么实现的（一）">
 <meta name="twitter:description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。">
@@ -356,7 +356,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">@class JHDownloader;</div><div class="line">@protocol JHDownloadDelegate &lt;NSObject&gt;</div><div class="line">@optional</div><div class="line">-(void)finishDownloadWithResponseData:(NSData *)responseData andDownloader:(JHDownloader *)downloader;</div><div class="line"></div><div class="line">-(void)downloadingWithProgress:(float)progress andDownloader:(JHDownloader *)downloader;</div><div class="line">@end</div></pre></td></tr></table></figure>
 <p>分别写到实现文件中去：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> 当一个下载task任务完成以后，这个方法会被调用。我们可以在这里移动或者复制download的数据</div><div class="line"> */</div><div class="line">- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask</div><div class="line">didFinishDownloadingToURL:(NSURL *)location&#123;</div><div class="line">    NSData *data = [NSData dataWithContentsOfURL:location];</div><div class="line">    // 传递已经下载的数据用于保存</div><div class="line">    if([self.downloadDelegate respondsToSelector:@selector(finishDownloadWithResponseData: andDownloader:)])</div><div class="line">    &#123;</div><div class="line">        [self.downloadDelegate finishDownloadWithResponseData:data andDownloader:self];</div><div class="line">    &#125;</div><div class="line">    self.isDownloading = NO;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*</div><div class="line"> 获取下载进度</div><div class="line"> */</div><div class="line">- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask</div><div class="line">      didWriteData:(int64_t)bytesWritten</div><div class="line"> totalBytesWritten:(int64_t)totalBytesWritten</div><div class="line">totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite&#123;</div><div class="line">    if([self.downloadDelegate respondsToSelector:@selector(downloadingWithProgress:andDownloader:)])</div><div class="line">    &#123;</div><div class="line">        [self.downloadDelegate downloadingWithProgress:((float)totalBytesWritten/(float)totalBytesExpectedToWrite) andDownloader:self];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 下载失败</div><div class="line"> */</div><div class="line">- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(nullable NSError *)error</div><div class="line">&#123;</div><div class="line">    if([self.downloadDelegate respondsToSelector:@selector(finishWithError:)])</div><div class="line">    &#123;</div><div class="line">        [self.downloadDelegate finishWithError:error];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<p>至此，一个文件下载器就完成了封装。第二篇将介绍封装 DownloadManager。</p>
+<p>至此，一个文件下载器就完成了封装。《<a href="http://blog.ioshub.cn/2017/08/06/0008/" target="_blank" rel="external">MoSplash 技术开源：iOS 文件下载器是怎么实现的（二）</a>》将介绍封装 DownloadManager。</p>
 
       
     </div>
@@ -402,6 +402,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/08/06/0008/" rel="prev" title="MoSplash 技术开源：iOS 文件下载器是怎么实现的（二）">
+                MoSplash 技术开源：iOS 文件下载器是怎么实现的（二） <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -473,7 +477,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">8</span>
+                <span class="site-state-item-count">9</span>
                 <span class="site-state-item-name">posts</span>
               </a>
             </div>
