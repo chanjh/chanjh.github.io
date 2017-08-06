@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="MoSplash, 教程, iOS, 技术," />
 
 
 
@@ -87,12 +87,19 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="iOSHub">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。
+框架选择封装文件下载器可以选择苹果的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MoSplash 技术开源：iOS 文件下载器是怎么实现的（一）">
+<meta property="og:url" content="http://yoursite.com/2017/08/06/0007/index.html">
 <meta property="og:site_name" content="iOSHub">
+<meta property="og:description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。
+框架选择封装文件下载器可以选择苹果的">
+<meta property="og:updated_time" content="2017-08-06T10:24:44.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOSHub">
+<meta name="twitter:title" content="MoSplash 技术开源：iOS 文件下载器是怎么实现的（一）">
+<meta name="twitter:description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。
+框架选择封装文件下载器可以选择苹果的">
 
 
 
@@ -120,13 +127,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/06/0007/"/>
 
 
 
 
 
-  <title> iOSHub </title>
+  <title> MoSplash 技术开源：iOS 文件下载器是怎么实现的（一） | iOSHub </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh">
@@ -151,9 +158,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -246,9 +251,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -278,10 +283,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2017/08/06/0007/" itemprop="url">
-                  MoSplash 技术开源：iOS 文件下载器是怎么实现的（一）
-                </a>
+                MoSplash 技术开源：iOS 文件下载器是怎么实现的（一）
               
             
           </h1>
@@ -332,9 +334,7 @@
       
 
       
-        
-          
-            <p>7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。</p>
+        <p>7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。</p>
 <h1 id="框架选择"><a href="#框架选择" class="headerlink" title="框架选择"></a>框架选择</h1><p>封装文件下载器可以选择苹果的 NSURLConnection 或者 NSURLSession，或选择第三方框架 AFNetwork 等。</p>
 <p>NSURLConnection 是 iOS9之前的网络库，iOS9 之后已经被弃用，如果你的应用还需要支持 iOS9 以下的版本的话， 应该使用 NSURLConnection 或旧版本的 AFNetworking。</p>
 <p>AFNetwork 3.0 对 实际上是对 NSURLSession 的封装。而且在文件下载方面的封装十分简单粗暴。如果你的项目的网络库都是基于 AFNetwork 封装的，那么文件下载器也可以考虑使用  AFNetwork。</p>
@@ -359,540 +359,66 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line"> 当一个下载task任务完成以后，这个方法会被调用。我们可以在这里移动或者复制download的数据</div><div class="line"> */</div><div class="line">- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask</div><div class="line">didFinishDownloadingToURL:(NSURL *)location&#123;</div><div class="line">    NSData *data = [NSData dataWithContentsOfURL:location];</div><div class="line">    // 传递已经下载的数据用于保存</div><div class="line">    if([self.downloadDelegate respondsToSelector:@selector(finishDownloadWithResponseData: andDownloader:)])</div><div class="line">    &#123;</div><div class="line">        [self.downloadDelegate finishDownloadWithResponseData:data andDownloader:self];</div><div class="line">    &#125;</div><div class="line">    self.isDownloading = NO;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*</div><div class="line"> 获取下载进度</div><div class="line"> */</div><div class="line">- (void)URLSession:(NSURLSession *)session downloadTask:(NSURLSessionDownloadTask *)downloadTask</div><div class="line">      didWriteData:(int64_t)bytesWritten</div><div class="line"> totalBytesWritten:(int64_t)totalBytesWritten</div><div class="line">totalBytesExpectedToWrite:(int64_t)totalBytesExpectedToWrite&#123;</div><div class="line">    if([self.downloadDelegate respondsToSelector:@selector(downloadingWithProgress:andDownloader:)])</div><div class="line">    &#123;</div><div class="line">        [self.downloadDelegate downloadingWithProgress:((float)totalBytesWritten/(float)totalBytesExpectedToWrite) andDownloader:self];</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 下载失败</div><div class="line"> */</div><div class="line">- (void)URLSession:(NSURLSession *)session didBecomeInvalidWithError:(nullable NSError *)error</div><div class="line">&#123;</div><div class="line">    if([self.downloadDelegate respondsToSelector:@selector(finishWithError:)])</div><div class="line">    &#123;</div><div class="line">        [self.downloadDelegate finishWithError:error];</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>至此，一个文件下载器就完成了封装。第二篇将介绍封装 DownloadManager。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/20/0006/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChanJH">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="iOSHub">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/07/20/0006/" itemprop="url">
-                  Git 入门指北
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-20T09:15:00+08:00">
-                2017-07-20
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/MoSplash-教程-iOS-技术/" rel="tag"># MoSplash, 教程, iOS, 技术</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
         
-          <p>前两天给工作室里大一的小朋友讲了一遍 Git 的基础知识，趁着还能记得，想把这样的分享记录下来，整理成一遍文章。演讲用的 keynote 在此：<a href="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0006/Git%20基础.key">点击下载</a>。演讲大纲如下：</p>
-<ul>
-<li>Git 是什么</li>
-<li>Git 怎么用</li>
-<li>Git 与团队协作</li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/20/0006/#more" rel="contents">
-              Read more &raquo;
-            </a>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/20/0006/" rel="next" title="Git 入门指北">
+                <i class="fa fa-chevron-left"></i> Git 入门指北
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/22/0005/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChanJH">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="iOSHub">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/22/0005/" itemprop="url">
-                  MoSplash 开发日记（1）：被苹果拒绝后，我做了些什么
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-22T09:42:00+08:00">
-                2017-03-22
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <p>MoSplash 是我第一个独立开发的项目。想成为独立开发者这个想法是在去年，希望自己独立完成一个 APP 并上架，最后终于在今年二月开始了 MoSplash 的独立设计与开发。</p>
-<p>本来想在 MoSplash 正式上架之后再以一篇文章的形式介绍一下，结果没想到第一次上架就苹果审核为不通过。着实有点沮丧。从 MoSplash 提交审核到被决绝期间发生了什么，我决定用一篇文章的方式记录下来。</p>
-<p><img src="/img/0004/MoSplash.png" alt=""></p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/22/0005/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/03/18/0004/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChanJH">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="iOSHub">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/18/0004/" itemprop="url">
-                  我开始写技术博客了，还做了些其他事情
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-03-18T10:18:00+08:00">
-                2017-03-18
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>关于 ChanTalk、iOSHub 和独立开发。</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/18/0004/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/02/24/0001/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="ChanJH">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="iOSHub">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/24/0001/" itemprop="url">
-                  软件开发的理与美——记 iOS Club 之行
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-02-24T11:55:00+08:00">
-                2017-02-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>真正伟大的人还会继续向前，直到找到问题的关键和深层次原因，然后再拿出一个优雅的、堪称完美的有效方案。– Steve Jobs  </p>
-</blockquote>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/02/24/0001/#more" rel="contents">
-              Read more &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
           
           </div>
@@ -900,6 +426,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -919,8 +449,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.gif"
@@ -973,6 +512,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#框架选择"><span class="nav-number">1.</span> <span class="nav-text">框架选择</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#需求分析"><span class="nav-number">2.</span> <span class="nav-text">需求分析</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#FileDownloader-实现"><span class="nav-number">3.</span> <span class="nav-text">FileDownloader 实现</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#操作方法"><span class="nav-number">3.1.</span> <span class="nav-text">操作方法</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#NSURLSession-回调"><span class="nav-number">3.2.</span> <span class="nav-text">NSURLSession 回调</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#下载器-Delegate-回调"><span class="nav-number">3.3.</span> <span class="nav-text">下载器 Delegate 回调</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -1078,6 +633,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
