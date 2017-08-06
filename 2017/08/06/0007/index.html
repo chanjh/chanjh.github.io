@@ -87,19 +87,16 @@
 
 
 
-<meta name="description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。
-框架选择封装文件下载器可以选择苹果的">
+<meta name="description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。">
 <meta property="og:type" content="article">
 <meta property="og:title" content="MoSplash 技术开源：iOS 文件下载器是怎么实现的（一）">
 <meta property="og:url" content="http://yoursite.com/2017/08/06/0007/index.html">
 <meta property="og:site_name" content="iOSHub">
-<meta property="og:description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。
-框架选择封装文件下载器可以选择苹果的">
-<meta property="og:updated_time" content="2017-08-06T10:24:44.000Z">
+<meta property="og:description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。">
+<meta property="og:updated_time" content="2017-08-06T10:27:22.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="MoSplash 技术开源：iOS 文件下载器是怎么实现的（一）">
-<meta name="twitter:description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。
-框架选择封装文件下载器可以选择苹果的">
+<meta name="twitter:description" content="7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。">
 
 
 
@@ -335,6 +332,7 @@
 
       
         <p>7 月份 MoSplash 升级到了 2.0 的版本，这个版本最大的更新是优化了整个 App 的下载体验。从产品上来看，MoSplash 下载更加稳定、支持断点续传、支持后台下载、支持暂停取消等。从代码来看，这些功能都得益于 MoSplash 在 2.0 版本封装了一个文件下载层和图片操作管理器，解耦了这部分逻辑后，体验得到提升。今天来讲讲怎么封装文件下载器。</p>
+<a id="more"></a>
 <h1 id="框架选择"><a href="#框架选择" class="headerlink" title="框架选择"></a>框架选择</h1><p>封装文件下载器可以选择苹果的 NSURLConnection 或者 NSURLSession，或选择第三方框架 AFNetwork 等。</p>
 <p>NSURLConnection 是 iOS9之前的网络库，iOS9 之后已经被弃用，如果你的应用还需要支持 iOS9 以下的版本的话， 应该使用 NSURLConnection 或旧版本的 AFNetworking。</p>
 <p>AFNetwork 3.0 对 实际上是对 NSURLSession 的封装。而且在文件下载方面的封装十分简单粗暴。如果你的项目的网络库都是基于 AFNetwork 封装的，那么文件下载器也可以考虑使用  AFNetwork。</p>
