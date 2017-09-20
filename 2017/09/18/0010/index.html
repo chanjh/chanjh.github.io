@@ -111,7 +111,7 @@ iPhone X 是 2014 发布 iPhone 6 之后又一次外形的变化，也是 iPhone
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/full.png">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/6E1F1B97-EBBC-423B-A329-636F42A71ED3.png">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/ablum.png">
-<meta property="og:updated_time" content="2017-09-18T09:20:43.000Z">
+<meta property="og:updated_time" content="2017-09-20T05:19:41.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="适配 iPhone X 之异形屏">
 <meta name="twitter:description" content="苹果终于在一年一度的秋季发布会发布了 iPhone 十周年纪念版：iPhone X。
@@ -358,13 +358,13 @@ iPhone X 是 2014 发布 iPhone 6 之后又一次外形的变化，也是 iPhone
 <p>需要注意的是，本文不对设计指南完整的、不保留的搬运，而是根据指南和个人实操，做出的结论。完整的内容请自行查看文末链接。如有错误欢迎指出。</p>
 <h2 id="先抛数据"><a href="#先抛数据" class="headerlink" title="先抛数据"></a>先抛数据</h2><p>iPhone X 采用了 2436*1125 分辨率，拥有一块大约 2.17:1 的屏幕。iPhone X 的屏幕像素比 iPhone 8 高出 145 pt。适配 iPhone X 时并不需要像传闻的一样使用 @4x 的素材，而是继续使用 @3x 即可。苹果鼓励我们使用 PDF 素材来缩小包大小。</p>
 <p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/7AE29F47-5400-4757-81FC-557C87CCE8B3.png" alt=""><br><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/3D8B841A-9669-4C0F-B416-AB42545B4711.png" alt=""></p>
-<p>iPhone X 的状态栏高度为 44 pt ，iPhone 8 和 iPhone 8 Plus 和以前一样为 20 点。经过我的测试，X 的 tabbar 比以前高出 43 个点（以前是 40，现在是 83）。需要注意的是，横屏时底部高度为 33 pt。这个数据可以用于底部适配，下文会讨论这个话题。</p>
+<p>iPhone X 的状态栏高度为 44 pt ，iPhone 8 和 iPhone 8 Plus 和以前一样为 20 点。经过我的测试，X 的 tabbar 比以前高出 43 个点（以前是 40，现在是 83）（PS：此处更正：以前 tabbar 为 49 pt，故高出了 34 pt）。需要注意的是，横屏时底部高度为 33 pt。这个数据可以用于底部适配，下文会讨论这个话题。</p>
 <p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/610F6838-0524-4D10-BF5C-177F6FD94A14.png" alt=""></p>
 <h2 id="Safe-Area"><a href="#Safe-Area" class="headerlink" title="Safe Area"></a>Safe Area</h2><p>iOS 11  为屏幕适配引入了一个十分重要的概念：Safe Area.</p>
 <p>顾名思义，Safe Area 指的是<strong>屏幕内适合放置控件的安全区域</strong>。概念太模糊，下面举例说明：</p>
 <p>在没有状态栏和其他东西的 iPhone 8 里，Safe Area 是指整个屏幕。</p>
 <p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/F385BD6A-F53D-4CB7-B13C-215ABA9BB9F4.png" alt=""></p>
-<p>当加入状态栏后，Safe Area 便向下减少了 20 个点。当我们加入 Navigation 的时候，Safe Area 又减少了 44 个点。同理，我们再加入 Tabbar 的时候，Safe Area 又减少了 44 个点。</p>
+<p>当加入状态栏后，Safe Area 便向下减少了 20 个点。当我们加入 Navigation 的时候，Safe Area 又减少了 44 个点。同理，我们再加入 Tabbar 的时候，Safe Area 又减少了 44 个点（PS：此处更正， Tabbar 高度应该是 49 pt）。</p>
 <p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/safe.jpg" alt=""></p>
 <p>在 iPhone X 里，当我们没有使用状态栏时，Safe Area 依然和上下边有一定的距离。按照我的测量，此时距离底部应该是 43 个点，距离顶部应该是 44 个点。</p>
 <p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/85872278-814A-4CD6-AF8B-FCE925DD4020.png" alt=""></p>
