@@ -333,58 +333,17 @@
 
       
         
-          
-            <p>苹果终于在一年一度的秋季发布会发布了 iPhone 十周年纪念版：iPhone X。</p>
+          <p>苹果终于在一年一度的秋季发布会发布了 iPhone 十周年纪念版：iPhone X。</p>
 <p>iPhone X 是 2014 发布 iPhone 6 之后又一次外形的变化，也是 iPhone 历史上（可能）最大的一次外观变化。</p>
 <p>我相信很多开发者和设计师看到 iPhone X  的这个「天猫内定」屏幕的时候心里十分苦恼：该怎么为这个机型做设计和适配？这篇文章从苹果的 iPhone X 开发和设计指南出发，试图来解决这个问题。</p>
 <p>需要注意的是，本文不对设计指南完整的、不保留的搬运，而是根据指南和个人实操，做出的结论。完整的内容请自行查看文末链接。如有错误欢迎指出。</p>
-<h2 id="先抛数据"><a href="#先抛数据" class="headerlink" title="先抛数据"></a>先抛数据</h2><p>iPhone X 采用了 2436*1125 分辨率，拥有一块大约 2.17:1 的屏幕。iPhone X 的屏幕像素比 iPhone 8 高出 145 pt。适配 iPhone X 时并不需要像传闻的一样使用 @4x 的素材，而是继续使用 @3x 即可。苹果鼓励我们使用 PDF 素材来缩小包大小。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/7AE29F47-5400-4757-81FC-557C87CCE8B3.png" alt=""><br><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/3D8B841A-9669-4C0F-B416-AB42545B4711.png" alt=""></p>
-<p>iPhone X 的状态栏高度为 44 pt ，iPhone 8 和 iPhone 8 Plus 和以前一样为 20 点。经过我的测试，X 的 tabbar 比以前高出 43 个点（以前是 40，现在是 83）（PS：此处更正：以前 tabbar 为 49 pt，故高出了 34 pt）。需要注意的是，横屏时底部高度为 33 pt。这个数据可以用于底部适配，下文会讨论这个话题。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/610F6838-0524-4D10-BF5C-177F6FD94A14.png" alt=""></p>
-<h2 id="Safe-Area"><a href="#Safe-Area" class="headerlink" title="Safe Area"></a>Safe Area</h2><p>iOS 11  为屏幕适配引入了一个十分重要的概念：Safe Area.</p>
-<p>顾名思义，Safe Area 指的是<strong>屏幕内适合放置控件的安全区域</strong>。概念太模糊，下面举例说明：</p>
-<p>在没有状态栏和其他东西的 iPhone 8 里，Safe Area 是指整个屏幕。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/F385BD6A-F53D-4CB7-B13C-215ABA9BB9F4.png" alt=""></p>
-<p>当加入状态栏后，Safe Area 便向下减少了 20 个点。当我们加入 Navigation 的时候，Safe Area 又减少了 44 个点。同理，我们再加入 Tabbar 的时候，Safe Area 又减少了 44 个点（PS：此处更正， Tabbar 高度应该是 49 pt）。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/safe.jpg" alt=""></p>
-<p>在 iPhone X 里，当我们没有使用状态栏时，Safe Area 依然和上下边有一定的距离。按照我的测量，此时距离底部应该是 43 个点，距离顶部应该是 44 个点。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/85872278-814A-4CD6-AF8B-FCE925DD4020.png" alt=""></p>
-<p>同理，加入不同 Bar 之后，iPhone X 的 Safe Area 都会有相应的变化。</p>
-<p>横屏时， iPhone X 的 Safe Area 与左右和下部都有距离。需要注意的时，像 TableView 这样的控件，需要将它的 Cell ContentView 与 Safe Area  对齐，而把 TableView 内容扩展到整个手机。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/safea.png" alt=""></p>
-<p>因此，Auto layout 在 iPhone X 可以有很好的继承。</p>
-<h2 id="使用-Safe-Area"><a href="#使用-Safe-Area" class="headerlink" title="使用 Safe Area"></a>使用 Safe Area</h2><p>在 xib 里使用 Safe Area 很简单，打开开关就可以了。然后就可以约定控件与 Safe Area 的约束来完成适配。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/saf.png" alt=""></p>
-<p>而在代码里使用 Safe Area，可以使用 view 的 safeAreaLayoutGuide 属性。我找到的一段参考代码：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">if #available(iOS 11, *) &#123;</div><div class="line">  let guide = view.safeAreaLayoutGuide</div><div class="line">  NSLayoutConstraint.activate([</div><div class="line">   greenView.topAnchor.constraintEqualToSystemSpacingBelow(guide.topAnchor, multiplier: 1.0),</div><div class="line">   guide.bottomAnchor.constraintEqualToSystemSpacingBelow(greenView.bottomAnchor, multiplier: 1.0)</div><div class="line">   ])</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="顶部设计误区"><a href="#顶部设计误区" class="headerlink" title="顶部设计误区"></a>顶部设计误区</h2><p>先讲讲最基本的原则：不要因为 iPhone X 的圆角、「刘海」、底部 Home Button 的影响，把控件挡住，影响用户使用。</p>
-<p>如果你的应用使用 Auto Layout，在很大程度上适配起来是没有压力的。</p>
-<p>有些朋友在发布会以后苦恼于 iPhone X 奇葩的双耳朵设计，联想到 X 使用了 OLED 屏幕（黑色像素不发光），想到了把应用顶部做平，置于耳朵之下的设计方案。也有开发者为此造了轮子。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/app.png" alt=""></p>
-<p>然而，根据苹果的设计指南，这类设计是不被允许的。你的应用应该尽可能地充满整个屏幕，不能上下留边。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/032AEC08-EFD6-4FE2-A670-CEAC4171D940.png" alt=""></p>
-<h2 id="底部设计探讨"><a href="#底部设计探讨" class="headerlink" title="底部设计探讨"></a>底部设计探讨</h2><p>昨天我在朋友圈和微博发了这样的两幅图，并询问大家哪个好。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/cancle.png" alt=""></p>
-<p>看了大家的反馈，两种喜欢的人数基本一样（只相差一票）。这是我在给一个 SheetView 做 iPhone X 时候遇到的疑问。带着疑问我把设计指南的视频又重新看了一遍。</p>
-<p>先说结论，这里应该是第二种设计是被苹果鼓励的。下面从设计指南中找答案。</p>
-<p>设计指南对底部适配有两种说法。一是不要将控件放置在易被误触的 Home 区域，二是鼓励大家把屏幕充满，包括底部。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/full.png" alt=""><br><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/6E1F1B97-EBBC-423B-A329-636F42A71ED3.png" alt=""></p>
-<p>这里的 SheetView 应该符合哪种情况呢？仔细听设计指南后发现，两种说法是在讨论不同情况时候出现的：一是讨论 button 和手势，二是讲到 TableView 时提到。而且，谈到第二种情况时，视频也指出应该把 TableView 和 CollectionView 这类控件充满屏幕。</p>
-<p>我又担心这些还不够证明结论，我又再次看了一下系统层的 AlertSheet 是怎么实现的。答案更支撑了我的结论。</p>
-<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0010/ablum.png" alt=""></p>
-<p>因而，iPhone X 的底部设计既需要考虑避免用户误触，也需要尽可能的把内容填充屏幕。个人结论：<strong>如果控件不具有内容属性，那不应该覆盖住 Home 区域</strong></p>
-<h2 id="结论"><a href="#结论" class="headerlink" title="结论"></a>结论</h2><p>以上是我适配 iPhone X 的一些总结。如有错误欢迎及时指出。</p>
-<p>更多个人分享，可以瞧瞧我不怎么更新的技术博客：<a href="blog.ioshub.cn">iOSHub</a>。当然还有非技术的<a href="zhuanlan.zhihu.com/chantalk">ChanTalk</a>。</p>
-<hr>
-<p>参考链接：</p>
-<ul>
-<li><a href="https://developer.apple.com/videos/play/fall2017/201/" target="_blank" rel="external">Building Apps for iPhone X</a></li>
-<li><a href="https://developer.apple.com/videos/play/fall2017/801/" target="_blank" rel="external">Designing for iPhone X</a></li>
-<li><a href="https://developer.apple.com/ios/human-interface-guidelines/overview/" target="_blank" rel="external">Themes - Overview - iOS Human Interface Guidelines</a></li>
-</ul>
-
-          
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/09/18/0010/#more" rel="contents">
+              Read more &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
