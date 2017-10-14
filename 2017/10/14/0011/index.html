@@ -1,0 +1,812 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS, 开发, macOS, Swift, Framework," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.jpg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="原文来自：Create a Universal Swift Framework for iOS, OS X, watchOS, and tvOS  
+译者按：其实 macOS 和 iOS 除了使用的编程语言一样之外，也拥有着不少通用的框架、公共库，在双平台应用的时候，model 和很多逻辑可以通用，这样就产生了代码共用的需要。最近我在做一个应用同时拥有 macOS 和 iOS 两个客户端，在 M">
+<meta property="og:type" content="article">
+<meta property="og:title" content="为多平台（iOS、macOS、watchOS、tvOS）创建通用的 Swift Framework">
+<meta property="og:url" content="http://yoursite.com/2017/10/14/0011/index.html">
+<meta property="og:site_name" content="iOSHub">
+<meta property="og:description" content="原文来自：Create a Universal Swift Framework for iOS, OS X, watchOS, and tvOS  
+译者按：其实 macOS 和 iOS 除了使用的编程语言一样之外，也拥有着不少通用的框架、公共库，在双平台应用的时候，model 和很多逻辑可以通用，这样就产生了代码共用的需要。最近我在做一个应用同时拥有 macOS 和 iOS 两个客户端，在 M">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/1F0FB8A8-4821-43F6-923A-23E903BF0DB0.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/6444BCF9-3D08-4358-AC44-9F045BB1544E.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/E41ACF0C-A05E-4BF9-A7E7-999E351A03A2.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/77A7DAF6-8016-49F3-9CAD-B51E2BCEDB72.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/7CACAB58-F55A-4663-BD91-5C3EDA7FEFCA.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/A17BA90C-AA9F-42A1-85FE-1F95BB4D5BEF.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/58981ADE-9243-438D-B2A6-6C44589A1AB7.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/88B937DA-12C7-47AD-975D-F94EA97FF177.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/C7935EDE-EBCC-4DD4-8183-3641073A6208.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/B4CB4D62-1EEC-41F2-BAD1-ABB31BDFF61B.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/D6F52E0C-F351-40E7-9DFE-247DF5615541.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/D0F2B2ED-3111-43A6-AF5E-3F9F7EE6D231.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/14753873-E4C3-4347-B5DE-482EC62F6A51.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/69D85B0B-C794-4E84-8CAE-D12B25E65C1E.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/86A45F47-862A-45F9-B913-7401B52220A3.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/D1332C8A-0650-4AAE-862E-7E9EECCB9C46.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/797D3E1C-DFA9-478B-AFFA-2163CCEA86DE.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/BC235013-81AB-4648-BAF3-A3370BBA4AAA.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/315D6091-FDBE-4B9F-BFCB-E0CF3ED436B3.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/BDDD0405-7C70-4DF2-9D9F-CA220658EF4F.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/17B96CF0-4D5F-4A38-A725-E993D103FC33.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/33906722-3EC8-4BF4-8108-384D170F6748.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/2DE6A31F-9276-4646-929A-260BB60129EA.png">
+<meta property="og:updated_time" content="2017-10-14T06:58:18.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="为多平台（iOS、macOS、watchOS、tvOS）创建通用的 Swift Framework">
+<meta name="twitter:description" content="原文来自：Create a Universal Swift Framework for iOS, OS X, watchOS, and tvOS  
+译者按：其实 macOS 和 iOS 除了使用的编程语言一样之外，也拥有着不少通用的框架、公共库，在双平台应用的时候，model 和很多逻辑可以通用，这样就产生了代码共用的需要。最近我在做一个应用同时拥有 macOS 和 iOS 两个客户端，在 M">
+<meta name="twitter:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/1F0FB8A8-4821-43F6-923A-23E903BF0DB0.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/14/0011/"/>
+
+
+
+
+
+  <title> 为多平台（iOS、macOS、watchOS、tvOS）创建通用的 Swift Framework | iOSHub </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOSHub</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">留一片有趣的天地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/14/0011/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChanJH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOSHub">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                为多平台（iOS、macOS、watchOS、tvOS）创建通用的 Swift Framework
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-10-14T14:57:00+08:00">
+                2017-10-14
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <blockquote>
+<p>原文来自：<a href="https://medium.com/@ataibarkai/create-a-universal-swift-framework-for-ios-os-x-watchos-and-tvos-2aa26a8190dc" target="_blank" rel="external">Create a Universal Swift Framework for iOS, OS X, watchOS, and tvOS</a>  </p>
+<p>译者按：其实 macOS 和 iOS 除了使用的编程语言一样之外，也拥有着不少通用的框架、公共库，在双平台应用的时候，model 和很多逻辑可以通用，这样就产生了代码共用的需要。最近我在做一个应用同时拥有 macOS 和 iOS 两个客户端，在 Medium 里找到这篇文章觉得不错，因此翻译了一下。  </p>
+</blockquote>
+<a id="more"></a>
+<p>Xcode 7.2 内提供了为任何平台（iOS, OS X, watchOS, tvOS）创建 Swift Framework 的支持。</p>
+<p>然而，Xcode 并没有提供创建同时支持多平台的、通用的 framework 的功能。</p>
+<p>通用库（Universal framework）是发布开放库的一种最佳的方式。事实上，多亏了包管理工具 Carthage，开发者想发布一款多平台的库只需要保证它可以编译即可。满足这个需要的库只要求开发者在 Carthage 里配置对应的 Git URL 即可。</p>
+<p>然而，这样的操作方法还是缺乏愉悦感。Apple 似乎有意用 <a href="https://github.com/apple/swift-package-manager" target="_blank" rel="external">Swift Package Manager</a>  来取代这样单调的过程，不过还处在 Beta 版的它还是有很长的路要走。下文将一步步地介绍如何创建一个通用的 framework.  这里边有我自己的探索，也有一部分引用了他人的做法。你将不用几分钟的时间就能完成今天的教程。</p>
+<p>Let’s go.</p>
+<h2 id="Step-1"><a href="#Step-1" class="headerlink" title="Step 1"></a>Step 1</h2><p>从模版中建立新的 Xcode 项目，并选择：</p>
+<p>iOS -&gt; Framework &amp; Library -&gt; Cocoa Touch Framework</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/1F0FB8A8-4821-43F6-923A-23E903BF0DB0.png" alt=""></p>
+<h2 id="Step-2"><a href="#Step-2" class="headerlink" title="Step 2"></a>Step 2</h2><p>为你的项目起个名字并在名字后面加入「_iOS」。需要留意已经为「Include Unit Tests box」 打了勾勾。</p>
+<p>NOTE：不要在你的项目名里包含「-」，因为会产生一个一样的名字的 target，而破折号是一个非法的命名。</p>
+<p>你不必担心，我们将在后面对项目名称进行修改，甚至你可以回来添加破折号（虽然 iOS target 名字还是保持不变）。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/6444BCF9-3D08-4358-AC44-9F045BB1544E.png" alt=""></p>
+<h2 id="Step-3"><a href="#Step-3" class="headerlink" title="Step 3"></a>Step 3</h2><p>在 Xcode 顶部菜单里，选择 File -&gt; New -&gt; Target</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/E41ACF0C-A05E-4BF9-A7E7-999E351A03A2.png" alt=""></p>
+<h2 id="Step-4"><a href="#Step-4" class="headerlink" title="Step 4"></a>Step 4</h2><p>选择你想支持的平台的 framework 模版。比如我们选择了 macOS：</p>
+<p>OS X -&gt; Framework &amp; Library -&gt; Cocoa Framework</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/77A7DAF6-8016-49F3-9CAD-B51E2BCEDB72.png" alt=""></p>
+<h2 id="Step-5"><a href="#Step-5" class="headerlink" title="Step 5"></a>Step 5</h2><p>然后，我们要像前面一样为项目命名，在项目名的最后加上「_Mac」：</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/7CACAB58-F55A-4663-BD91-5C3EDA7FEFCA.png" alt=""></p>
+<h2 id="Step-6"><a href="#Step-6" class="headerlink" title="Step 6"></a>Step 6</h2><p>重复 Step 4 和 5 来添加每个你想要支持的平台</p>
+<h2 id="Step-7"><a href="#Step-7" class="headerlink" title="Step 7"></a>Step 7</h2><p>现在我们将开始重构项目的框架：</p>
+<ol>
+<li>删除「_Mac」文件夹，选择「Move to Trash」</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/A17BA90C-AA9F-42A1-85FE-1F95BB4D5BEF.png" alt=""></p>
+<ol>
+<li>打开 Finder，进入项目文件夹，删除「_Mac」文件夹（译者注：在 Xcode 9 里，如果你已经选择删除文件时同时丢入垃圾桶，此时这两个文件夹已经不存在）</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/58981ADE-9243-438D-B2A6-6C44589A1AB7.png" alt=""></p>
+<ol>
+<li>在当前的文件夹中把「ProjectName_iOS」重命名为「CommonSource」，把「ProjectName_iOSTests」重命名为「CommonTests」</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/88B937DA-12C7-47AD-975D-F94EA97FF177.png" alt=""></p>
+<ol>
+<li>回到 Xcode 中，删除那些空的文件夹</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/C7935EDE-EBCC-4DD4-8183-3641073A6208.png" alt=""></p>
+<ol>
+<li>先把 CommonSource 这个文件夹拉入到项目中（译者注：不需要拉 test 文件夹），不要选择任何的 「Add to target」</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/B4CB4D62-1EEC-41F2-BAD1-ABB31BDFF61B.png" alt=""></p>
+<ol>
+<li>现在可以重命名项目，删掉「_iOS」后缀，改成你想要的名字。当然你可以保留这样的命名方式。</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/D6F52E0C-F351-40E7-9DFE-247DF5615541.png" alt=""></p>
+<p>确定后会提醒是否重命名项目内容，选择「Don’t Rename」</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/D0F2B2ED-3111-43A6-AF5E-3F9F7EE6D231.png" alt=""></p>
+<ol>
+<li>为「ProjectName_iOS.h」删除其后缀名</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/14753873-E4C3-4347-B5DE-482EC62F6A51.png" alt=""></p>
+<ol>
+<li>现在把  CommonTests 文件夹拉到项目中。同样的，不要选择任何的 「Add to target」</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/69D85B0B-C794-4E84-8CAE-D12B25E65C1E.png" alt=""></p>
+<ol>
+<li>关闭 Xcode 项目，为项目的文件夹名删掉「_iOS」后缀。此时你的文件夹应该长这样：</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/86A45F47-862A-45F9-B913-7401B52220A3.png" alt=""></p>
+<h2 id="Step-8"><a href="#Step-8" class="headerlink" title="Step 8"></a>Step 8</h2><p>到目前为止，我们已经重构完成项目结构。</p>
+<p>接下来我们需要修复一下两个文件的的 target memberships。再次打开 Xcode。</p>
+<ol>
+<li>选择  CommonSource -&gt; ProjectName.h 文件，然后在右手边的配置中，选择未被标记的 target memberships，并标记为 Public。</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/D1332C8A-0650-4AAE-862E-7E9EECCB9C46.png" alt=""></p>
+<ol>
+<li>选择 CommonTests -&gt; SwiftyGmail_iOSTests.swift  文件，同样标记。</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/797D3E1C-DFA9-478B-AFFA-2163CCEA86DE.png" alt=""></p>
+<p>此时该文件会报错误，你需要重命名引用的库，删掉后缀「_iOS」</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/BC235013-81AB-4648-BAF3-A3370BBA4AAA.png" alt=""></p>
+<p>Before</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/315D6091-FDBE-4B9F-BFCB-E0CF3ED436B3.png" alt=""></p>
+<p>After</p>
+<h2 id="Step-9"><a href="#Step-9" class="headerlink" title="Step 9"></a>Step 9</h2><p>在 Build Setting 中同时选择两个 target，找到 Packaging -&gt; Info.plist file 然后把其中改为 CommonSource/Info.plist</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/BDDD0405-7C70-4DF2-9D9F-CA220658EF4F.png" alt=""></p>
+<h2 id="Step-10"><a href="#Step-10" class="headerlink" title="Step 10"></a>Step 10</h2><p>在 Build Setting 中同时选择两个 target，找到 Packaging -&gt; Product Name 然后把其中改为你的项目名（没有后缀的）</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/17B96CF0-4D5F-4A38-A725-E993D103FC33.png" alt=""></p>
+<h2 id="（可选）Step-11-支持-Carthage"><a href="#（可选）Step-11-支持-Carthage" class="headerlink" title="（可选）Step 11: 支持 Carthage"></a>（可选）Step 11: 支持 Carthage</h2><blockquote>
+<p>译者注：此部分本人没有亲测  </p>
+</blockquote>
+<p>如果你想为你的框架支持 Carthage，你需要修改你的 Schemes 为 Shared</p>
+<ol>
+<li>在 Xcode 窗口的左上角点击当前的 Scheme，再点击 Manage Schemes</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/33906722-3EC8-4BF4-8108-384D170F6748.png" alt=""></p>
+<ol>
+<li>现在为每个 scheme 标记为 Shared</li>
+</ol>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0011/2DE6A31F-9276-4646-929A-260BB60129EA.png" alt=""></p>
+<h2 id="Step-12：把该死的源代码拉进来吧！"><a href="#Step-12：把该死的源代码拉进来吧！" class="headerlink" title="Step 12：把该死的源代码拉进来吧！"></a>Step 12：把该死的源代码拉进来吧！</h2><p>OK，你已经完成了本文的内容！</p>
+<p>你可以编译、测试你的库是否支持你想要的平台</p>
+<p>当你添加新的源码时，确保它拉到每个你想要的平台中。单元测试的代码也是一样道理。</p>
+<blockquote>
+<p>以上本文译完。  </p>
+<p>以下为本人在使用过程的踩坑总结，做一个补充。  </p>
+</blockquote>
+<ol>
+<li>Xcode 9 的臭虫</li>
+</ol>
+<p>当你使用 9A235 版本的 Xcode 9 时，把文件拉倒项目里，就算勾选了 Add to taeget 文件还是没有正确添加进去，此时你要在文件 -&gt; 项目右侧手动添加</p>
+<ol>
+<li><p>创建 Swift 的 framework 时，公共方法必须标记为 public。详情可以查看这篇文章：<a href="https://www.raywenderlich.com/126365/ios-frameworks-tutorial" target="_blank" rel="external">Creating and Distributing iOS Frameworks</a></p>
+</li>
+<li><p>经常需要判断对应平台来引用正确的框架，比如 Cocoa for macOS 之于 UIKit for iOS。除了引用，一些逻辑可能也要进行判断。Swift 和 OC 有不一样的代码，下面是实例：</p>
+</li>
+</ol>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">OC:</div><div class="line">#if TARGET_OS_IPHONE</div><div class="line">    #import &lt;UIKit/UIKit.h&gt;</div><div class="line">#elif TARGET_OS_MAC</div><div class="line">    #import &lt;Cocoa/Cocoa.h&gt;</div><div class="line">#endif</div><div class="line"></div><div class="line">Swift:</div><div class="line">#if os(iOS)</div><div class="line">    import UIKit</div><div class="line">#elseif os(OSX)</div><div class="line">    import Cocoa</div><div class="line">#endif</div></pre></td></tr></table></figure>
+<ol>
+<li>Core Data 的 model 无法在 framework 里共用，会出现无法加载 model 的错误。我目前做法是 model 还是分别放在主项目里。（如果你有更好的解决方法麻烦告诉我，谢～）</li>
+</ol>
+<hr>
+<p>更多个人分享，可以瞧瞧我不怎么更新的技术博客：<a href="blog.ioshub.cn">iOSHub</a>。当然还有非技术的<a href="zhuanlan.zhihu.com/chantalk">ChanTalk</a>。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS-开发-macOS-Swift-Framework/" rel="tag"># iOS, 开发, macOS, Swift, Framework</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/09/18/0010/" rel="next" title="适配 iPhone X 之异形屏">
+                <i class="fa fa-chevron-left"></i> 适配 iPhone X 之异形屏
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ChanJH" />
+          <p class="site-author-name" itemprop="name">ChanJH</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">10</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-1"><span class="nav-number">1.</span> <span class="nav-text">Step 1</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-2"><span class="nav-number">2.</span> <span class="nav-text">Step 2</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-3"><span class="nav-number">3.</span> <span class="nav-text">Step 3</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-4"><span class="nav-number">4.</span> <span class="nav-text">Step 4</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-5"><span class="nav-number">5.</span> <span class="nav-text">Step 5</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-6"><span class="nav-number">6.</span> <span class="nav-text">Step 6</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-7"><span class="nav-number">7.</span> <span class="nav-text">Step 7</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-8"><span class="nav-number">8.</span> <span class="nav-text">Step 8</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-9"><span class="nav-number">9.</span> <span class="nav-text">Step 9</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-10"><span class="nav-number">10.</span> <span class="nav-text">Step 10</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#（可选）Step-11-支持-Carthage"><span class="nav-number">11.</span> <span class="nav-text">（可选）Step 11: 支持 Carthage</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Step-12：把该死的源代码拉进来吧！"><span class="nav-number">12.</span> <span class="nav-text">Step 12：把该死的源代码拉进来吧！</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChanJH</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
