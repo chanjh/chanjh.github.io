@@ -93,12 +93,7 @@
 JSON 转字典那点事儿（网络数据解析）
 字典到 Model 发生了什么事儿（OC Runtime）
 Model 的保存这件事儿（iOS 持久层方案）
-数据层的设计探讨 （架构与设计模式）
-
-
-
-
-0x00 JS">
+数据层的设计探讨 （架构与设计模式）">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOS 中「数据」的流动：从 JSON 到 MVVM">
 <meta property="og:url" content="http://yoursite.com/2017/10/30/0012/index.html">
@@ -109,17 +104,12 @@ Model 的保存这件事儿（iOS 持久层方案）
 JSON 转字典那点事儿（网络数据解析）
 字典到 Model 发生了什么事儿（OC Runtime）
 Model 的保存这件事儿（iOS 持久层方案）
-数据层的设计探讨 （架构与设计模式）
-
-
-
-
-0x00 JS">
+数据层的设计探讨 （架构与设计模式）">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-185021@2x.png">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-184732@2x.png">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/mvvm.png">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/%E6%96%B0%E6%96%87%E6%A1%A3%202017-10-10%2020.15.51_1.jpg">
-<meta property="og:updated_time" content="2017-10-30T10:51:36.000Z">
+<meta property="og:updated_time" content="2017-10-30T10:55:00.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 中「数据」的流动：从 JSON 到 MVVM">
 <meta name="twitter:description" content="本文希望从『网络请求』这个常见的数据诞生地开始，广度的讲解 iOS 中常见的数据流动的知识。为了保证篇幅，一些入门的知识点不做扩展，每个标题下都有对应知识点，可以自行搜索学习。
@@ -128,12 +118,7 @@ Model 的保存这件事儿（iOS 持久层方案）
 JSON 转字典那点事儿（网络数据解析）
 字典到 Model 发生了什么事儿（OC Runtime）
 Model 的保存这件事儿（iOS 持久层方案）
-数据层的设计探讨 （架构与设计模式）
-
-
-
-
-0x00 JS">
+数据层的设计探讨 （架构与设计模式）">
 <meta name="twitter:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-185021@2x.png">
 
 
@@ -379,6 +364,7 @@ Model 的保存这件事儿（iOS 持久层方案）
 </ul>
 </li>
 </ul>
+<a id="more"></a>
 <p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-185021@2x.png" alt=""></p>
 <h2 id="0x00-JSON-转字典那点事儿"><a href="#0x00-JSON-转字典那点事儿" class="headerlink" title="0x00 JSON 转字典那点事儿"></a>0x00 JSON 转字典那点事儿</h2><ul>
 <li>知识点：网络请求、HTTP 协议、NSJSONSerialization 使用</li>
@@ -421,16 +407,6 @@ Model 的保存这件事儿（iOS 持久层方案）
 <li>使用 Mantle 第三方库</li>
 <li>自己封装 BaseModel 类，使用 Protocol 和继承的方法，实现字典转 Model</li>
 </ul>
-<h3 id="优校云里的字典转模型"><a href="#优校云里的字典转模型" class="headerlink" title="优校云里的字典转模型"></a>优校云里的字典转模型</h3><p>优校云这个项目开发到维护有三四年的时间了。在这段时间，由于一些对接的问题，Model 层出现了两三种不同的用法，接下来分别讲一下。</p>
-<ul>
-<li>DDBaseModel</li>
-</ul>
-<p>这是一个师兄分装的，一个模型基类。使用很简单，就是直接继承这个类，继承父类并使用 <code>-(id)initWithDataDic:(NSDictionary*)data</code>  方法传入字典。父类会继续用 <code>setAttributes</code> 方法，开始字典转模型，就是上面讲的那样子。</p>
-<p>这种方法……十分不友好，必须继承一个方法才行，不够显式。加之没有文档和注释，很多人都不知道怎么用。</p>
-<ul>
-<li>Mantle</li>
-</ul>
-<p>这是个第三方框架。用协议的方式，强制要求使用者维护一个 JSON 表，这个表用来对应 JSON 的键和对象的 Property。同时也用于 Archive。</p>
 <h2 id="0x02-Model-的保存这件事儿"><a href="#0x02-Model-的保存这件事儿" class="headerlink" title="0x02 Model 的保存这件事儿"></a>0x02 Model 的保存这件事儿</h2><ul>
 <li>知识点：iOS 的数据持久化</li>
 </ul>
@@ -467,15 +443,6 @@ Model 的保存这件事儿（iOS 持久层方案）
 </ul>
 <p>Realm 是一个跨平台的数据库，它的 API 设计比 Core Data 优雅，也更加易懂。</p>
 <p>网上有很多关于 Realm、FMDB、Core Data 的讨论，孰优孰劣还要听君定夺。</p>
-<h3 id="优校云里的持久化"><a href="#优校云里的持久化" class="headerlink" title="优校云里的持久化"></a>优校云里的持久化</h3><p>还是那句话，优校云里的数据层持久化方案因为时间的问题出现了多个解决方案。</p>
-<ul>
-<li>PINCache </li>
-</ul>
-<p>利用 PINCache 和 Archive 方法，进行数据归档。</p>
-<ul>
-<li>DDStore</li>
-</ul>
-<p>DDStore 本质上是用 FMDB 进行数据保存。它其实是希望对唐巧的 YTKKeyValueStore 框架进行一层封装，让它贴近业务。而 YTKKeyValueStore 则是对 FMDB 进行的二次修改，让它更方便使用。</p>
 <h2 id="0x03-数据层的设计探讨"><a href="#0x03-数据层的设计探讨" class="headerlink" title="0x03 数据层的设计探讨"></a>0x03 数据层的设计探讨</h2><ul>
 <li>知识点：架构与设计模式</li>
 </ul>
@@ -668,7 +635,7 @@ Model 的保存这件事儿（iOS 持久层方案）
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-JSON-转字典那点事儿"><span class="nav-number">1.</span> <span class="nav-text">0x00 JSON 转字典那点事儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-字典到-Model-发生了什么事儿"><span class="nav-number">2.</span> <span class="nav-text">0x01 字典到 Model 发生了什么事儿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常规的字典转-Model"><span class="nav-number">2.1.</span> <span class="nav-text">常规的字典转 Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的字典转-Model-方法"><span class="nav-number">2.2.</span> <span class="nav-text">常见的字典转 Model 方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#优校云里的字典转模型"><span class="nav-number">2.3.</span> <span class="nav-text">优校云里的字典转模型</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-Model-的保存这件事儿"><span class="nav-number">3.</span> <span class="nav-text">0x02 Model 的保存这件事儿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#优校云里的持久化"><span class="nav-number">3.1.</span> <span class="nav-text">优校云里的持久化</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-数据层的设计探讨"><span class="nav-number">4.</span> <span class="nav-text">0x03 数据层的设计探讨</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从-UIKit-寻找数据层的设计"><span class="nav-number">4.1.</span> <span class="nav-text">从 UIKit 寻找数据层的设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-JSON-转字典那点事儿"><span class="nav-number">1.</span> <span class="nav-text">0x00 JSON 转字典那点事儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-字典到-Model-发生了什么事儿"><span class="nav-number">2.</span> <span class="nav-text">0x01 字典到 Model 发生了什么事儿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常规的字典转-Model"><span class="nav-number">2.1.</span> <span class="nav-text">常规的字典转 Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的字典转-Model-方法"><span class="nav-number">2.2.</span> <span class="nav-text">常见的字典转 Model 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-Model-的保存这件事儿"><span class="nav-number">3.</span> <span class="nav-text">0x02 Model 的保存这件事儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-数据层的设计探讨"><span class="nav-number">4.</span> <span class="nav-text">0x03 数据层的设计探讨</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从-UIKit-寻找数据层的设计"><span class="nav-number">4.1.</span> <span class="nav-text">从 UIKit 寻找数据层的设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
             
 
           </div>
