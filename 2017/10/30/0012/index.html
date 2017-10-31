@@ -109,7 +109,7 @@ Model 的保存这件事儿（iOS 持久层方案）
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-184732@2x.png">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/mvvm.png">
 <meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/%E6%96%B0%E6%96%87%E6%A1%A3%202017-10-10%2020.15.51_1.jpg">
-<meta property="og:updated_time" content="2017-10-30T10:55:00.000Z">
+<meta property="og:updated_time" content="2017-10-31T01:13:28.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOS 中「数据」的流动：从 JSON 到 MVVM">
 <meta name="twitter:description" content="本文希望从『网络请求』这个常见的数据诞生地开始，广度的讲解 iOS 中常见的数据流动的知识。为了保证篇幅，一些入门的知识点不做扩展，每个标题下都有对应知识点，可以自行搜索学习。
@@ -404,7 +404,8 @@ Model 的保存这件事儿（iOS 持久层方案）
 <p>那有朋友问，还是没解决 <code>-(instancetype)initWithDic:(NSDictionary *)dic</code> 的方法嘛。其实如果你的服务器返回的 JSON 字段是和 Model 属性名对应的，那用上面 <code>- (instancetype)initWithCoder:(NSCoder *)aDecoder</code> 的变形就能完成需求。</p>
 <p>不过，有时候 JSON 的字段并不符合 OC 的命名习惯甚至直接不能那么命名（比如 id 字段），我们就必须手动维护一张字段解析的表。这类的做法比如著名的库：Mantle </p>
 <h3 id="常见的字典转-Model-方法"><a href="#常见的字典转-Model-方法" class="headerlink" title="常见的字典转 Model 方法"></a>常见的字典转 Model 方法</h3><ul>
-<li>使用 Mantle 第三方库</li>
+<li>Mantle：使用继承和协议的方法</li>
+<li>MJExtension：使用类扩展的方法</li>
 <li>自己封装 BaseModel 类，使用 Protocol 和继承的方法，实现字典转 Model</li>
 </ul>
 <h2 id="0x02-Model-的保存这件事儿"><a href="#0x02-Model-的保存这件事儿" class="headerlink" title="0x02 Model 的保存这件事儿"></a>0x02 Model 的保存这件事儿</h2><ul>
@@ -443,6 +444,9 @@ Model 的保存这件事儿（iOS 持久层方案）
 </ul>
 <p>Realm 是一个跨平台的数据库，它的 API 设计比 Core Data 优雅，也更加易懂。</p>
 <p>网上有很多关于 Realm、FMDB、Core Data 的讨论，孰优孰劣还要听君定夺。</p>
+<ul>
+<li>其他：WCDB、FireBase</li>
+</ul>
 <h2 id="0x03-数据层的设计探讨"><a href="#0x03-数据层的设计探讨" class="headerlink" title="0x03 数据层的设计探讨"></a>0x03 数据层的设计探讨</h2><ul>
 <li>知识点：架构与设计模式</li>
 </ul>
