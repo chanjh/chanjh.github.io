@@ -1,0 +1,707 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS, 开发, 设计模式," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.jpg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="MoSplash 最近在做 Code Review 和 Refect，希望让它能够适应更多更大的需求。也是想把最近学习的知识应用上来。写这篇文章的目的，是想把重构的思路记录下来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MVVM、面向协议： MoSplash 的新尝试">
+<meta property="og:url" content="http://yoursite.com/2017/11/21/0013/index.html">
+<meta property="og:site_name" content="iOSHub">
+<meta property="og:description" content="MoSplash 最近在做 Code Review 和 Refect，希望让它能够适应更多更大的需求。也是想把最近学习的知识应用上来。写这篇文章的目的，是想把重构的思路记录下来。">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0013/bg2015020110.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0013/MS.png">
+<meta property="og:updated_time" content="2017-11-21T07:43:06.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="MVVM、面向协议： MoSplash 的新尝试">
+<meta name="twitter:description" content="MoSplash 最近在做 Code Review 和 Refect，希望让它能够适应更多更大的需求。也是想把最近学习的知识应用上来。写这篇文章的目的，是想把重构的思路记录下来。">
+<meta name="twitter:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0013/bg2015020110.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/11/21/0013/"/>
+
+
+
+
+
+  <title> MVVM、面向协议： MoSplash 的新尝试 | iOSHub </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOSHub</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">留一片有趣的天地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Home
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archives
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            About
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/11/21/0013/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChanJH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOSHub">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                MVVM、面向协议： MoSplash 的新尝试
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-11-21T15:40:00+08:00">
+                2017-11-21
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MoSplash 最近在做 Code Review 和 Refect，希望让它能够适应更多更大的需求。也是想把最近学习的知识应用上来。写这篇文章的目的，是想把重构的思路记录下来。</p>
+<a id="more"></a>
+<h2 id="MVC-的原罪"><a href="#MVC-的原罪" class="headerlink" title="MVC 的原罪"></a>MVC 的原罪</h2><p>入门 iOS 的同学都会被教育一套 MVC 的架构模型。MVC 是苹果鼓励使用的模型，它由下面三部分组成：</p>
+<ul>
+<li>Model：数据模型，负责模型管理</li>
+<li>Controller：控制器，负责逻辑处理</li>
+<li>View：视图，负责显示和响应</li>
+</ul>
+<p>在 MVC 模型中，Controller 负责把从 Model 传递过来的数据进行逻辑处理，然后告诉 View 显示元素。Controller 也负责处理 View 的响应，处理逻辑后更新数据。</p>
+<p>MVC 模型有一个很大的优点就是容易理解。也有一个人尽皆知的诟病，就是 Controller 的臃肿。MVVM 就是一个为 Controller 瘦身的模型思路。</p>
+<h2 id="了解-MVVM"><a href="#了解-MVVM" class="headerlink" title="了解 MVVM"></a>了解 MVVM</h2><p>在上一篇文章《<a href="http://blog.ioshub.cn/2017/10/30/0012/" target="_blank" rel="external">iOS 中「数据」的流动：从 JSON 到 MVVM</a>》中的最后，我对两种 Model View —— Data Source &amp; Data Controller 的设计进行了简单的分析。Data Source 使用了 Protocol 的设计模式，将数据的逻辑从 View  Controller 分离并作为后者的 Data Source。而 Data Controller 则是封装了 View Controller 的数据逻辑，让后者持有前者，支持操作前者。</p>
+<p>MVVM 在前两年就已经很火，网上对它的赞誉和对它的过誉的思考都有很多文章，这里就不过多累赘。放上几篇参考文章。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0013/bg2015020110.png" alt=""></p>
+<ul>
+<li><a href="http://www.ruanyifeng.com/blog/2015/02/mvcmvp_mvvm.html" target="_blank" rel="external">MVC，MVP 和 MVVM 的图示 - 阮一峰的网络日志</a></li>
+<li><a href="http://www.infoq.com/cn/articles/rethinking-mvc-mvvm" target="_blank" rel="external">被误解的MVC和被神化的MVVM</a></li>
+<li><a href="http://gracelancy.com/blog/2016/01/06/ape-ios-arch-design/" target="_blank" rel="external">猿题库 iOS 客户端架构设计 - Lancy’s Blog</a></li>
+<li><a href="https://objccn.io/issue-13-1/" target="_blank" rel="external">ObjC 中国- MVVM 介绍</a></li>
+</ul>
+<h2 id="MVVM-in-MoSplash"><a href="#MVVM-in-MoSplash" class="headerlink" title="MVVM in MoSplash"></a>MVVM in MoSplash</h2><p>我们思考对工程开始一种新的设计模式的时候，一定要理解这种设计模式在里面的应用和作用（积极与消极）。</p>
+<p>MoSplash 在十一月之前采用都是基础的 MVC 和单继承的设计模式。而在应用，需要重复并且大量的展示图片的列表，过去的设计里代码复用性得不到提高，造成大量的重复和垃圾代码。</p>
+<p>其实，我们只需要制造一个通用的 View Controller  让它的子类持有不同的 Data Controller，不同的 Data Controller 持有不同的 API，并为 VC 提供不同的数据源，就能让 View Controller 的代码实现了复用。</p>
+<p>另外，可以用 Protocol 的模式，为每一个 Photo Data Controller 制定一组 Data Protocol，配合 Base Data Controller 的继承，可以加大代码的鲁棒性。Protocol 的设计是后话，我们后面再讲。</p>
+<p>我们假设业务中需要一个 HomeViewController 的控件，它与架构中其他部分的关系如下图：</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0013/MS.png" alt=""></p>
+<p>我们让 HomeViewController 持有了一个 MSPhotoListController。后者负责展示一个图片列表，拥有 ViewController 的逻辑，然而没有数据来源。于是 HomeViewController 为自己的 MSPhotoListController 指定了一个 HomeDataController。通过自定义 DataController 的方法，让列表显示不同内容。这就是上一篇文章中说的，让 VC 拥有 DC 的一种 MVVM 实现方式。</p>
+<p>这里的 MSPhotoListController 就是 MoSplash 中通用的 ViewController，每一个需要使用它的组件，通过为它配制不同的 DC 的方式，让它显示不同的内容。为了让 Data Controller 更好适应业务，我为其设定了继承和协议两种约束。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">@implementation MSPhotoDataController</div><div class="line"></div><div class="line">- (instancetype)init</div><div class="line">&#123;</div><div class="line">    if(self = [super init])</div><div class="line">    &#123;</div><div class="line">        if([self conformsToProtocol:@protocol(DataControllerProtocol)])</div><div class="line">        &#123;</div><div class="line">			// init</div><div class="line">        &#125;</div><div class="line">        else</div><div class="line">        &#123;</div><div class="line">            NSException *exception = [[NSException alloc]initWithName:@&quot;DataControllerProtocol Exception&quot; reason:@&quot;没有遵循DataControllerProtocol协议&quot; userInfo:nil];</div><div class="line">            @throw exception;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">@implementation MSPhotoListController</div><div class="line">- (void)viewDidLoad</div><div class="line">&#123;</div><div class="line">    [super viewDidLoad];</div><div class="line">    if(![self.dataController.class isKindOfClass:[MSPhotoDataController class]])&#123;</div><div class="line">        // 抛出错误</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="面向协议-in-MoSplash"><a href="#面向协议-in-MoSplash" class="headerlink" title="面向协议 in  MoSplash"></a>面向协议 in  MoSplash</h2><p>在 Data Controller in MoSplash 的设计里，协议和继承都是为了代码尽可能的实现复用，减少代码重复的同时，增加项目的鲁棒性。</p>
+<p>在使用这两种模式实现代码复用之前，我们要先想清楚两者的区别。关于代码的复用，二者都不是万能的。在 MoSplash MVVM 设计中，继承为子类提供了主要方法的默认实现以及基本的数据对象，而 Protocol 的核心作用是让子类提供「配置信息」，从而向父类传递子类想要实现的效果。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">@protocol DataControllerProtocol</div><div class="line"></div><div class="line">@required</div><div class="line">/**</div><div class="line"> * 用于查重的 Model 的属性名</div><div class="line"> */</div><div class="line">- (NSString *)sortPropertyName;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Cache saved key</div><div class="line"> */</div><div class="line">- (NSString *)cacheKey;</div><div class="line"></div><div class="line">/**</div><div class="line"> * Get cache</div><div class="line"> */</div><div class="line">- (NSArray *)getCache;</div><div class="line"></div><div class="line">@optional</div><div class="line">/**</div><div class="line"> * 可选方法</div><div class="line"> * 用于缓存数据</div><div class="line"> */</div><div class="line">- (void)saveCache;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">/* ----------------------------------------- */</div><div class="line">/**</div><div class="line"> * 数据加载的委托方法</div><div class="line"> */</div><div class="line">@protocol MSPhotoDataControllerDelegate&lt;NSObject&gt;</div><div class="line"></div><div class="line">@optional</div><div class="line"></div><div class="line">- (void)dataLoadWillStar;</div><div class="line">- (void)dataLoadDidFinishedWithError:(NSError *)error;</div><div class="line"></div><div class="line">@required</div><div class="line"></div><div class="line">@end</div><div class="line"></div><div class="line">/* ----------------------------------------- */</div><div class="line">@interface MSPhotoDataController : NSObject</div><div class="line">/**</div><div class="line"> * 当前数据的 Page Index</div><div class="line"> */</div><div class="line">@property (nonatomic, assign) NSInteger curIndex;</div><div class="line"></div><div class="line">@property (nonatomic, weak) id &lt;MSPhotoDataControllerDelegate&gt; delegate;</div><div class="line"></div><div class="line">@property (nonatomic, weak, readonly) id&lt;DataControllerProtocol&gt; child;</div><div class="line"></div><div class="line">/* ----------------------------------------- */</div><div class="line">/**</div><div class="line"> * 装配完成后的数组，可用于数据显示</div><div class="line"> */</div><div class="line">@property (nonatomic, copy) NSArray *modelArray;</div><div class="line">/**</div><div class="line"> * 数据请求完成后，得到的原始数组</div><div class="line"> */</div><div class="line">@property (nonatomic, copy) NSArray *rawModelArray;</div><div class="line">/**</div><div class="line"> *</div><div class="line"> */</div><div class="line">@property (nonatomic, strong) NSString *searchKeyword;</div><div class="line"></div><div class="line">/* ----------------------------------------- */</div><div class="line">/**</div><div class="line"> * 根据页数加载新的数据</div><div class="line"> * @param index 索引</div><div class="line"> */</div><div class="line">- (void)loadAtIndex:(NSUInteger)index;</div><div class="line"></div><div class="line">/**</div><div class="line"> * 根据页数和搜索关键字加载数据</div><div class="line"> * @param index 索引</div><div class="line"> * @param keyword 搜索关键字</div><div class="line"> */</div><div class="line">- (void)searchAtIndex:(NSUInteger)index</div><div class="line">          withKeyword:(NSString *)keyword;</div><div class="line"></div><div class="line"></div><div class="line">@end</div></pre></td></tr></table></figure>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>由于使用了 MVVM 重构了 MoSplash 项目，让原有几百行的类，减少到每个只有一百行甚至不到，让代码维护成本降低。当然，也带来一些问题，比较代码理解难度上升，这些问题可能可以通过书写文档的方式解决。</p>
+<p>另外，面向协议的思想会加强类的鲁棒性，给予架构设计师一些很好的设计方向。</p>
+<hr>
+<p>更多个人分享，可以瞧瞧我不怎么更新的技术博客：<a href="blog.ioshub.cn">iOSHub</a>。当然还有非技术的 <a href="zhuanlan.zhihu.com/chantalk">ChanTalk</a>。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS-开发-设计模式/" rel="tag"># iOS, 开发, 设计模式</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/30/0012/" rel="next" title="iOS 中「数据」的流动：从 JSON 到 MVVM">
+                <i class="fa fa-chevron-left"></i> iOS 中「数据」的流动：从 JSON 到 MVVM
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ChanJH" />
+          <p class="site-author-name" itemprop="name">ChanJH</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">14</span>
+                <span class="site-state-item-name">posts</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">tags</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MVC-的原罪"><span class="nav-number">1.</span> <span class="nav-text">MVC 的原罪</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#了解-MVVM"><span class="nav-number">2.</span> <span class="nav-text">了解 MVVM</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MVVM-in-MoSplash"><span class="nav-number">3.</span> <span class="nav-text">MVVM in MoSplash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面向协议-in-MoSplash"><span class="nav-number">4.</span> <span class="nav-text">面向协议 in  MoSplash</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChanJH</span>
+</div>
+
+
+<div class="powered-by">
+  Powered by <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
