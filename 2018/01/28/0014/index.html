@@ -1,0 +1,763 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS, 开发, 源码阅读," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.jpg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="MMPopupView 源码阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="源码阅读：MMPopupView">
+<meta property="og:url" content="http://yoursite.com/2018/01/28/0014/index.html">
+<meta property="og:site_name" content="iOSHub">
+<meta property="og:description" content="MMPopupView 源码阅读">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/E2D88145-FE6F-4739-86A0-32F7148DFDE2-1875-0000BB54EC07A63C/F2F3FC95-C8FF-48D9-AD96-69E2CB0B73B2.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/676B1325-362B-45BE-8784-01C0D10B7CF6-1875-00009FF9637675DE/0FF12330-8DB9-4530-867B-61A561C6C88F.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/0A0326F5-A9CD-48F6-A718-D99DF33D7419-1875-00009FFFE040A65E/AEA65404-21E2-4083-B48C-67EB6D8CDB87.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/9623F2A0-3018-4F8F-A03F-AEA2FCAE77BC-1875-0000A02BC66EE8B3/3B7E07AC-3EEC-45FA-8DC6-C8F89E7C5BD0.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/92B42549-435E-486A-8B7B-3DBD8E4A3C38-1875-00009E54D857F33E/1F6C1F41-F8FE-4C24-85E8-0D2A64D75582.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/BA0054DD-9E8E-4AA1-B10E-FC0625722DA6-1875-00009E61A088B8F3/2A47869B-6E7A-40AA-A502-3069E685A8C1.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/C5DC5FA2-AC57-460A-84D5-340D4DA38A5C-1875-00009FA6DBF87E6D/9389BF9E-34E2-413F-85BF-C1954FB1CAF8.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/CDC9F939-34C7-4E26-8546-FDAC6B3F5659-1875-0000B84CA7A1E303/B889BE69-17F5-4D66-B2C5-183159B156DC.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/7EBA4191-9477-4AB8-9CD7-FA80D133F98C-1875-0000BAA732511278/48AD14F7-F7B5-4758-8787-DABD1DC2CF68.png">
+<meta property="og:updated_time" content="2018-01-28T02:47:57.694Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="源码阅读：MMPopupView">
+<meta name="twitter:description" content="MMPopupView 源码阅读">
+<meta name="twitter:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/E2D88145-FE6F-4739-86A0-32F7148DFDE2-1875-0000BB54EC07A63C/F2F3FC95-C8FF-48D9-AD96-69E2CB0B73B2.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/01/28/0014/"/>
+
+
+
+
+
+  <title> 源码阅读：MMPopupView | iOSHub </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOSHub</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">留一片有趣的天地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首頁
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            歸檔
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            標籤
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            關於
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/01/28/0014/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChanJH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOSHub">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                源码阅读：MMPopupView
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">發表於</span>
+              
+              <time title="創建於" itemprop="dateCreated datePublished" datetime="2018-01-28T10:50:00+08:00">
+                2018-01-28
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>MMPopupView 源码阅读</p>
+<a id="more"></a>
+<h2 id="使用-MMPopupView"><a href="#使用-MMPopupView" class="headerlink" title="使用 MMPopupView"></a>使用 MMPopupView</h2><p>我们可以在 Demo 中看到它的使用方法</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/E2D88145-FE6F-4739-86A0-32F7148DFDE2-1875-0000BB54EC07A63C/F2F3FC95-C8FF-48D9-AD96-69E2CB0B73B2.png" alt=""></p>
+<ul>
+<li>MMAlertView</li>
+<li>MMSheetView</li>
+<li>CustomView</li>
+</ul>
+<p>前面两个是作者提供的两种默认实现，都继承自 <code>MMPopupView</code> 。使用者也可以根据业务需要，制作自己的 CustomView，也是继承 <code>MMPopupView</code> 即可。</p>
+<h2 id="MMPopupView"><a href="#MMPopupView" class="headerlink" title="MMPopupView"></a>MMPopupView</h2><p>这个库的弹窗（MMAlertView、MMSheetView、CustomView）都是继承自 <code>MMPopupView</code> 。它提供的属性有：</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/676B1325-362B-45BE-8784-01C0D10B7CF6-1875-00009FF9637675DE/0FF12330-8DB9-4530-867B-61A561C6C88F.png" alt=""></p>
+<p>提供的方法有：</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/0A0326F5-A9CD-48F6-A718-D99DF33D7419-1875-00009FFFE040A65E/AEA65404-21E2-4083-B48C-67EB6D8CDB87.png" alt=""></p>
+<p>先从 MMPopupView 的初始化开始看起，可以发现，MMPopupView 的默认实现是 MMAlertView，MMSheetView 其实是在初始化后更改了自己的 type。属性 <code>attachedView</code> 默认是 <code>MMPopupWindow</code> ，这个一会再扩展，先继续阅读 MMPopupView 的方法。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/9623F2A0-3018-4F8F-A03F-AEA2FCAE77BC-1875-0000A02BC66EE8B3/3B7E07AC-3EEC-45FA-8DC6-C8F89E7C5BD0.png" alt=""></p>
+<p>我把 MMPopupView 中的方法分成三类：</p>
+<ul>
+<li>show 相关</li>
+<li>hide 相关</li>
+<li>Animation 相关</li>
+</ul>
+<p>按我们了解的相关方法设计规范，show 和 hide 都有它的最终调用方法。<code>showWithBlock</code> 和 <code>hideWithBlock</code>  。</p>
+<p>Animation 是通过 Block 的方式调用的，这个 block 把 MMPopupView 对象重新传回去，在 block 中操作 self 对象。</p>
+<p>类中提供了六种默认的动画实现。动画是在 <code>hideWithBlock</code> 的 block 完成之后才调用的。</p>
+<h2 id="MMAlertView"><a href="#MMAlertView" class="headerlink" title="MMAlertView"></a>MMAlertView</h2><p>API：</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/92B42549-435E-486A-8B7B-3DBD8E4A3C38-1875-00009E54D857F33E/1F6C1F41-F8FE-4C24-85E8-0D2A64D75582.png" alt=""></p>
+<p>所有方法实际上最终都使用同一个初始化方法：</p>
+<figure class="highlight obj-c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">- (<span class="keyword">instancetype</span>)initWithTitle:(<span class="built_in">NSString</span> *)title</div><div class="line">                       detail:(<span class="built_in">NSString</span> *)detail</div><div class="line">                        items:(<span class="built_in">NSArray</span> *)items</div><div class="line">             inputPlaceholder:(<span class="built_in">NSString</span> *)inputPlaceholder</div><div class="line">                 inputHandler:(MMPopupInputHandler)inputHandler</div></pre></td></tr></table></figure>
+<p>这也符合多个 init 初始方法的设计规范。</p>
+<p>这个类中的方法比较少，主要是：</p>
+<ul>
+<li>初始化（包含 addSubView）</li>
+<li>showKeyboard、hideKeyBoard</li>
+<li>notify</li>
+</ul>
+<p>这里讲一讲 MMAlertView 使用到比较特别的 API：</p>
+<ul>
+<li>UIView<ul>
+<li><code>setContentCompressionResistancePriority forAxis</code></li>
+<li><code>setContentHuggingPriority forAxis</code></li>
+</ul>
+</li>
+</ul>
+<p>关于这两个 API 的扩展阅读：<a href="https://www.jianshu.com/p/e38157d7b828" target="_blank" rel="external">iOS  AutoLayout中的Content Hugging 和 Content Comp… - 简书</a></p>
+<ul>
+<li>Masonry<ul>
+<li><code>MASViewAttribute *lastAttribute = self.mas_top;</code></li>
+</ul>
+</li>
+</ul>
+<p>另外还有另一个接口 MMAlertViewConfig，用来配置 AlerView 一些必要的信息：</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/BA0054DD-9E8E-4AA1-B10E-FC0625722DA6-1875-00009E61A088B8F3/2A47869B-6E7A-40AA-A502-3069E685A8C1.png" alt=""></p>
+<p><code>+ (MMAlertViewConfig *)globalConfig</code> 是一个全局的单例。</p>
+<h2 id="MMSheetView"><a href="#MMSheetView" class="headerlink" title="MMSheetView"></a>MMSheetView</h2><p>和 MMAlertView 相似，有一个 <code>MMSheetViewConfig</code> 。但是提供的初始化 API 只有一个</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/C5DC5FA2-AC57-460A-84D5-340D4DA38A5C-1875-00009FA6DBF87E6D/9389BF9E-34E2-413F-85BF-C1954FB1CAF8.png" alt=""></p>
+<p>区别是没有 Detail、没法进行 input 以及 confirm 的默认实现（也就是说 MMSheetView 完全按照你输入的 item 进行变化）</p>
+<h2 id="MMPopupWindow"><a href="#MMPopupWindow" class="headerlink" title="MMPopupWindow"></a>MMPopupWindow</h2><p>MMPopupWindow 继承自 UIWindow，UIWindow 又继承自 UIView。当我们创建一个视图，并且希望该视图独立于其他 UI 层的时候，那么我们就可以使用 UIWindow。</p>
+<p>在这个库中，MMPopupWindow 是 MMPopupView 的 super view。从 Reveal 我们可以看到它们的结构关系。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/CDC9F939-34C7-4E26-8546-FDAC6B3F5659-1875-0000B84CA7A1E303/B889BE69-17F5-4D66-B2C5-183159B156DC.png" alt=""></p>
+<p>MMPopupWindow 的方法有以下两类：</p>
+<ul>
+<li>初始化与销毁</li>
+<li>手势操作</li>
+</ul>
+<p>属性 <code>attachView</code> 是 MMPopViewWindow 的根视图。每个 UIWindow 都有一个 <code>rootViewController</code> 属性。</p>
+<h2 id="MMPopupView-的展示过程"><a href="#MMPopupView-的展示过程" class="headerlink" title="MMPopupView 的展示过程"></a>MMPopupView 的展示过程</h2><p>这里主要讲一讲各个 View 是怎么被创建、添加、展示的。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0014/7EBA4191-9477-4AB8-9CD7-FA80D133F98C-1875-0000BAA732511278/48AD14F7-F7B5-4758-8787-DABD1DC2CF68.png" alt=""><br>MMAlertView UML</p>
+<p>MMAlertView 继承自 MMPopupView，其中的 <code>attachedView</code> 指向 MMPopupWindow 对象。MMPopupWindow 对象将 MMPopupView 添加到自己上面，MMPopupView 负责添加 Item、Title 等。而将 MMPopupWindow 做为 KeyWindow 展示，是在 MMPopupView 中的 <code>showWithBlock</code> 的这句：<code>[self.attachedView mm_showDimBackground]</code>  ，这是使用了 <code>MMPopupCategory</code> 中的一个分类方法，下面讲解一下这个分类。</p>
+<h2 id="MMPopupCategory"><a href="#MMPopupCategory" class="headerlink" title="MMPopupCategory"></a>MMPopupCategory</h2><ul>
+<li>UIColor (MMPopup)</li>
+<li>UIImage (MMPopup)</li>
+<li>UIButton (MMPopup)</li>
+<li>NSString (MMPopup)</li>
+<li>UIView (MMPopup)</li>
+</ul>
+<h3 id="比较简单的几个"><a href="#比较简单的几个" class="headerlink" title="比较简单的几个"></a>比较简单的几个</h3><p>UIColor、UIButton、NSString、UIImage的分类比较简单常见，功能如下：</p>
+<ul>
+<li>UIColor：<code>mm_colorWithHex</code> （使用十六进制 hex 转为 UIColor 对象）</li>
+<li>UIButton：<code>mm_buttonWithTarget:(id)target action:(SEL)sel</code> （添加 Button 的 Action）</li>
+<li>NSString：<code>mm_truncateByCharLength</code> （缩短字符串）</li>
+<li>UIImage：<code>mm_imageWithColor</code> （返回一张充满颜色的 UIImage）</li>
+</ul>
+<h3 id="UIView"><a href="#UIView" class="headerlink" title="UIView"></a>UIView</h3><p>UIView 大量使用了 <code>objc_getAssociatedObject</code> 和 <code>objc_setAssociatedObject</code> 关联对象的方法。</p>
+<p>简单说，关联对象是通过键给当前的对象绑定另一个对象，当我们需要读取或修改的时候又通过键的方式传递。关联对象一方向可以用来传递一些比较私密的 API，或者在回调的时候（Delegate 或 Block）作为取值的方式减少代码荣冗余，也可以用在为 Category 添加属性（Category 是不能新建 property 的。如果写了，编译器会警告，提示需要手写 set 和 get 方法）。</p>
+<p>这里的 UIView 分类就是运用关联对象给 Category 添加属性的功能。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS-开发-源码阅读/" rel="tag"># iOS, 开发, 源码阅读</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/11/21/0013/" rel="next" title="MVVM、面向协议： MoSplash 的新尝试">
+                <i class="fa fa-chevron-left"></i> MVVM、面向协议： MoSplash 的新尝试
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目錄
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            本站概覽
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ChanJH" />
+          <p class="site-author-name" itemprop="name">ChanJH</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-name">文章</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">標籤</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#使用-MMPopupView"><span class="nav-number">1.</span> <span class="nav-text">使用 MMPopupView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMPopupView"><span class="nav-number">2.</span> <span class="nav-text">MMPopupView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMAlertView"><span class="nav-number">3.</span> <span class="nav-text">MMAlertView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMSheetView"><span class="nav-number">4.</span> <span class="nav-text">MMSheetView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMPopupWindow"><span class="nav-number">5.</span> <span class="nav-text">MMPopupWindow</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMPopupView-的展示过程"><span class="nav-number">6.</span> <span class="nav-text">MMPopupView 的展示过程</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#MMPopupCategory"><span class="nav-number">7.</span> <span class="nav-text">MMPopupCategory</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#比较简单的几个"><span class="nav-number">7.1.</span> <span class="nav-text">比较简单的几个</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#UIView"><span class="nav-number">7.2.</span> <span class="nav-text">UIView</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChanJH</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 強力驅動
+</div>
+
+<div class="theme-info">
+  主題 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
