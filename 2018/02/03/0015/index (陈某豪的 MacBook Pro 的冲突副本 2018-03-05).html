@@ -1,0 +1,716 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS, 开发, 源码阅读," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="iOSHub" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.jpg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="JDStatusBarNotification 源码阅读">
+<meta property="og:type" content="article">
+<meta property="og:title" content="源码阅读：JDStatusBarNotification">
+<meta property="og:url" content="http://yoursite.com/2018/02/03/0015/index.html">
+<meta property="og:site_name" content="iOSHub">
+<meta property="og:description" content="JDStatusBarNotification 源码阅读">
+<meta property="og:updated_time" content="2018-02-03T11:56:57.247Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="源码阅读：JDStatusBarNotification">
+<meta name="twitter:description" content="JDStatusBarNotification 源码阅读">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2018/02/03/0015/"/>
+
+
+
+
+
+  <title> 源码阅读：JDStatusBarNotification | iOSHub </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOSHub</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">留一片有趣的天地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/02/03/0015/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChanJH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOSHub">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                源码阅读：JDStatusBarNotification
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-02-03T19:58:00+08:00">
+                2018-02-03
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>JDStatusBarNotification 源码阅读</p>
+<a id="more"></a>
+<h2 id="功能与使用"><a href="#功能与使用" class="headerlink" title="功能与使用"></a>功能与使用</h2><p>JDStatusBarNotification 可以用于在状态栏、应用底部展示一条横幅通知。新版本适配了 iPhone X，支持了显示一条 Process，用法很简单：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">[JDStatusBarNotification addStyleNamed:@&quot;failStyleName&quot;</div><div class="line">                               prepare:^JDStatusBarStyle *(JDStatusBarStyle *style) &#123;</div><div class="line">                                   style.textColor = [UIColor whiteColor];</div><div class="line">                                   style.animationType = JDStatusBarAnimationTypeFade;</div><div class="line">                                   style.font = [UIFont fontWithName:@&quot;&quot; size:17.0];</div><div class="line">                                   return style;</div><div class="line">                               &#125;];</div><div class="line">[JDStatusBarNotification showWithStatus:@&quot;请求超时&quot;</div><div class="line">                           dismissAfter:2.0</div><div class="line">                              styleName:@&quot;failStyleName&quot;];</div></pre></td></tr></table></figure>
+<h2 id="代码概况"><a href="#代码概况" class="headerlink" title="代码概况"></a>代码概况</h2><p>JDStatusBarNotification 的类数量很少，只有下列四个</p>
+<ul>
+<li>JDStatusBarNotification</li>
+<li>JDStatusBarStyle</li>
+<li>JDStatusBarView</li>
+<li>JDStatusBarLayoutMarginHelper</li>
+</ul>
+<p>JDStatusBarNotification 是 JDStatusBarNotification 库的使用者接触最多的类，负责操作通知的 show、dismiss。JDStatusBarStyle 负责定义通知的样式。而 JDStatusBarView 是通知的一个 UIView，上面有 textLabel 等。</p>
+<h2 id="JDStatusBarNotification"><a href="#JDStatusBarNotification" class="headerlink" title="JDStatusBarNotification"></a>JDStatusBarNotification</h2><p>JDStatusBarNotification 包含有四个类：</p>
+<ul>
+<li>JDStatusBarStyle (Hidden)</li>
+<li>UIApplication (mainWindow)</li>
+<li>JDStatusBarNotificationViewController</li>
+<li>JDStatusBarNotification</li>
+</ul>
+<p>其中，<code>JDStatusBarStyle (Hidden)</code> 实际上是对 JDStatusBarNotification 暴露 JDStatusBarStyle 隐藏的两个接口，这样就实现了私有 API 的对接。<code>UIApplication (mainWindow)</code> 则是分类。</p>
+<p>JDStatusBarNotification 暴露的接口有三种（都属于自己的方法）：</p>
+<ul>
+<li>show</li>
+<li>dismiss</li>
+<li>setStyle</li>
+</ul>
+<p>这些都是使用 JDStatusBarNotification 的「效果」，但是阅读一个公共库不能只知其然，不知其所以然。因此接下来继续了解一下这些功能是怎么实现的。</p>
+<p>在 JDStatusBarNotification 的 show 方法都是使用类方法。JDStatusBarNotification 使用的是同一个 sharedInstance，可以理解，因为状态栏通知一般都是只显示一条。</p>
+<p>JDStatusBarNotification 的 .m 文件中，interface 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">@interface JDStatusBarNotification () &lt;CAAnimationDelegate&gt;</div><div class="line">@property (nonatomic, strong, readonly) UIWindow *overlayWindow;</div><div class="line">@property (nonatomic, strong, readonly) UIView *progressView;</div><div class="line">@property (nonatomic, strong, readonly) JDStatusBarView *topBar;</div><div class="line"></div><div class="line">@property (nonatomic, strong) NSTimer *dismissTimer;</div><div class="line">@property (nonatomic, assign) CGFloat progress;</div><div class="line"></div><div class="line">@property (nonatomic, weak) JDStatusBarStyle *activeStyle;</div><div class="line">@property (nonatomic, strong) JDStatusBarStyle *defaultStyle;</div><div class="line">@property (nonatomic, strong) NSMutableDictionary *userStyles;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>UIWindow 是用于显示的所有控件的 superView。 <code>overlayWindow</code> 只设置了他的 windowLevel = UIWindowLevelStatusBar，并没有将它设置为 keyWindow，非 keyWindow 不能接收键盘以及非触摸类的消息。UIWindow有三个层级，分别是Normal，StatusBar，Alert，级别依次增高，级别高的会显示在上面，级别低的在下面。</p>
+<p><code>progressView</code> 和 <code>topBar</code> 都被添加在 <code>self.overlayWindow.rootViewController.view</code> 中。而 rootViewController 其实就是被隐藏的 <code>JDStatusBarNotificationViewController</code> </p>
+<p><code>dismissTimer</code> 用于设置通知自动消失的时间，使用 <code>NSRunLoop</code> 的方法来设置 Timer。需要留意的是，在 <code>- (UIView*)showWithStatus:(NSString *)status style:(JDStatusBarStyle*)style</code> 方法中（所有 show 方法最终都会调用到它）使用了 <code>[[NSRunLoop currentRunLoop] cancelPerformSelector:@selector(dismiss) target:self argument:nil];</code> 来关闭了当前的定时器。</p>
+<p>JDStatusBarNotification 本身会持有一个 userStyles 的字典。key 和 value 分别为 JDStatusStyle 的 name（NSString） 和 Style 对象。默认有以下五种 Style：<code>@[JDStatusBarStyleError, JDStatusBarStyleWarning, JDStatusBarStyleSuccess, JDStatusBarStyleMatrix, JDStatusBarStyleDark, JDStatusBarStyleDefault]</code> 。</p>
+<p><code>self.defaultStyle</code>  在 JDStatusBarNotification 实例化之后是 <code>JDStatusBarStyleDefault</code> 类型。当我们使用 <code>+(NSString*)addStyleNamed:(NSString*)identifier prepare:(JDPrepareStyleBlock)prepareBlock</code> 方法的时候，Notification 会将 defaultStyle 复制一份，然后使用 block 中修改的方法，再保存到 userStyles 字典中去。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">- (NSString*)addStyleNamed:(NSString*)identifier</div><div class="line">                   prepare:(JDPrepareStyleBlock)prepareBlock;</div><div class="line">&#123;</div><div class="line">  NSAssert(identifier != nil, @&quot;No identifier provided&quot;);</div><div class="line">  NSAssert(prepareBlock != nil, @&quot;No prepareBlock provided&quot;);</div><div class="line"></div><div class="line">  JDStatusBarStyle *style = [self.defaultStyle copy];</div><div class="line">  [self.userStyles setObject:prepareBlock(style) forKey:identifier];</div><div class="line">  return identifier;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p><code>activeStyle</code> 是指当前 JDStatusBarNotification 正在使用的 Style。当我们使用 <code>+ (UIView*)showWithStatus:(NSString *)status styleName:(NSString*)styleName;</code> 时，就从 <code>userStyles</code> 字典中取出 JDStatusBarStyle 来，保存到 <code>activeStyle</code> 。</p>
+<h2 id="JDStatusBarView"><a href="#JDStatusBarView" class="headerlink" title="JDStatusBarView"></a>JDStatusBarView</h2><p>JDStatusBarView 是 JDStatusBarNotification 内容显示的主要 UIView，包括一个 UILabel 和 UIActivityIndicatorView。</p>
+<h2 id="JDStatusBarStyle"><a href="#JDStatusBarStyle" class="headerlink" title="JDStatusBarStyle"></a>JDStatusBarStyle</h2><p>JDStatusBarStyle 定义了一个 JDStatusBarNotification 的显示效果。属性比较多就不一一列举了。</p>
+<h2 id="JDStatusBarLayoutMarginHelper"><a href="#JDStatusBarLayoutMarginHelper" class="headerlink" title="JDStatusBarLayoutMarginHelper"></a>JDStatusBarLayoutMarginHelper</h2><p>JDStatusBarLayoutMarginHelper 并不是一个类，只是简单的写了一个返回 UIEdgeInsets 的函数（不是方法）。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS-开发-源码阅读/" rel="tag"># iOS, 开发, 源码阅读</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2018/01/28/0014/" rel="next" title="源码阅读：MMPopupView">
+                <i class="fa fa-chevron-left"></i> 源码阅读：MMPopupView
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ChanJH" />
+          <p class="site-author-name" itemprop="name">ChanJH</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#功能与使用"><span class="nav-number">1.</span> <span class="nav-text">功能与使用</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#代码概况"><span class="nav-number">2.</span> <span class="nav-text">代码概况</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDStatusBarNotification"><span class="nav-number">3.</span> <span class="nav-text">JDStatusBarNotification</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDStatusBarView"><span class="nav-number">4.</span> <span class="nav-text">JDStatusBarView</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDStatusBarStyle"><span class="nav-number">5.</span> <span class="nav-text">JDStatusBarStyle</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JDStatusBarLayoutMarginHelper"><span class="nav-number">6.</span> <span class="nav-text">JDStatusBarLayoutMarginHelper</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChanJH</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>

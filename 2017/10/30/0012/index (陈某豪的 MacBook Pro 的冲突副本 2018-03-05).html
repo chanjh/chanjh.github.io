@@ -1,0 +1,824 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next muse use-motion" lang="zh,en,default">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="iOS, 开发, 基础," />
+
+
+
+
+
+  <link rel="alternate" href="/atom.xml" title="iOSHub" type="application/atom+xml" />
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.jpg?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="本文希望从『网络请求』这个常见的数据诞生地开始，广度的讲解 iOS 中常见的数据流动的知识。为了保证篇幅，一些入门的知识点不做扩展，每个标题下都有对应知识点，可以自行搜索学习。
+
+目录：
+JSON 转字典那点事儿（网络数据解析）
+字典到 Model 发生了什么事儿（OC Runtime）
+Model 的保存这件事儿（iOS 持久层方案）
+数据层的设计探讨 （架构与设计模式）">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS 中「数据」的流动：从 JSON 到 MVVM">
+<meta property="og:url" content="http://yoursite.com/2017/10/30/0012/index.html">
+<meta property="og:site_name" content="iOSHub">
+<meta property="og:description" content="本文希望从『网络请求』这个常见的数据诞生地开始，广度的讲解 iOS 中常见的数据流动的知识。为了保证篇幅，一些入门的知识点不做扩展，每个标题下都有对应知识点，可以自行搜索学习。
+
+目录：
+JSON 转字典那点事儿（网络数据解析）
+字典到 Model 发生了什么事儿（OC Runtime）
+Model 的保存这件事儿（iOS 持久层方案）
+数据层的设计探讨 （架构与设计模式）">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-185021@2x.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-184732@2x.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/mvvm.png">
+<meta property="og:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/%E6%96%B0%E6%96%87%E6%A1%A3%202017-10-10%2020.15.51_1.jpg">
+<meta property="og:updated_time" content="2017-10-31T01:13:28.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="iOS 中「数据」的流动：从 JSON 到 MVVM">
+<meta name="twitter:description" content="本文希望从『网络请求』这个常见的数据诞生地开始，广度的讲解 iOS 中常见的数据流动的知识。为了保证篇幅，一些入门的知识点不做扩展，每个标题下都有对应知识点，可以自行搜索学习。
+
+目录：
+JSON 转字典那点事儿（网络数据解析）
+字典到 Model 发生了什么事儿（OC Runtime）
+Model 的保存这件事儿（iOS 持久层方案）
+数据层的设计探讨 （架构与设计模式）">
+<meta name="twitter:image" content="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-185021@2x.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Muse',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/10/30/0012/"/>
+
+
+
+
+
+  <title> iOS 中「数据」的流动：从 JSON 到 MVVM | iOSHub </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">iOSHub</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">留一片有趣的天地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/10/30/0012/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="ChanJH">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="iOSHub">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                iOS 中「数据」的流动：从 JSON 到 MVVM
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-30T18:40:00+08:00">
+                2017-10-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>本文希望从『网络请求』这个常见的数据诞生地开始，广度的讲解 iOS 中常见的数据流动的知识。为了保证篇幅，一些入门的知识点不做扩展，每个标题下都有对应知识点，可以自行搜索学习。</p>
+<ul>
+<li>目录：<ul>
+<li>JSON 转字典那点事儿（网络数据解析）</li>
+<li>字典到 Model 发生了什么事儿（OC Runtime）</li>
+<li>Model 的保存这件事儿（iOS 持久层方案）</li>
+<li>数据层的设计探讨 （架构与设计模式）</li>
+</ul>
+</li>
+</ul>
+<a id="more"></a>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-185021@2x.png" alt=""></p>
+<h2 id="0x00-JSON-转字典那点事儿"><a href="#0x00-JSON-转字典那点事儿" class="headerlink" title="0x00 JSON 转字典那点事儿"></a>0x00 JSON 转字典那点事儿</h2><ul>
+<li>知识点：网络请求、HTTP 协议、NSJSONSerialization 使用</li>
+</ul>
+<p>先看一下这段代码：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">NSURL *url = [NSURL URLWithString:@&quot;&quot;];</div><div class="line"></div><div class="line">NSURLSession *session = [NSURLSession sharedSession];</div><div class="line">NSURLSessionTask *task = [session dataTaskWithURL:url completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) &#123;</div><div class="line"></div><div class="line">    NSDictionary *dic = [NSJSONSerialization JSONObjectWithData:data options:0 error:nil];</div><div class="line">    NSLog(@&quot;%@&quot;, dic);</div><div class="line">    </div><div class="line">&#125;];</div><div class="line"></div><div class="line">[task resume];</div></pre></td></tr></table></figure>
+<p>这是一段简单的 NSURLSession 网络请求的 OC 代码。这里的关注点在 completionHandler 的 block 里。Handler 里返回了两个关键的参数：data 和 response。这里就需要一些 HTTP 协议的知识。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/QQ20171030-184732@2x.png" alt=""></p>
+<p>一个 HTTP 请求其实包含了请求头和请求题。在这里，上面是 Head（响应头），下面是 Body（响应体），分别对应 Block 里的 Response 和 Data。</p>
+<p>在 block 里，response 表示为一个 NSURLResponse 对象，通过打印就能清楚看明白它的结构。而 Data 是一个 NSData 对象，应该怎么理解呢？</p>
+<p>这里要用 HTTP 在 TCP/IP 中传输的知识了。</p>
+<p>简单讲就是在计算机网络里，数据被二进制化（序列化）、分包等操作后，在网络里传输。这个 data 就是一个序列化的结果（可以通过断点看到）。而我们怎么利用这个结果呢？</p>
+<p>如果是 JSON，那么使用 NSJSONSerialization 的 JSONObjectWithData 方法可以得到 OC 对象（id 对象），此时根据 JSON 格式的不同，可以解析为 dictionary 或者 array。除了 NSJSONSerialization，也有其他的第三方库可以使用，它们可以处理更多 JSON 可能出现的情况。</p>
+<p>对于 XML 可以用 NSXMLParser 解析。如果是其他数据（比如图片）可以用他们对应的构造器实现。</p>
+<h2 id="0x01-字典到-Model-发生了什么事儿"><a href="#0x01-字典到-Model-发生了什么事儿" class="headerlink" title="0x01 字典到 Model 发生了什么事儿"></a>0x01 字典到 Model 发生了什么事儿</h2><ul>
+<li>知识点：Model 层的封装、Runtime</li>
+</ul>
+<h3 id="常规的字典转-Model"><a href="#常规的字典转-Model" class="headerlink" title="常规的字典转 Model"></a>常规的字典转 Model</h3><p>其实这个过程就是常说的「字典转对象」的过程。这个过程其实不难，入门的话也很容易理解，但是要做到能够把代码写得足够优雅，就要了解多一些知识才行了。我们先来看一下，入门级别的「字典转对象」是怎么做的。定义一个 Model 有下列 property：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">@interface PhotoModel</div><div class="line">@property (nonatomic, copy) NSString *link;</div><div class="line">@end</div></pre></td></tr></table></figure>
+<p>这是一个 PhotoModel，有一个对应链接的属性。当我们从网络获得 data，解析为字典之后，想要转为 Model 时，可以在 PhotoModel 里定义 <code>initWithDic</code> 方法，就能在实现里转化：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">-(instancetype)initWithDic:(NSDictionary *)dic&#123;</div><div class="line">    self = [super init];</div><div class="line">    if(self)&#123;</div><div class="line">        _link = dic[@&quot;link&quot;];</div><div class="line">	  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>嗯，这样就完成了 JSON 转 Model 的过程。</p>
+<p>这种方法本身没毛病，只是代码十分简陋。想象一下，当我们的模型拥有大量的属性时候，是不是需要复制粘贴大量的属性和键值对？可能维护一个 <code>init</code> 方法而已不足以带来麻烦，那如果你的 model 需要 Archive 呢？</p>
+<p>我们知道，在 iOS Foundation 里支持一种数据保存方式叫 Archive（中文可以翻译为归档）。需要 Archive 的 Model 需要遵循 <code>NSCoding</code> 并实现 <code>-(void)encodeWithCoder:(NSCoder *)aCoder</code> 和 <code>-(id)initWithCoder:(NSCoder *)aDecoder</code> 方法</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line">-(void)encodeWithCoder:(NSCoder *)aCoder&#123;</div><div class="line">    [aCoder encodeObject:self.link forKey:@&quot;link&quot;];</div><div class="line">&#125;</div><div class="line">-(id)initWithCoder:(NSCoder *)aDecoder&#123;</div><div class="line">    self = [super init];</div><div class="line">    if (self) &#123;</div><div class="line">        self.link = [aDecoder decodeObjectForKey:@&quot;link&quot;];</div><div class="line">	  &#125;</div><div class="line">&#125;</div><div class="line">``` </div><div class="line"></div><div class="line">这样你知道麻烦在哪了吧：你将维护之前三倍的代码！所以，字典转 Model 需要更科学的方法。</div><div class="line"></div><div class="line">### OC 的 Runtime 特性</div><div class="line"></div><div class="line">Objective-C 是一门动态绑定的语言。这句话相信我们在入门 iOS 的时候就已经听说，但是并不能理解它的含义。</div><div class="line"></div><div class="line">我们熟悉的 C 语言使用的「静态绑定」，也就是说，在编译期就能决定运行时所应调用的函数。</div><div class="line"></div><div class="line">``` C</div><div class="line">void funcA()&#123;</div><div class="line">&#125;</div><div class="line">void funcB()&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line">void funcMain(int type)&#123;</div><div class="line">	if(type == 0)&#123;</div><div class="line">		funcA()</div><div class="line">	&#125;</div><div class="line">	else&#123;</div><div class="line">		funcB()</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果换成这个：</p>
+<figure class="highlight c"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">funcA</span><span class="params">()</span></span>&#123;</div><div class="line">&#125;</div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">funcB</span><span class="params">()</span></span>&#123;</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">void</span> <span class="title">funcMain</span><span class="params">(<span class="keyword">int</span> type)</span></span>&#123;</div><div class="line">	<span class="keyword">void</span> (*func)();</div><div class="line">	<span class="keyword">if</span>(type == <span class="number">0</span>)&#123;</div><div class="line">		func = funcA;</div><div class="line">	&#125;</div><div class="line">	<span class="keyword">else</span>&#123;</div><div class="line">		func = funcB;</div><div class="line">	&#125;</div><div class="line">	func();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那就需要用到动态绑定了。而 OC 就是一门动态语言，所要调用的函数直到运行期才确定。依靠强大的 Runtime 来实现这个功能。</p>
+<p>利用 OC 的动态绑定的特性，我们可以在运行时观察 Model 的属性，甚至做到属性值的修改。下面以 Model 的封装来举例说明这个特性。同时，为了简单理解，只使用了继承的模式来实现 Model 封装。</p>
+<p>我们的思路是，在程序运行时，使用代码枚举出 model 的属性，将属性名转化为 NSString 变量，那样就可以和字典的键（Key）对应上去了！思路是不是很简单。</p>
+<p>首先需要引入 OC 的 runtime 框架 <code>#import &lt;objc/runtime.h&gt;</code> 。接着需要获取类的 Property，这里要用 <code>class_copyPropertyList(Class _Nullable cls, unsigned int * _Nullable outCount)</code> 的函数，它返回的是一个经过封装的 <code>objc_property_t</code> 指针，我们先认为它是一个类数组吧。</p>
+<p>然后我们开始遍历数组，对每个 property  使用 <code>property_getName()</code> 函数获取它的属性名，这是一个 <code>const char</code> 类型的变量，只要用 UTF8 编码后，就是一个 NSString 对象了！</p>
+<p>如果使用 KVC 的特性，可以对 model 使用 <code>[self setValue:[aDecoder decodeObjectForKey:nameStr] forKey:nameStr];</code> 设定属性的值。</p>
+<p>对应的 <code>- (instancetype)initWithCoder:(NSCoder *)aDecoder</code> 和 <code>- (void)encodeWithCoder:(NSCoder *)aCoder</code> 如下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div></pre></td><td class="code"><pre><div class="line">#import &quot;JHBaseModel.h&quot;</div><div class="line">#import &lt;objc/runtime.h&gt;</div><div class="line">@implementation JHBaseModel</div><div class="line">- (instancetype)initWithCoder:(NSCoder *)aDecoder&#123;</div><div class="line">    self = [super init];</div><div class="line">    </div><div class="line">    unsigned int propertyCount = 0;</div><div class="line">    objc_property_t * properties = class_copyPropertyList([self class], &amp;propertyCount);</div><div class="line">    </div><div class="line">    for (unsigned int i = 0; i &lt; propertyCount; ++i) &#123;</div><div class="line">        objc_property_t property = properties[i];</div><div class="line">        const char * name = property_getName(property);</div><div class="line">        </div><div class="line">        NSString *nameStr = [NSString stringWithUTF8String:name];</div><div class="line">        [self setValue:[aDecoder decodeObjectForKey:nameStr] forKey:nameStr];</div><div class="line">    &#125;</div><div class="line">    if (properties)&#123;</div><div class="line">        free(properties);</div><div class="line">    &#125;</div><div class="line">    return self;</div><div class="line">&#125;</div><div class="line">- (void)encodeWithCoder:(NSCoder *)aCoder&#123;</div><div class="line">    </div><div class="line">    unsigned int propertyCount = 0;</div><div class="line">    objc_property_t * properties = class_copyPropertyList([self class], &amp;propertyCount);</div><div class="line">    </div><div class="line">    for (unsigned int i = 0; i &lt; propertyCount; ++i) &#123;</div><div class="line">        objc_property_t property = properties[i];</div><div class="line">        const char * name = property_getName(property);</div><div class="line">        </div><div class="line">        NSString *nameStr = [NSString stringWithUTF8String:name];</div><div class="line">        [aCoder encodeObject:[self valueForKey:nameStr] forKey:nameStr];</div><div class="line">    &#125;</div><div class="line">    if (properties)&#123;</div><div class="line">        free(properties);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>这样，我们只要将 Model 继承于 JHBaseModel，就能不必再一次次地去实现两个 <code>NSCoding</code> 协议里的方法了。</p>
+<p>那有朋友问，还是没解决 <code>-(instancetype)initWithDic:(NSDictionary *)dic</code> 的方法嘛。其实如果你的服务器返回的 JSON 字段是和 Model 属性名对应的，那用上面 <code>- (instancetype)initWithCoder:(NSCoder *)aDecoder</code> 的变形就能完成需求。</p>
+<p>不过，有时候 JSON 的字段并不符合 OC 的命名习惯甚至直接不能那么命名（比如 id 字段），我们就必须手动维护一张字段解析的表。这类的做法比如著名的库：Mantle </p>
+<h3 id="常见的字典转-Model-方法"><a href="#常见的字典转-Model-方法" class="headerlink" title="常见的字典转 Model 方法"></a>常见的字典转 Model 方法</h3><ul>
+<li>Mantle：使用继承和协议的方法</li>
+<li>MJExtension：使用类扩展的方法</li>
+<li>自己封装 BaseModel 类，使用 Protocol 和继承的方法，实现字典转 Model</li>
+</ul>
+<h2 id="0x02-Model-的保存这件事儿"><a href="#0x02-Model-的保存这件事儿" class="headerlink" title="0x02 Model 的保存这件事儿"></a>0x02 Model 的保存这件事儿</h2><ul>
+<li>知识点：iOS 的数据持久化</li>
+</ul>
+<p>到目前为止，我们的数据都只是以各个 OC 的『对象』形式存在于内存中。我们的应用需要把数据保存到硬盘里，来应付多种场景。常见的缓存保存方式：</p>
+<ul>
+<li>数据库：大量数据。主要用于商品列表、聊天记录之类</li>
+<li>文件：图片、音频、视频</li>
+<li>内存：使用频率非常高的数据</li>
+</ul>
+<p>在 iOS 里，保存方法可以有：</p>
+<ul>
+<li>Archive</li>
+</ul>
+<p>对于需要归档的对象，需要遵循 NSCoding 协议，实现 <code>encodingWithCoder:(NSCoder *)aCoder</code> 和 <code>initWithCoder:(NSCoder *)aDecoder</code> 方法</p>
+<p>归档时，使用 NSKeyedArchiver  保存数据。取出数据时，用 NSKeyedUnarchiver</p>
+<p>这种方法，把数据归档保存到了硬盘中（可以在路径里找到 .archive 文件）。</p>
+<p>我们的框架 PINCache 也用了 Archive 的方式缓存数据，只不过他的接口更友好。</p>
+<ul>
+<li>SQLite</li>
+</ul>
+<p>SQLite 是移动端的轻量级数据库解决方案，它可以同时在多平台上运行。接下来我们要讲到的 CoreData 和 FMDB，都是基于 SQLite。</p>
+<ul>
+<li>Core Data</li>
+</ul>
+<p>Archive 只能重写整个文件。Core Data 可以只读取已存对象中的一小部分。当模型对象的数量较少时，使用 Archive。而 Core Data 的增量存取、增量更新数据机制，可以胜任大量数据处理。</p>
+<p>Core Data 可以将 OC 对象转化成数据，并将这些数据保存到 SQLite 数据库文件中。但是 Core Data 只能保存有限的几种数据类型（不能保存 UIImage 对象）。</p>
+<p>Core Data 的实际上是 SQLite 的一个面向对象封装。</p>
+<ul>
+<li>FMDB</li>
+</ul>
+<p>FMDB 的封装更靠近关系型存储。更多的保留了数据库本身的特性。</p>
+<ul>
+<li>第三方库：Realm</li>
+</ul>
+<p>Realm 是一个跨平台的数据库，它的 API 设计比 Core Data 优雅，也更加易懂。</p>
+<p>网上有很多关于 Realm、FMDB、Core Data 的讨论，孰优孰劣还要听君定夺。</p>
+<ul>
+<li>其他：WCDB、FireBase</li>
+</ul>
+<h2 id="0x03-数据层的设计探讨"><a href="#0x03-数据层的设计探讨" class="headerlink" title="0x03 数据层的设计探讨"></a>0x03 数据层的设计探讨</h2><ul>
+<li>知识点：架构与设计模式</li>
+</ul>
+<p>当我们了解完整个数据从请求到对象化的过程之后，数据就成一种 OC 对象可以让开发者十分方便地进行处理了。</p>
+<p>我们都知道 MVC 其实讨论的就是数据的流动方向。而 MVC 容易造成 Controller 的臃肿，所以有像 MVVM 这样的模式来减轻 Controller 的负担。接下来以 MVVM 为模型，讨论其中的 ViewModel 在 iOS 中的实现方式。MVVM 基础理论请自行查找相关知识。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/mvvm.png" alt=""></p>
+<h3 id="从-UIKit-寻找数据层的设计"><a href="#从-UIKit-寻找数据层的设计" class="headerlink" title="从 UIKit 寻找数据层的设计"></a>从 UIKit 寻找数据层的设计</h3><p>我们可以从 UIKit 里找到苹果在为 ViewCotroller 配置它的数据时的思路。</p>
+<ul>
+<li>DataSource</li>
+</ul>
+<p>UITableView 是我们十分熟悉的一个控件了。使用  TableView 时有 Delegate 和 DataSource 两个重要协议需要我们理解。两种协议都可以认为是一种传值的方法。不同的是，Delegate 是将值从 TableView 传到类，而 DataSource 是从类传到 TableView。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/iOSHub/iOSHubBlog/0012/%E6%96%B0%E6%96%87%E6%A1%A3%202017-10-10%2020.15.51_1.jpg" alt=""></p>
+<p>这是一种为 ViewController 瘦身的思路。将 ViewController 的 DataSource 设置为我们的 ViewModel，用它来进行数据的装配。</p>
+<ul>
+<li>UISearchController</li>
+</ul>
+<p>老实说，UISearchController 是我以前经常不理解的一个类，因为它的调用有点奇怪，不像 TableVIew 这样让一个 ViewController 拥有一个 View，而是让 VC 又拥有了一个新的 Controller，那要怎么理解？</p>
+<p>其实我们可以把像 UISearchController 的控制器，称为 DataController。它是从 VC 里抽离出来的关于数据的逻辑处理，以实现 VC 瘦身。让 VC 拥有 DataController 的实例，通过属性读取获得 DataController 的数据、通过方法让 DataController 进行更新。DC 的生命周期保持与 VC 相同。</p>
+<p>DataController 是用 own（拥有）的方式将 VC 和 VM 耦合，DataSource 是用 Protocol（协议）的方式将它们耦合在一起。</p>
+<ul>
+<li>适应性</li>
+</ul>
+<p>在业务开发里，我们可能面对这样的设计需求：一种界面对应多种数据、一种数据对应多种界面。具体来说，在我的独立作品 MoSplash 里，同样是展示图片，数据源可能是首页、可能是精选、可能是收藏，这是一对多；另一个情况发生在我们工作室的项目里，同样的通讯录，在聊天里我们希望直接以『老师』分组展示，而另一个界面希望以『数学组』这样的分组展示。</p>
+<p>上面提到的 ViewModel 设计模式是不是一定需要对应于后文提到的某种情况？答案显然不是。DataSource 和 DataController 的设计都可以应用进两个情况里。</p>
+<p>那会不会会有优劣之分？我个人认为有。但是并不能简单的根据一对多或者多对一就说应该用什么设计。还应该根据业务的复杂度，选择相应设计。上文的例子只是证明，ViewModel 在瘦身和代码复用上的优势。</p>
+<h2 id="结语"><a href="#结语" class="headerlink" title="结语"></a>结语</h2><p>以上就是 iOS 里，一个数据从网络请求结果到缓存，再到业务内的整个过程。希望对入门的同学使用数据层有一个宏观的了解，也希望为使用 MVVM 模型提供一些思路。</p>
+<hr>
+<p>更多个人分享，可以瞧瞧我不怎么更新的技术博客：<a href="blog.ioshub.cn">iOSHub</a>。当然还有非技术的 <a href="zhuanlan.zhihu.com/chantalk">ChanTalk</a>。</p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/iOS-开发-基础/" rel="tag"># iOS, 开发, 基础</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/14/0011/" rel="next" title="为多平台（iOS、macOS、watchOS、tvOS）创建通用的 Swift Framework">
+                <i class="fa fa-chevron-left"></i> 为多平台（iOS、macOS、watchOS、tvOS）创建通用的 Swift Framework
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2017/11/21/0013/" rel="prev" title="MVVM、面向协议： MoSplash 的新尝试">
+                MVVM、面向协议： MoSplash 的新尝试 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.gif"
+               alt="ChanJH" />
+          <p class="site-author-name" itemprop="name">ChanJH</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">16</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              <a href="/tags/index.html">
+                <span class="site-state-item-count">13</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+          <div class="feed-link motion-element">
+            <a href="/atom.xml" rel="alternate">
+              <i class="fa fa-rss"></i>
+              RSS
+            </a>
+          </div>
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#0x00-JSON-转字典那点事儿"><span class="nav-number">1.</span> <span class="nav-text">0x00 JSON 转字典那点事儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x01-字典到-Model-发生了什么事儿"><span class="nav-number">2.</span> <span class="nav-text">0x01 字典到 Model 发生了什么事儿</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#常规的字典转-Model"><span class="nav-number">2.1.</span> <span class="nav-text">常规的字典转 Model</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#常见的字典转-Model-方法"><span class="nav-number">2.2.</span> <span class="nav-text">常见的字典转 Model 方法</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x02-Model-的保存这件事儿"><span class="nav-number">3.</span> <span class="nav-text">0x02 Model 的保存这件事儿</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#0x03-数据层的设计探讨"><span class="nav-number">4.</span> <span class="nav-text">0x03 数据层的设计探讨</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#从-UIKit-寻找数据层的设计"><span class="nav-number">4.1.</span> <span class="nav-text">从 UIKit 寻找数据层的设计</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#结语"><span class="nav-number">5.</span> <span class="nav-text">结语</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">ChanJH</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Muse
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
