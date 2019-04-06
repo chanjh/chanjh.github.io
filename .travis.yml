@@ -16,6 +16,7 @@ after_script:
 script:
     - hexo clean # 清除
     - hexo g # 生成
+    - hexo d # 发布
 branches:
     only:
         - hexo # 只监测hexo分支
