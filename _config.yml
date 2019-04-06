@@ -70,5 +70,5 @@ theme: next
 deploy:
   type: git
   # repo: git@github.com:chanjh/chanjh.github.io
-  repo: https://gh_token@github.com/chanjh/chanjh.github.io.git
+  repo: https://github.com/chanjh/chanjh.github.io.git
   branch: master
