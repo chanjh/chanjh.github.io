@@ -1,3 +1,22 @@
+#!/bin/bash
+set -ev
+
+# get clone master
+git clone https://${GH_REF} .deploy_git
+cd .deploy_git
+git checkout master
+
+cd ../
+mv .deploy_git/.git/ ./public/
+
+cd ./public
+
+git config user.name "Gill Chan"
+git config user.email "jiahao0408@gmail.com"
+
+# add commit timestamp
+git add .
+git commit -m "Travis CI Auto Update at `date +"%Y-%m-%d %H:%M"`"
 env:
   global:
     secure: RNxBjkgXVW98hPx7CTH08J0ssseMZHU1pBN3sN0tk6cZNJIGqCqAz6Kr8ryVdiKlPjh1JLK/CtjRgYJC+cag+2SH8C+7E+QRURJfwETLzoCyStjDyLGHtZ4vHTtDQdfoJmfoOEVsL7MTWztWIfim9isLwEDRAGHC3Deps0M32I04anz/ks8umhPDgUBmDCoTrYQKI2utdVodXGaZ9zCdxEkdqvlnodkepqdvwmMYFs24i8H+Qrpg7ccvkcYq/x+C6LeXPRcT+6C+Rb2TsIuJ96LJu/LApEKMqxRMvGMkADCEG7/g7xbwcu0bEzFTeWzyEbW+uo7bDturaGGI8d4zQ3FAdki0R39Th/oRJfMQXuDSonocIluhrNHPIum+7An5NtyMo5rxhXHXR2HwOWQsbRepX0hVsdrjc6z1Jbswb/PeKKTwVUQ9Ty5ZeGTv3moxZJ3tS0bpzS8VVEmrrtLajfIl/JQiF6QResglgm8+wjIUnkfQ/1cP4Qe+oraJj5Z4yZaxRv00NQEMUUG5XZKILGeR+98kRhrqvQSzoJaEn/uWXEBVkoVxHQ8+eSlFSPKGgGQPZUAa4P8J/0BdUmo02yR3REapxTpq9IahA9gazPOPt3VUIGPMl8Oc33/MU6ilvsH0Gatn0pcpdtflzEZ1LXtOvUKLXR+n99Z716HfiVI=
