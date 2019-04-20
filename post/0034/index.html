@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" >
+
+<title>我做的一些 Workflow | ChanJH</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555764142760">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
+
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+
+      <div class="sidebar" :class="{ 'full-height': menuVisible }">
+  <div class="top-container" data-aos="fade-right">
+    <div class="top-header-container">
+      <a class="site-title-container" href="https://chanjh.github.io">
+        <img src="https://chanjh.github.io/images/avatar.png?v=1555764142760" class="site-logo">
+        <h1 class="site-title">ChanJH</h1>
+      </a>
+      <div class="menu-btn" @click="menuVisible = !menuVisible">
+        <div class="line"></div>
+      </div>
+    </div>
+    <div>
+      
+        
+          <a href="/" class="site-nav">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="site-nav">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="site-nav">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="site-nav">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
+    <div class="social-container">
+      
+        
+      
+        
+      
+        
+      
+        
+      
+        
+      
+    </div>
+    <div class="site-description">
+      相信有趣的力量
+    </div>
+    <div class="site-footer">
+      
+    </div>
+  </div>
+</div>
+
+
+      <div class="main-container">
+        <div class="content-container" data-aos="fade-up">
+          <div class="post-detail">
+            <h2 class="post-title">我做的一些 Workflow</h2>
+            <div class="post-date">2018-03-09</div>
+            
+            <div class="post-content">
+              <p>Workflow 是 iOS 平台上一款明星应用。Workflow 使用了「模块化编程」的思想，我们在 Workflow 里可以快捷、模块化地将一个工作流固定下来。比如你先复制了内容，然后替换了里面的文字，再把文字发送出去或者保存到日历。我在「<a href="https://zhuanlan.zhihu.com/p/26145402">加上这些干货，让 Workflow 如虎添翼</a>」里介绍了一些 Workflow 周边的工具。</p>
+<p>这篇文章将介绍一些我个人做并且常用的 Workflow，可供大家参考使用。</p>
+<!-- more -->
+<p><img src="http://chanjh.b0.upaiyun.com/0034/%E6%88%91%E5%81%9A%E7%9A%84%E4%B8%80%E4%BA%9B%20Workflow.png" alt=""></p>
+<h2 id="支付助手">支付助手</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/b3c8a050a1664550abc0a02edb21bde9">支付助手</a></p>
+<p>在中国互联网两大巨头——支付宝、微信的推动下，我们进入了「移动支付」的时代。到处可见的微信支付或者支付宝钱包，加上逢年过节的各类褥羊毛活动，现在我们已经离不开移动支付。</p>
+<p>支付助手可以在 Workflow 中选择适合的支付方式，道理也很简单，就是使用了对应支付方式的 URL Scheme。</p>
+<p>我还写了支付助手的 JSBox 版本，下载链接：<a href="https://xteko.com/redir?url=https://raw.githubusercontent.com/cyanzhong/xTeko/master/extension-scripts/pay-helper.js&amp;icon=141">pay-helper</a></p>
+<p>不过由于微信付款码并没有对应的 URL Scheme，现在还没办法直接打开。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0034/%E6%94%AF%E4%BB%98%E5%8A%A9%E6%89%8B.png" alt=""></p>
+<h2 id="成功日记">成功日记</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/248267e6e0cd414ea49e250b59f1f903">成功日记</a></p>
+<p>成功日记的灵感来自于《小狗钱钱》这本书。书中一只名叫「钱钱」的小狗教会了一个小女孩关于理财的道理。他让小女孩记录每天做的成功的事情，在小女孩遇到问题的时候，他又鼓励女孩翻开成功日记，激励自己。</p>
+<p>使用成功日记 Workflow 时，你可以选择本次输入的条目数，接着分别输入内容，运行后可以保存到 Bear 中。</p>
+<p>如果你不是使用 Bear，你可以将服务更换为适合你的。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0034/%E6%88%90%E5%8A%9F%E6%97%A5%E8%AE%B0.png" alt=""></p>
+<h2 id="截图管理">截图管理</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/da1fc0bf76f7401c95d959eaf59c31fe">Edit or Del</a></p>
+<p>手机已经是我们生活的一部分，而即时通讯和社交占领了我们终端使用的绝大多数时间。在浏览信息、发现有趣的事情过程中，截图分享也成为我们的日常操作。</p>
+<p>很多时候，截图之后需要进行一定的裁剪和标注。另外，截图分享之后一般不再有保存的需求。在 iOS 11 出来之前，iOS 上根本没有所谓的截图管理。在 Android，截图后会出现一条通知，你可以在通知栏中对最截图进行删除等操作。</p>
+<p>本 Workflow 灵感就是来自 Android 上的操作，你可以对相册中最新的一张图片选择要删除还是编辑操作，即时处理每一张截图。</p>
+<p>在 iOS 11 之后，本 Workflow 在实用性已经下降。不过在操作快捷性和编辑工具自由度选择上，Workflow 还是更加好些。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0034/%E6%88%AA%E5%9B%BE%E7%AE%A1%E7%90%86.png" alt=""></p>
+<h2 id="open-in-mac">Open in Mac</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/fee1454f2d8b43ac8e645440387dae28">Open in Mac</a></p>
+<p>这其实是之前的文章「<a href="https://zhuanlan.zhihu.com/p/22215312">将文章发送到 Mac 上稍后读</a>」中的 Workflow。</p>
+<p>我们可能会遇到这样的场景：阅读的文章可能有大文件或者长视频，需要打开电脑来阅读，不过 Mac 并不在身边，不能 Handoff 过去。这时候只能先拷贝链接，在提醒事项添加任务，然后指定你回到 Mac 身边的时候，提醒自己打开。</p>
+<p>这样子可以解决问题但不够自动化，这个 Workflow 就是借助 Dropbox 和 Hazel，来完成分享到 Mac，稍后打开 Mac 时自动打开。</p>
+<p>如果 Dropbox 有时候同步不及时，也许你可以再看看这篇文章：<a href="https://zhuanlan.zhihu.com/p/25049770">利用 Launchd 定制 Mac 启动任务</a></p>
+<p><img src="http://chanjh.b0.upaiyun.com/0034/Open%20in%20Mac.png" alt=""></p>
+<h2 id="最后">最后</h2>
+<p>Workflow 是一款功能强大，使用简单的应用。如果你有更多有趣的 Workflow，欢迎到评论区内分享～</p>
+
+            </div>
+            
+              <div class="tag-container">
+                
+                  <a href="https://chanjh.github.io/tag/ios" class="tag">
+                    iOS
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/zi-dong-hua" class="tag">
+                    自动化
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/workflow" class="tag">
+                    workflow
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/app" class="tag">
+                    app
+                  </a>
+                
+              </div>
+            
+            
+
+            
+
+          </div>
+
+        </div>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+
+<script type="application/javascript">
+
+AOS.init();
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>
