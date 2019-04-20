@@ -1,110 +1,85 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>利用 Launchd 定制 Mac 启动任务 | Gill Blog</title>
-<meta name="description" content="相信有趣的力量">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766053570">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://chanjh.github.io">
-        <img src="https://chanjh.github.io/images/avatar.png?v=1555766053570" class="site-logo">
-        <h1 class="site-title">Gill Blog</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://chanjh.github.io">
+  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
+  </a>
+  <h1 class="site-title">
+    Gill Blog
+  </h1>
+  <p class="site-description">
+    相信有趣的力量
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
-          <a class="social-link" href="https://github.com/chanjh" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
+    
       
-        
+    
       
-        
-          <a class="social-link" href="http://weibo.com/bj416" target="_blank">
-            <i class="fab fa-weibo"></i>
-          </a>
-        
+    
       
-        
-          <a class="social-link" href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
-            <i class="fab fa-zhihu"></i>
-          </a>
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      相信有趣的力量
-    </div>
-    <div class="site-footer">
-      
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">利用 Launchd 定制 Mac 启动任务</h2>
-            <div class="post-date">2017-01-30</div>
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              利用 Launchd 定制 Mac 启动任务
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2017-01-30 ·
+              </time>
+              
+            </div>
             
             <div class="post-content">
               <p>设置 Mac 的开机启动任务并不麻烦，搜索一下就能找到很多方法。但是如果是给 Mac 添加「唤醒」启动任务，似乎答案就会少了很多。这里的「唤醒」和「开机」是两个分开的事情，「开机」就是让 Mac 进入系统的过程，「唤醒」则是将已经启动的系统恢复的过程，我把他们统称为「Mac 启动」 。</p>
@@ -199,45 +174,31 @@ open  /Applications/Dropbox.app # 打开 Dropbox
 <p><img src="http://chanjh.b0.upaiyun.com/0025/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-30%2021.40.59.png" alt=""></p>
 
             </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://chanjh.github.io/post/0024">
-                  <h3 class="post-title">
-                    程序员应该写怎样的博客
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
-      </div>
-    </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://chanjh.github.io/post/0024">
+              <h3 class="post-title">
+                程序员应该写怎样的博客
+              </h3>
+            </a>
+          </div>  
+        
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        
+    
+        <div class="site-footer">
+  
+</div>
 
-<script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+<script>
+  hljs.initHighlightingOnLoad()
 </script>
 
-
-
-
+      </div>
+    </div>
   </body>
 </html>

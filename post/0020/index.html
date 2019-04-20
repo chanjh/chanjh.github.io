@@ -1,110 +1,101 @@
-<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" >
-
+    <meta charset="utf-8" />
+<meta name="description" content="" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>iOS 10 PB 初体验——也许你该升级设备了 | Gill Blog</title>
-<meta name="description" content="相信有趣的力量">
-
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
-
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766053570">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
-
-
-<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-
-<link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-
+<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
 
 
   </head>
   <body>
-    <div id="app" class="main">
-
-      <div class="sidebar" :class="{ 'full-height': menuVisible }">
-  <div class="top-container" data-aos="fade-right">
-    <div class="top-header-container">
-      <a class="site-title-container" href="https://chanjh.github.io">
-        <img src="https://chanjh.github.io/images/avatar.png?v=1555766053570" class="site-logo">
-        <h1 class="site-title">Gill Blog</h1>
-      </a>
-      <div class="menu-btn" @click="menuVisible = !menuVisible">
-        <div class="line"></div>
-      </div>
-    </div>
-    <div>
+    <div class="main">
+      <div class="main-content">
+        <div class="site-header">
+  <a href="https://chanjh.github.io">
+  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
+  </a>
+  <h1 class="site-title">
+    Gill Blog
+  </h1>
+  <p class="site-description">
+    相信有趣的力量
+  </p>
+  <div class="menu-container">
+    
       
-        
-          <a href="/" class="site-nav">
-            首页
-          </a>
-        
+        <a href="/" class="menu">
+          首页
+        </a>
       
-        
-          <a href="/archives" class="site-nav">
-            归档
-          </a>
-        
+    
       
-        
-          <a href="/tags" class="site-nav">
-            标签
-          </a>
-        
+        <a href="/archives" class="menu">
+          归档
+        </a>
       
-        
-          <a href="/post/about" class="site-nav">
-            关于
-          </a>
-        
+    
       
-    </div>
+        <a href="/tags" class="menu">
+          标签
+        </a>
+      
+    
+      
+        <a href="/post/about" class="menu">
+          关于
+        </a>
+      
+    
   </div>
-  <div class="bottom-container" data-aos="flip-up" data-aos-offset="0">
-    <div class="social-container">
+  <div class="social-container">
+    
       
-        
-          <a class="social-link" href="https://github.com/chanjh" target="_blank">
-            <i class="fab fa-github"></i>
-          </a>
-        
+    
       
-        
+    
       
-        
-          <a class="social-link" href="http://weibo.com/bj416" target="_blank">
-            <i class="fab fa-weibo"></i>
-          </a>
-        
+    
       
-        
-          <a class="social-link" href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
-            <i class="fab fa-zhihu"></i>
-          </a>
-        
+    
       
-        
-      
-    </div>
-    <div class="site-description">
-      相信有趣的力量
-    </div>
-    <div class="site-footer">
-      
-    </div>
+    
   </div>
 </div>
 
-
-      <div class="main-container">
-        <div class="content-container" data-aos="fade-up">
-          <div class="post-detail">
-            <h2 class="post-title">iOS 10 PB 初体验——也许你该升级设备了</h2>
-            <div class="post-date">2016-07-09</div>
+      
+        <div class="post-detail">
+          <article class="post">
+            <h2 class="post-title">
+              iOS 10 PB 初体验——也许你该升级设备了
+            </h2>
+            <div class="post-info">
+              <time class="post-time">
+                · 2016-07-09 ·
+              </time>
+              
+                <a href="https://chanjh.github.io/tag/apple" class="post-tags">
+                  # Apple
+                </a>
+              
+                <a href="https://chanjh.github.io/tag/ti-yan" class="post-tags">
+                  # 体验
+                </a>
+              
+                <a href="https://chanjh.github.io/tag/iphone" class="post-tags">
+                  # iPhone
+                </a>
+              
+                <a href="https://chanjh.github.io/tag/ios" class="post-tags">
+                  # iOS
+                </a>
+              
+            </div>
             
             <div class="post-content">
               <p>苹果在今年 WWDC 上发布了新一代 iOS，作为 iOS 的第十个大版本的升级，iOS 带来了很多新的设计和特性。昨天凌晨 iOS 10 推出第一个公测版本，相对一开始的 Beta 1 版，Public Beta 版在稳定性上有了一些提高并修复了一些细节的问题。</p>
@@ -161,65 +152,31 @@ Apple Music 的 All New Design 我就不想多做评价了，但是各种细节�
 </ul>
 
             </div>
-            
-              <div class="tag-container">
-                
-                  <a href="https://chanjh.github.io/tag/apple" class="tag">
-                    Apple
-                  </a>
-                
-                  <a href="https://chanjh.github.io/tag/ti-yan" class="tag">
-                    体验
-                  </a>
-                
-                  <a href="https://chanjh.github.io/tag/iphone" class="tag">
-                    iPhone
-                  </a>
-                
-                  <a href="https://chanjh.github.io/tag/ios" class="tag">
-                    iOS
-                  </a>
-                
-              </div>
-            
-            
-              <div class="next-post">
-                <div class="next">下一篇</div>
-                <a href="https://chanjh.github.io/post/0019">
-                  <h3 class="post-title">
-                    我所理解的日记类 App —— 写给 DayOne2 for Mac &amp; iOS
-                  </h3>
-                </a>
-              </div>
-            
-
-            
-
-          </div>
-
+          </article>
         </div>
-      </div>
-    </div>
+    
+        
+          <div class="next-post">
+            <div class="next">下一篇</div>
+            <a href="https://chanjh.github.io/post/0019">
+              <h3 class="post-title">
+                我所理解的日记类 App —— 写给 DayOne2 for Mac &amp; iOS
+              </h3>
+            </a>
+          </div>  
+        
 
-    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+        
+    
+        <div class="site-footer">
+  
+</div>
 
-<script type="application/javascript">
-
-AOS.init();
-
-hljs.initHighlightingOnLoad()
-
-var app = new Vue({
-  el: '#app',
-  data: {
-    menuVisible: false,
-  },
-})
-
+<script>
+  hljs.initHighlightingOnLoad()
 </script>
 
-
-
-
+      </div>
+    </div>
   </body>
 </html>
