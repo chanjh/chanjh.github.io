@@ -1,92 +1,101 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>3D Touch 注定只能是个辅佐功能 | Gill Blog</title>
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766379201">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://chanjh.github.io">
-  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
-  </a>
-  <h1 class="site-title">
-    Gill Blog
-  </h1>
-  <p class="site-description">
-    相信有趣的力量
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766379201" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              3D Touch 注定只能是个辅佐功能
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2015-09-30 ·
-              </time>
-              
-                <a href="https://chanjh.github.io/tag/iphone" class="post-tags">
-                  # iPhone
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">3D Touch 注定只能是个辅佐功能</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2015-09-30</span>
             
-            <div class="post-content">
-              <blockquote>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/iphone">
+                    iPhone
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <blockquote>
 <p>本文同时发布于 Zelaer＋ 论坛并被添加于 Zealer+ 首页。http://plus.zealer.com/post/3331</p>
 </blockquote>
 <p>苹果在今年九月发布了新一代智能手机—— iPhone 6s 和 6s Plus。跟以往加了「s」的 iPhone 一样，6s 在外观等层面上并没有给我们带来多大的更新，然而作为智能手机领域的标杆，她的每一代更新还是得到了许多人的关注。而在 iPhone 6s 上最吸引人注意的，应该是带来的一个新的交互方式—— 3D Touch。</p>
@@ -116,32 +125,57 @@
 <p>3D Touch 还有很长的路要走，至少目前来说，苹果还只是用在非刚需的功能，无论是预览、打开还是切换任务，3D Touch 只是在以往的功能中提供了一个新的操作渠道。未来 3D Touch 会不会成为所有终端的标配，成为最为重要的交互方式，我们还要时间才能被知道。</p>
 <p>虽然 3D Touch 还不足以颠覆世界，它给来的想象的空间以及工艺的进步，必定会成为 iPhone 历史中值得标注的存在。未来，是不是属于3D Touch 的，我们拭目以待。</p>
 
-            </div>
-          </article>
+          </div>
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://chanjh.github.io/post/0000">
-              <h3 class="post-title">
-                先于时代还是慢于时代？——Smartisan OS 2.0轻体验
-              </h3>
-            </a>
-          </div>  
-        
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0000">
+              <h3 class="post-title">
+                下一篇：先于时代还是慢于时代？——Smartisan OS 2.0轻体验
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
     
-        <div class="site-footer">
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
   
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>

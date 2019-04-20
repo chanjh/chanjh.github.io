@@ -1,96 +1,108 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>在 Mac 上使用 PhpStorm 部署你的代码 | Gill Blog</title>
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766379201">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://chanjh.github.io">
-  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
-  </a>
-  <h1 class="site-title">
-    Gill Blog
-  </h1>
-  <p class="site-description">
-    相信有趣的力量
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766379201" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              在 Mac 上使用 PhpStorm 部署你的代码
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2015-12-24 ·
-              </time>
-              
-                <a href="https://chanjh.github.io/tag/mac" class="post-tags">
-                  # Mac
-                </a>
-              
-                <a href="https://chanjh.github.io/tag/jiao-cheng" class="post-tags">
-                  # 教程
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">在 Mac 上使用 PhpStorm 部署你的代码</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2015-12-24</span>
             
-            <div class="post-content">
-              <p>对现在很多程序员来说，代码都会存放在云服务器或者像 Github 等代码托管平台上。目前来说，我做的项目的代码主要存放在新浪云应用 SAE 上，很长一段时间内我对搭载本地开发环境并不熟悉，代码往往在本地编写，再复制粘贴或者打包上传到服务器上，显然这样的方法很重复低效。今天我来讲讲我使用 SVN 部署我的代码的过程，也算是一个教程了吧。</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/mac">
+                    Mac
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/jiao-cheng">
+                    教程
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>对现在很多程序员来说，代码都会存放在云服务器或者像 Github 等代码托管平台上。目前来说，我做的项目的代码主要存放在新浪云应用 SAE 上，很长一段时间内我对搭载本地开发环境并不熟悉，代码往往在本地编写，再复制粘贴或者打包上传到服务器上，显然这样的方法很重复低效。今天我来讲讲我使用 SVN 部署我的代码的过程，也算是一个教程了吧。</p>
 <!-- more -->
 <p><img src="http://chanjh.b0.upaiyun.com/Use_PhpStorm/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202015-12-24%20%E4%B8%8B%E5%8D%889.01.52%E5%89%AF%E6%9C%AC.jpg" alt=""></p>
 <p>这篇文章以 Mac 平台为例，在 Windows 下也是相似的。部署同步的新浪云应用 SAE 的代码，SAE 提供了 SVN、Git 和打包上传三种方式同步代码，详情可以查看 SAE 的文档 -&gt; <a href="http://www.sinacloud.com/doc/sae/tutorial/code-deploy.html#svn">传送门</a></p>
@@ -158,32 +170,57 @@
 <p>▲管理你的代码版本</p>
 <p>OK，这样一来你就完成了本地的 PhpStorm 的配置，现在你可以管理你的代码啦。</p>
 
-            </div>
-          </article>
+          </div>
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://chanjh.github.io/post/0008">
-              <h3 class="post-title">
-                观点 | 小米为何进军笔记本市场？
-              </h3>
-            </a>
-          </div>  
-        
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0008">
+              <h3 class="post-title">
+                下一篇：观点 | 小米为何进军笔记本市场？
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
     
-        <div class="site-footer">
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
   
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>

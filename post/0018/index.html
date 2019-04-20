@@ -1,100 +1,115 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>解决多设备的烦恼|极简生活指南 | Gill Blog</title>
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766379201">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://chanjh.github.io">
-  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
-  </a>
-  <h1 class="site-title">
-    Gill Blog
-  </h1>
-  <p class="site-description">
-    相信有趣的力量
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766379201" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              解决多设备的烦恼|极简生活指南
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2016-05-19 ·
-              </time>
-              
-                <a href="https://chanjh.github.io/tag/ti-yan" class="post-tags">
-                  # 体验
-                </a>
-              
-                <a href="https://chanjh.github.io/tag/ios" class="post-tags">
-                  # iOS
-                </a>
-              
-                <a href="https://chanjh.github.io/tag/mac" class="post-tags">
-                  # Mac
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">解决多设备的烦恼|极简生活指南</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2016-05-19</span>
             
-            <div class="post-content">
-              <p>如今我们的生活，已经离不开身边众多的电子设备。我们也花了很多时间在这些设备和其中的软件体验上。生活本该是简单，不该被这些设备所束缚。今天我想来谈谈我关于多设备同步的（伪）极简生活指南。</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/ti-yan">
+                    体验
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/ios">
+                    iOS
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/mac">
+                    Mac
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>如今我们的生活，已经离不开身边众多的电子设备。我们也花了很多时间在这些设备和其中的软件体验上。生活本该是简单，不该被这些设备所束缚。今天我想来谈谈我关于多设备同步的（伪）极简生活指南。</p>
 <!-- more -->
 <p>极简的生活在我的世界中就是 <strong>尽量的减少不必要的操作</strong> 。忘记在设备使用上的隔阂，使体验更加和谐。</p>
 <p><img src="http://chanjh.b0.upaiyun.com/0018/Cover.jpg" alt="Cover"></p>
@@ -119,32 +134,57 @@
 <h1 id="结语">结语</h1>
 <p>当你认真思考数字生活和人自身的关系的时候，你就发现其实可以通过更多的工具使得自己拥有更加出色的体验。尽管 iPhone 很优秀，Mac 也很棒，但是如果不懂得使用它们，那就和其他任何的设备没有差别。如果你也有一些极简的生活体验，欢迎你在评论区里面和大家分享。</p>
 
-            </div>
-          </article>
+          </div>
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://chanjh.github.io/post/0017">
-              <h3 class="post-title">
-                当我沉浸工作时候，我选择听什么音乐
-              </h3>
-            </a>
-          </div>  
-        
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0017">
+              <h3 class="post-title">
+                下一篇：当我沉浸工作时候，我选择听什么音乐
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
     
-        <div class="site-footer">
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
   
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>

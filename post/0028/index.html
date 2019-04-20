@@ -1,88 +1,91 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>加上这些干货，让 Workflow 如虎添翼 | Gill Blog</title>
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766379201">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://chanjh.github.io">
-  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
-  </a>
-  <h1 class="site-title">
-    Gill Blog
-  </h1>
-  <p class="site-description">
-    相信有趣的力量
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766379201" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              加上这些干货，让 Workflow 如虎添翼
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2017-03-28 ·
-              </time>
-              
-            </div>
+          
+          <h2 class="post-title">加上这些干货，让 Workflow 如虎添翼</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2017-03-28</span>
             
-            <div class="post-content">
-              <p>最近关注 iOS 的同学应该都知道一件消息，被大家视为 iOS 上的一款效率神器——Workflow 被苹果公司收购了。Workflow 由四位开发者在 2014 年（当时他们还只是三个人，都还是高中生）开发出来的基于模块化编程、实现工作流自动的效率工具，在 2015 年获得了苹果的 Design Awards，一时间令人瞩目。</p>
+          </div>
+          <div class="post-content">
+            <p>最近关注 iOS 的同学应该都知道一件消息，被大家视为 iOS 上的一款效率神器——Workflow 被苹果公司收购了。Workflow 由四位开发者在 2014 年（当时他们还只是三个人，都还是高中生）开发出来的基于模块化编程、实现工作流自动的效率工具，在 2015 年获得了苹果的 Design Awards，一时间令人瞩目。</p>
 <!-- more -->
 <p>收购消息被放出来当天，Workflow 成为了微博还有各个玩机的社交圈最火的话题。各个媒体资讯有介绍什么是 Workflow 的扫盲贴，有分享大家做好的 Workflow 的干货贴。而且，这两个问题好像受到挺多网站的青睐，借此来介绍 Workflow。但我觉得很多数人看过这两点之后大脑中还是一片迷茫，对 Workflow 并没有一个更广的认识。这篇文章就是从广面上来介绍一些干货，让你更好的使用 Workflow 这款效率神器。</p>
 <p><strong>使用 Workflow 不一定需要这些干货，但是认识这些干货可以把 Workflow 使用的更加得心应手。</strong></p>
@@ -120,32 +123,57 @@
 <p>Workflow 已经在功能的实现帮我们降低了成本，但是 Workflow 其实是一个「自身不带功能的软件」（这句话也是来自 Hum）。Workflow 的功能应该由使用者来决定，而不是开发者。所以，<strong>Workflow 其实跟编程语言一样，需要被学习，而且跟编程一样，Workflow 也不会定义使用的功能。</strong> 如果你不想主动去尝试，那么再多攻略也没有用。</p>
 <p>如果你有更多学习、使用 Workflow 的技巧，欢迎你补充、分享。</p>
 
-            </div>
-          </article>
+          </div>
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://chanjh.github.io/post/0027">
-              <h3 class="post-title">
-                我开始写技术博客了，还做了些其他事情
-              </h3>
-            </a>
-          </div>  
-        
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0027">
+              <h3 class="post-title">
+                下一篇：我开始写技术博客了，还做了些其他事情
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
     
-        <div class="site-footer">
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
   
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>

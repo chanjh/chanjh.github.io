@@ -1,96 +1,108 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>SAE 指北|使用 Git 代码仓库管理 | Gill Blog</title>
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766379201">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://chanjh.github.io">
-  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
-  </a>
-  <h1 class="site-title">
-    Gill Blog
-  </h1>
-  <p class="site-description">
-    相信有趣的力量
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766379201" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              SAE 指北|使用 Git 代码仓库管理
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2016-02-29 ·
-              </time>
-              
-                <a href="https://chanjh.github.io/tag/kai-fa-zhe" class="post-tags">
-                  # 开发者
-                </a>
-              
-                <a href="https://chanjh.github.io/tag/jiao-cheng" class="post-tags">
-                  # 教程
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">SAE 指北|使用 Git 代码仓库管理</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2016-02-29</span>
             
-            <div class="post-content">
-              <p>SAE 云应用在使用上有一个很好的优点就是不像操作虚拟主机一样需要很多知识去操作，能够快速的搭建 Web 应用。已经搭载好的开发环境、容易上手的代码管理、便宜的价格让它成为入门级的首选之一。然而随着 SAE 的发展，云应用也做了一些调整。前两天发现在云应用上创建新的应用之后已经不支持默认的代码管理，只支持 Git 和 SVN 代码仓库（只能二选一，且选择之后无法更换）。上次已经教过<a href="http://chanjh.com/post/developer/0009" title="在 Mac 上使用 PhpStorm 部署你的代码">在 Mac 上使用 PhpStorm 部署你的代码 </a> ，今天我带来直接使用命令行,使用 Git 来管理 SAE 的代码。</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/kai-fa-zhe">
+                    开发者
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/jiao-cheng">
+                    教程
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>SAE 云应用在使用上有一个很好的优点就是不像操作虚拟主机一样需要很多知识去操作，能够快速的搭建 Web 应用。已经搭载好的开发环境、容易上手的代码管理、便宜的价格让它成为入门级的首选之一。然而随着 SAE 的发展，云应用也做了一些调整。前两天发现在云应用上创建新的应用之后已经不支持默认的代码管理，只支持 Git 和 SVN 代码仓库（只能二选一，且选择之后无法更换）。上次已经教过<a href="http://chanjh.com/post/developer/0009" title="在 Mac 上使用 PhpStorm 部署你的代码">在 Mac 上使用 PhpStorm 部署你的代码 </a> ，今天我带来直接使用命令行,使用 Git 来管理 SAE 的代码。</p>
 <!-- more -->
 <h3 id="0什么是-git">0.什么是 Git</h3>
 <p>关于 Git 我看了一篇文章的讲解我觉得非常好：<a href="https://github.com/progit/progit/blob/master/zh/01-introduction/01-chapter1.markdown">About Git</a>。这里就不重复造轮子了，只讲解 SAE 和 Git 的简单运用。</p>
@@ -127,32 +139,57 @@ git push
 <a href="http://gitref.org/zh/creating/">Git 参考手册</a>
 <a href="http://rogerdudler.github.io/git-guide/index.zh.html">Git 简明指南</a></p>
 
-            </div>
-          </article>
+          </div>
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://chanjh.github.io/post/0013">
-              <h3 class="post-title">
-                剪贴板工具 Paste 2 Beta 版抢先体验（附送邀请码）
-              </h3>
-            </a>
-          </div>  
-        
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0013">
+              <h3 class="post-title">
+                下一篇：剪贴板工具 Paste 2 Beta 版抢先体验（附送邀请码）
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
     
-        <div class="site-footer">
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
   
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>

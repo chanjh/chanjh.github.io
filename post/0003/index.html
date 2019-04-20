@@ -1,100 +1,115 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>简评 Apple Music for iOS &amp; Android | Gill Blog</title>
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766379201">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://chanjh.github.io">
-  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
-  </a>
-  <h1 class="site-title">
-    Gill Blog
-  </h1>
-  <p class="site-description">
-    相信有趣的力量
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766379201" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              简评 Apple Music for iOS &amp; Android
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2015-11-24 ·
-              </time>
-              
-                <a href="https://chanjh.github.io/tag/android" class="post-tags">
-                  # Android
-                </a>
-              
-                <a href="https://chanjh.github.io/tag/apple" class="post-tags">
-                  # Apple
-                </a>
-              
-                <a href="https://chanjh.github.io/tag/ios" class="post-tags">
-                  # iOS
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">简评 Apple Music for iOS &amp; Android</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2015-11-24</span>
             
-            <div class="post-content">
-              <blockquote>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/android">
+                    Android
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/apple">
+                    Apple
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/ios">
+                    iOS
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <blockquote>
 <p>今天看到一个优秀的博客平台 Farbox ，里面简洁的主题每一个看了都很喜欢，于是我手一抖，把之前自己主页的内容全部迁移了过来，但是还有一些（像 Rss 功能）还没做好，Rss 订阅暂时就没法实用了。等有时间了我再来跟大家呲一呲 Farbox 那些优秀之处。</p>
 </blockquote>
 <!-- more -->
@@ -257,32 +272,57 @@ UI 上，苹果取消在 iOS 上使用的底部 Tab 栏，取而代之的是侧�
 Apple Music for Android beta 版实在还存在稳定性等问题，加上苹果网络的缘故，使得 Apple Music 的体验十分一般。在现在优秀音乐播放器云集且已经相当成熟的国内市场上，苹果的音乐市场是否还有优势？是推荐算法是资源还是软硬件体验，让用户不得不选择 Apple Music？还是说，Apple Music 只会是一个平庸之作？</p>
 <p><img src="http://chanjh.b0.upaiyun.com/0003/9.pic%E5%89%AF%E6%9C%AC.jpg" alt=""></p>
 
-            </div>
-          </article>
+          </div>
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://chanjh.github.io/post/0002">
-              <h3 class="post-title">
-                谈谈非原厂屏幕那些事
-              </h3>
-            </a>
-          </div>  
-        
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0002">
+              <h3 class="post-title">
+                下一篇：谈谈非原厂屏幕那些事
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
     
-        <div class="site-footer">
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
   
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>

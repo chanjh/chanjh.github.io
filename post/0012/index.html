@@ -1,96 +1,108 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-    <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>Mac 下使用 Aria2 实现迅雷离线和百度云下载 | Gill Blog</title>
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766379201">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://chanjh.github.io">
-  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
-  </a>
-  <h1 class="site-title">
-    Gill Blog
-  </h1>
-  <p class="site-description">
-    相信有趣的力量
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
-  </div>
-  <div class="social-container">
-    
-      
-    
-      
-    
-      
-    
-      
-    
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766379201" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
 </div>
 
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
       
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
         <div class="post-detail">
-          <article class="post">
-            <h2 class="post-title">
-              Mac 下使用 Aria2 实现迅雷离线和百度云下载
-            </h2>
-            <div class="post-info">
-              <time class="post-time">
-                · 2016-02-01 ·
-              </time>
-              
-                <a href="https://chanjh.github.io/tag/mac" class="post-tags">
-                  # Mac
-                </a>
-              
-                <a href="https://chanjh.github.io/tag/jiao-cheng" class="post-tags">
-                  # 教程
-                </a>
-              
-            </div>
+          
+          <h2 class="post-title">Mac 下使用 Aria2 实现迅雷离线和百度云下载</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2016-02-01</span>
             
-            <div class="post-content">
-              <p>上一次在少数派上看到了一篇关于 Aria2 配置的文章（<a href="http://sspai.com/32167">Mac 上使用百度网盘很烦躁？花点时间配置 aria2 吧</a>），教程里主要是使用命令行的方式配置，很多人（包括我）看到命令行就退却了。今天我花点时间重新认识并配置了一下 Aria2，发现其实可以很简单，很小白。</p>
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/mac">
+                    Mac
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/jiao-cheng">
+                    教程
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>上一次在少数派上看到了一篇关于 Aria2 配置的文章（<a href="http://sspai.com/32167">Mac 上使用百度网盘很烦躁？花点时间配置 aria2 吧</a>），教程里主要是使用命令行的方式配置，很多人（包括我）看到命令行就退却了。今天我花点时间重新认识并配置了一下 Aria2，发现其实可以很简单，很小白。</p>
 <!-- more -->
 <p>Aria2 是什么？Aria2 本质是一个下载工具，支持多协议、多来源。对我来说，Aria2 就是一种几乎支持所有下载方式的工具。</p>
 <p>为什么要使用 Aria2 ？Aria2 本身运行时占用资源就低，而且一个做两个下载器能做的事情，再加上 Mac 上迅雷和百度云（QQ 旋风压根没有 Mac 版）体验差。Why not Aria2？</p>
@@ -143,32 +155,57 @@ referer 设置为：http://pan.baidu.com/disk/home
 点击 Mac 左上角的苹果 logo，进入系统偏好设置。点击左下倒数第二个的「用户与群组」，再点击上面的「登录项」。此时，在终端输入：<code>open /usr/local/aria2/bin/</code> 会弹出一个窗口，将里面的aria2c 文件拖入到刚刚的「登录项」窗口内，将它打勾。OK，这样就能正常的开机启动啦。</li>
 </ul>
 
-            </div>
-          </article>
+          </div>
         </div>
-    
-        
-          <div class="next-post">
-            <div class="next">下一篇</div>
-            <a href="https://chanjh.github.io/post/0010">
-              <h3 class="post-title">
-                分享几个免费的图片资源站
-              </h3>
-            </a>
-          </div>  
-        
 
         
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0010">
+              <h3 class="post-title">
+                下一篇：分享几个免费的图片资源站
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
     
-        <div class="site-footer">
+      
+    
+      
+    
+      
+    
+      
+    
+      
+    
+  </div>
   
 </div>
 
-<script>
-  hljs.initHighlightingOnLoad()
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>

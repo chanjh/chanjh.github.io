@@ -1,58 +1,137 @@
+
+<!DOCTYPE html>
 <html>
   <head>
-  <meta charset="utf-8" />
-<meta name="description" content="" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
+    
+<meta charset="utf-8" >
+
 <title>音乐 | Gill Blog</title>
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766228097">
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1555766379201">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
 <script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
-<script src="https://cdn.bootcss.com/moment.js/2.23.0/moment.min.js"></script>
+
 
 
   </head>
   <body>
-    <div class="main">
-      <div class="main-content">
-        <div class="site-header">
-  <a href="https://chanjh.github.io">
-  <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766228097" alt="">
-  </a>
-  <h1 class="site-title">
-    Gill Blog
-  </h1>
-  <p class="site-description">
-    相信有趣的力量
-  </p>
-  <div class="menu-container">
-    
-      
-        <a href="/" class="menu">
-          首页
-        </a>
-      
-    
-      
-        <a href="/archives" class="menu">
-          归档
-        </a>
-      
-    
-      
-        <a href="/tags" class="menu">
-          标签
-        </a>
-      
-    
-      
-        <a href="/post/about" class="menu">
-          关于
-        </a>
-      
-    
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1555766379201" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
   </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+
+        <div class="current-tag-container">
+          <h2 class="title">
+            <i class="icon icon-pricetags-outline"></i> 音乐
+          </h2> 
+        </div>
+
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0017">
+        <h2 class="post-title">当我沉浸工作时候，我选择听什么音乐</h2>
+      </a>
+      <div class="post-abstract">
+        <blockquote>
+<p>四月、五月，是一个学期的中间时段，也是大学中活动较多、较为忙碌的时刻。最近自己的事情很多，有了很多不同的体验。博客还是坚持至少两周一更，虽然量还是少，但希望坚持下来。最近事情多、杂，在适当的时候，我需要快速的安静下来，投入工作学习中，今天就来给大家推荐一下，我平时工作时候喜欢听的那些音乐吧。</p>
+</blockquote>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2016-04-15</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/yin-le">
+                音乐
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/li-qi">
+                利器
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+  
+</div>
+
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
   <div class="social-container">
     
       
@@ -66,58 +145,26 @@
       
     
   </div>
-</div>
-
-        <div class="current-tag-container">
-            <h2 class="title">
-                标签：#音乐
-            </h2> 
-        </div>
-        <div class="post-container">
-  
-    <article class="post">
-      <a href="https://chanjh.github.io/post/0017">
-        <h2 class="post-title">当我沉浸工作时候，我选择听什么音乐</h2>
-      </a>
-      <div class="post-info">
-        <time class="post-time">
-          · 2016-04-15 ·
-        </time>
-        
-          <a href="https://chanjh.github.io/tag/yin-le" class="post-tag">
-            # 音乐
-          </a>
-        
-          <a href="https://chanjh.github.io/tag/li-qi" class="post-tag">
-            # 利器
-          </a>
-        
-      </div>
-      
-      <div class="post-abstract">
-        <blockquote>
-<p>四月、五月，是一个学期的中间时段，也是大学中活动较多、较为忙碌的时刻。最近自己的事情很多，有了很多不同的体验。博客还是坚持至少两周一更，虽然量还是少，但希望坚持下来。最近事情多、杂，在适当的时候，我需要快速的安静下来，投入工作学习中，今天就来给大家推荐一下，我平时工作时候喜欢听的那些音乐吧。</p>
-</blockquote>
-
-      </di>
-    </article>
   
 </div>
 
-        <div class="pagination-container">
-  
-  
-</div>
 
-        <div class="site-footer">
-  
-</div>
+    </div>
+    <script type="application/javascript">
 
-<script>
-  hljs.initHighlightingOnLoad()
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
 </script>
 
-      </div>
-    </div>
+
+
+
   </body>
 </html>
