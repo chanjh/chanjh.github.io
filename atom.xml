@@ -1,0 +1,504 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://chanjh.github.io</id>
+    <title>Gill Blog</title>
+    <updated>2019-04-30T23:54:45.189Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <link rel="alternate" href="https://chanjh.github.io"/>
+    <link rel="self" href="https://chanjh.github.io/atom.xml"/>
+    <subtitle>相信有趣的力量</subtitle>
+    <logo>https://chanjh.github.io/images/avatar.png</logo>
+    <icon>https://chanjh.github.io/favicon.ico</icon>
+    <rights>All rights reserved 2019, Gill Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[踏入职场这一年]]></title>
+        <id>https://chanjh.github.io/post/0036</id>
+        <link href="https://chanjh.github.io/post/0036">
+        </link>
+        <updated>2019-04-20T14:34:19.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近开始收到工作室师弟春招的捷报，大家也开始奔赴自己心仪的公司。搜了一下自己的邮箱，距离我收到阿里的录取通知也已经超过一年。刚刚迈入职场的我，这一年经历了很多，也学习了很多。或许可以趁着这个机会，聊一聊职场这一年</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近开始收到工作室师弟春招的捷报，大家也开始奔赴自己心仪的公司。搜了一下自己的邮箱，距离我收到阿里的录取通知也已经超过一年。刚刚迈入职场的我，这一年经历了很多，也学习了很多。或许可以趁着这个机会，聊一聊职场这一年</p>
+<!-- more -->
+<p><img src="https://chanjh.github.io/post-images/1555771278206.png" alt=""></p>
+<h2 id="忐忑的面试">忐忑的面试</h2>
+<p>我在大三的寒假就已经开始准备我的面试了。寒假快结束的时候，我已经投出了我春招的第一份简历（没错，是投给阿里的）。大三下学期一开始，和工作室的小伙伴们一起开始「海投」简历，从第一梯队 BAT、第二梯队 TMD，到能叫出名字的大大小小公司，都投了一遍。甚至有些朋友在春招中间还去投了一些创业团队。</p>
+<p>基本上整个春招的月份就两种心理：紧张和兴奋。笔试很紧张、等待面试很紧张、等待结果很紧张。而每一次通过面试都会很兴奋。你会问为什么没有「难过」？因为基本上你不通过的面试，公司也不会通知你的，默默地就挂了。</p>
+<p>人生第一次正儿八经地制作一份简历，第一次认真地推荐自己、介绍自己。第一次面试根本就不相信「面试是互相选择的过程」，只希望面试的每一家公司都能要我，哪怕是很小一家公司。这是真实的心里话。因为我根本就不知道，有什么公司需要我？不知道我的能力能到达怎么样的公司。所以在春招的时候，我甚至连要不要离开广东，定居他处都没有想法。</p>
+<p>互联网公司的面试基本上都是线上完成的，给了我们很多选择的机会，足不出户就能面试东南西北的公司（当然，除了杭州网易……当时直接拒绝了）。在我们工作室，每年都会有很多人进入一线大厂。跟我同届的安卓组，整组都在春招时双杀 AT（最后都去腾讯了，阿里毕竟太远）。</p>
+<p>校招确实是进入大厂的好机会。大家都是一张白纸，只要你有一些实力和闪光点，就很容易发光发亮。不过话说回来，也可能是因为互联网公司都比较喜欢年轻劳动力吧，肯吃苦，「耐操」。</p>
+<p>在我春招双杀了 AT 之后，我决定给自己购买一台 Switch。如今它已经陪伴我一年了。说到这儿也感到挺讽刺的，因为找工作让我有「借口」购买了游戏机，也因为找工作让我开始没有时间沉浸在游戏的世界里。</p>
+<h2 id="职场新人">职场新人</h2>
+<p>于是去年大三下还没结束，我就只身一人飞到杭州，开始了在阿里实习的工作。</p>
+<p>「公司和学校是两个截然不同的地方」这种道理近乎废话，但是真的感受起来的时候自己都会有很多冲击感。好在阿里实际上是一个对刚毕业学生十分友好的公司，有着大企业的责任感、注重新同学的培训、友好的工程文档和内部论坛……阿里的导师制度、花名制度，让新同学可以更好的融入团体。</p>
+<p>进入阿里第一周，最大的感慨，是一个只有百多兆的执行文件，背后凝聚着多少工程师的智慧和时间。这真的是一个职场新人会有的震撼：以前你认为的程序，就是代码「Just works」而已，进入大公司之后的你，对工程对代码服务的业务，会有一个新的认识。</p>
+<p>你在校园里做的每件事情可以被称为学生的玩趣，但进入工作后，在公司做的每件事情都要负起你的责任。这个是进入工作后态度最大的转变。虽然公司给实习生很多犯错的机会（实习生犯错属于导师的责任），然而自己心里最多的想法，是怎么样才能跟上大家。</p>
+<h2 id="工作与生活">工作与生活</h2>
+<p>到了快年底的时候，我做了个决定：离开阿里，回广东。拿完阿里正式 offer 的我，对这份工作犹豫了很久，最多问自己的问题是，究竟要不要在杭州发展？考虑到家人的因素，最后选择回广东。现在在深圳字节跳动工作。</p>
+<p>互联网公司的 996 制度相信大家都很清楚和了解。阿里和头条也是被大家熟知的两家爱加班的公司。不过好在我的方向是客户端开发，不需要服务器部署、运维的工作，也不需要半夜相应线上问题。在两家公司我呆着的部门都没有很 996，反而习惯都比隔壁部门要早下班。</p>
+<p>工作和生活寻求平衡，对于刚进入社会的程序员来说是一个非常大的命题和挑战。是该让「工作即是生活」还是「生活和工作分离开」？我还想不明白，也还在寻求一个舒适的点，平衡自己。</p>
+<p>好在回广东之后，原来的朋友都还在附近，吐槽起来有着相似的话题，周末有空也可以和他们聚聚聊聊天。这就是生活吧。</p>
+<p>工作，我想过去一年我已经用时间换取了能力的证明。至于生活，却还在继续。</p>
+<p><img src="https://chanjh.github.io/post-images/1556101567995.JPG" alt=""></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[开始记账吧，它并没想象中那么难]]></title>
+        <id>https://chanjh.github.io/post/0035</id>
+        <link href="https://chanjh.github.io/post/0035">
+        </link>
+        <updated>2018-11-11T11:48:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>今天是一年一度的「双十一」剁手节，不知道你在今天或者双十一这段期间买了多少东西？我今年双十一（好像）比往年理性了很多，先是在预热的时候，买了副耳机；前两天看到支付宝的 App Store 充值九折活动，给 Apple ID 充了点余额；今天白天又买了一直想买的 <a href="https://wiz.money/">MoneyWiz 3</a> Premium —— 一个跨平台的记账工具。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>今天是一年一度的「双十一」剁手节，不知道你在今天或者双十一这段期间买了多少东西？我今年双十一（好像）比往年理性了很多，先是在预热的时候，买了副耳机；前两天看到支付宝的 App Store 充值九折活动，给 Apple ID 充了点余额；今天白天又买了一直想买的 <a href="https://wiz.money/">MoneyWiz 3</a> Premium —— 一个跨平台的记账工具。</p>
+<!-- more -->
+<h2 id="我的记账经历">我的记账经历</h2>
+<p>第一次接触记账应该是发生在和老友阿健的广州行。那一次我们突发奇想建立了旅行金库，用一个小本本记账，每天开销从金库里取出并记录。就这样过去了很多年，我依然记得这件事情。后来阿健也因此养成了记账的习惯。</p>
+<p>而我直到去年才开始认真记账。当时有几个原因驱使我这么做：一是被安利了 MoneyWiz 这款软件，二是我开始有稳定收入而且将步入社会，抱着试一试的心态开始了这件事情。</p>
+<p>过去一年我经历了一些财务上的转变。暑假时我找到了第一份实习工作，到了杭州阿里。于是我开始需要租房、缴纳水电、独立生活。去杭州之前我已经记了半年的账了，租房、买生活用品、工资收入等等都记录到我的账单里。现在回头看，还能切身体会到收入增加也会带来支出增加这个铁打的事实。</p>
+<h2 id="突破心理障碍">突破心理障碍</h2>
+<p>1.从简单工具入手</p>
+<p>开始记账的时候，都会有很多心理障碍。先是询问自己，记账有什么用，然后在一堆记账工具里迷失自己，最终放弃。我必须要说， 工具只是辅助，养成习惯才是第一要务：这也是一个良好的软件消费观念，不要「唯工具论」，先找到一两个免费的去上手，等你上手了才知道自己想要什么。</p>
+<p>所以请先克服第一关障碍：从简单的工具入手记账。</p>
+<p>2.记账会带来什么？</p>
+<p>小孩才讲意义，大人只在意利弊。记账究竟会带来什么？我谈谈我的几点见解。</p>
+<ul>
+<li>记账会给你带来收入吗？</li>
+</ul>
+<p>不好意思，不会。最快增加收入的方法「刑法」里都写着了，请出门左拐自取。</p>
+<ul>
+<li>记账会让你了解自己收支情况吗？</li>
+</ul>
+<p><img src="http://chanjh.b0.upaiyun.com/0035/Artboard%202.png" alt=""></p>
+<p>如果你没有真实地考察自己的收支账单。实际上你自己的财务的认识很模糊，「开销大概4k」这类的想法可能会蒙蔽了你的双眼。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0035/Artboard%203.png" alt="">
+这就是记账给你消费时候带来的「莫名自信感」，一种自我认知的提高。</p>
+<ul>
+<li>记账会刷新你对财务的认知</li>
+</ul>
+<p>当你开始在意「钱花到哪儿」时，你就会开始在意「财务」这件事情。通俗地讲，你就会开始在意这个世界「钱都到哪儿去」的事情。你会留意起「分期是不是免息」、你会自信地使用花呗、信用卡来「薅羊毛」。如果你有兴趣，还可以去了解一些理财的知识，帮助你「治理财政」，既知己又知彼。</p>
+<h2 id="记账带来了什么">记账带来了什么</h2>
+<p><img src="http://chanjh.b0.upaiyun.com/0035/Snipaste_2018-11-11_17-54-06.png" alt=""></p>
+<ul>
+<li>清晰的开支结构</li>
+</ul>
+<p>虽然支付宝和微信都有各自的记账功能，但是并不能统计完整的开支，也不能处理信用卡、外币结算、理财、借钱还钱等。</p>
+<ul>
+<li>自信、自觉的消费习惯</li>
+</ul>
+<p>记账让你了解到自己每个月的消费水平，也对一定的时间周期内的消费速度有了解。你会对抽象的「消费速度」有具象的「感知」。</p>
+<ul>
+<li>更高的自我认知</li>
+</ul>
+<p>步入大学之后，你开始拥有自己的零花钱或者工资。如果很幸运每个月能剩下一部分，而且你希望能合理使用他们，无论是买基金股票还是投资自己甚至是创业，有一份自己的「财务」报告，都会帮助你做出更好的决策。</p>
+<ul>
+<li>良好的理财习惯</li>
+</ul>
+<p>好的习惯不一定会带来直接的收益，但是好的习惯可以换来新的习惯和认知。理财就是我记账之外的收获。</p>
+<h2 id="记账和工具">记账和工具</h2>
+<p>就像开篇所说的，不要追求唯工具论。我第一次认识记账，就是用纸和笔完成的。虽然我使用并且推荐大家使用 MoneyWiz，但是如果你还没开始记账，或许你可以先试试其他免费的软件。我在使用 MoneyWiz 前就是用 DayOne+Workflow（捷径的前身）记了两个多月的账。</p>
+<p>记账并不需要「追求智能」。一些朋友听到我有记账习惯的时候，第一反应都是：不嫌麻烦么。嫌弃麻烦这种心理，就是习惯养成最大的障碍。如果你要养成一个新的习惯，请不要嫌弃麻烦。记录的过程是对消费和收入的重新思考。再说了，你每天每周的消费并不多，每周只需要花十来分钟，一次性地把账单记录下来就可以了。现在大家都用移动支付，记起历史账单也十分方便。不过如果你是现金消费，建议你及时地记录。</p>
+<h2 id="moneywiz">MoneyWiz</h2>
+<p><img src="http://chanjh.b0.upaiyun.com/0035/Snipaste_2018-11-11_17-47-03%E5%89%AF%E6%9C%AC.png" alt=""></p>
+<p>过去一年我用的 MoneyWiz 2，一次性买断，不是 Premium 因此不支持多设备同步。MoneyWiz 3 之后，App 免费下载，但会有广告、不支持同步。MoneyWiz2 国区价格 ¥30，没有广告、不支持同步，不会再更新。Premium 数码荔枝<a href="https://item.taobao.com/item.htm?spm=a1z10.1-c-s.w4004-20922750488.25.28055447Ywwr2F&amp;id=535822114102">双十一特价 ¥135</a>，没有广告、支持同步、支持网上银行，可以体验新的特性。MoneyWiz 3 也有更好看的 UI、支持跨账户账单…… MoneyWiz 购买建议可以看<a href="https://sspai.com/post/42477">这篇文章</a>。</p>
+<p>我会使用 MoneyWiz 将我的账户分为日常（支付宝、微信、现金、日常银行卡）、债权债务（借款、欠款、花呗等）、存款（私房钱、理财）、外币交易（出国时候用于货币结算）。</p>
+<p>我会使用 MoneyWiz 将我每个月的预算分为饮食和其他。不过因为我已经有一年的数据支撑，下一年可以细分支出预算。 预订每个月的固定收支，比如工资、房租、iCloud 等。他会定时推送，少去手动输入的麻烦。</p>
+<p>我会使用 MoneyWiz 生成指定报表，了解数据情况。报表是 MoneyWiz 强大的核心。轻松记、严肃查，是整个 MoneyWiz 的使用体验。现在购买了 Premium，我还可以在手机上查账、Mac 上记录、查看报表，方便了不少。</p>
+<h2 id="最后">最后</h2>
+<p>2018 年就要结束了，不知道你年初对自己许下的承诺又完成了多少？如果你尝试着在 2019 年养成一个新的好习惯，我想推荐你，从记账开始吧。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[我做的一些 Workflow]]></title>
+        <id>https://chanjh.github.io/post/0034</id>
+        <link href="https://chanjh.github.io/post/0034">
+        </link>
+        <updated>2018-03-09T12:30:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>Workflow 是 iOS 平台上一款明星应用。Workflow 使用了「模块化编程」的思想，我们在 Workflow 里可以快捷、模块化地将一个工作流固定下来。比如你先复制了内容，然后替换了里面的文字，再把文字发送出去或者保存到日历。我在「<a href="https://zhuanlan.zhihu.com/p/26145402">加上这些干货，让 Workflow 如虎添翼</a>」里介绍了一些 Workflow 周边的工具。</p>
+<p>这篇文章将介绍一些我个人做并且常用的 Workflow，可供大家参考使用。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>Workflow 是 iOS 平台上一款明星应用。Workflow 使用了「模块化编程」的思想，我们在 Workflow 里可以快捷、模块化地将一个工作流固定下来。比如你先复制了内容，然后替换了里面的文字，再把文字发送出去或者保存到日历。我在「<a href="https://zhuanlan.zhihu.com/p/26145402">加上这些干货，让 Workflow 如虎添翼</a>」里介绍了一些 Workflow 周边的工具。</p>
+<p>这篇文章将介绍一些我个人做并且常用的 Workflow，可供大家参考使用。</p>
+<!-- more -->
+<p><img src="http://chanjh.b0.upaiyun.com/0034/%E6%88%91%E5%81%9A%E7%9A%84%E4%B8%80%E4%BA%9B%20Workflow.png" alt=""></p>
+<h2 id="支付助手">支付助手</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/b3c8a050a1664550abc0a02edb21bde9">支付助手</a></p>
+<p>在中国互联网两大巨头——支付宝、微信的推动下，我们进入了「移动支付」的时代。到处可见的微信支付或者支付宝钱包，加上逢年过节的各类褥羊毛活动，现在我们已经离不开移动支付。</p>
+<p>支付助手可以在 Workflow 中选择适合的支付方式，道理也很简单，就是使用了对应支付方式的 URL Scheme。</p>
+<p>我还写了支付助手的 JSBox 版本，下载链接：<a href="https://xteko.com/redir?url=https://raw.githubusercontent.com/cyanzhong/xTeko/master/extension-scripts/pay-helper.js&amp;icon=141">pay-helper</a></p>
+<p>不过由于微信付款码并没有对应的 URL Scheme，现在还没办法直接打开。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0034/%E6%94%AF%E4%BB%98%E5%8A%A9%E6%89%8B.png" alt=""></p>
+<h2 id="成功日记">成功日记</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/248267e6e0cd414ea49e250b59f1f903">成功日记</a></p>
+<p>成功日记的灵感来自于《小狗钱钱》这本书。书中一只名叫「钱钱」的小狗教会了一个小女孩关于理财的道理。他让小女孩记录每天做的成功的事情，在小女孩遇到问题的时候，他又鼓励女孩翻开成功日记，激励自己。</p>
+<p>使用成功日记 Workflow 时，你可以选择本次输入的条目数，接着分别输入内容，运行后可以保存到 Bear 中。</p>
+<p>如果你不是使用 Bear，你可以将服务更换为适合你的。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0034/%E6%88%90%E5%8A%9F%E6%97%A5%E8%AE%B0.png" alt=""></p>
+<h2 id="截图管理">截图管理</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/da1fc0bf76f7401c95d959eaf59c31fe">Edit or Del</a></p>
+<p>手机已经是我们生活的一部分，而即时通讯和社交占领了我们终端使用的绝大多数时间。在浏览信息、发现有趣的事情过程中，截图分享也成为我们的日常操作。</p>
+<p>很多时候，截图之后需要进行一定的裁剪和标注。另外，截图分享之后一般不再有保存的需求。在 iOS 11 出来之前，iOS 上根本没有所谓的截图管理。在 Android，截图后会出现一条通知，你可以在通知栏中对最截图进行删除等操作。</p>
+<p>本 Workflow 灵感就是来自 Android 上的操作，你可以对相册中最新的一张图片选择要删除还是编辑操作，即时处理每一张截图。</p>
+<p>在 iOS 11 之后，本 Workflow 在实用性已经下降。不过在操作快捷性和编辑工具自由度选择上，Workflow 还是更加好些。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0034/%E6%88%AA%E5%9B%BE%E7%AE%A1%E7%90%86.png" alt=""></p>
+<h2 id="open-in-mac">Open in Mac</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/fee1454f2d8b43ac8e645440387dae28">Open in Mac</a></p>
+<p>这其实是之前的文章「<a href="https://zhuanlan.zhihu.com/p/22215312">将文章发送到 Mac 上稍后读</a>」中的 Workflow。</p>
+<p>我们可能会遇到这样的场景：阅读的文章可能有大文件或者长视频，需要打开电脑来阅读，不过 Mac 并不在身边，不能 Handoff 过去。这时候只能先拷贝链接，在提醒事项添加任务，然后指定你回到 Mac 身边的时候，提醒自己打开。</p>
+<p>这样子可以解决问题但不够自动化，这个 Workflow 就是借助 Dropbox 和 Hazel，来完成分享到 Mac，稍后打开 Mac 时自动打开。</p>
+<p>如果 Dropbox 有时候同步不及时，也许你可以再看看这篇文章：<a href="https://zhuanlan.zhihu.com/p/25049770">利用 Launchd 定制 Mac 启动任务</a></p>
+<p><img src="http://chanjh.b0.upaiyun.com/0034/Open%20in%20Mac.png" alt=""></p>
+<h2 id="最后">最后</h2>
+<p>Workflow 是一款功能强大，使用简单的应用。如果你有更多有趣的 Workflow，欢迎到评论区内分享～</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[写给女友的 Mac 入门指南（入门）]]></title>
+        <id>https://chanjh.github.io/post/0033</id>
+        <link href="https://chanjh.github.io/post/0033">
+        </link>
+        <updated>2018-03-05T08:43:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近女票要选购一台电脑，一开始并没有考虑 MacBook，于是我们在联想、戴尔、Surface 几台电脑犹豫了很久，但最后还是决定咬咬牙，直接入 MacBook  Pro。考虑到这是她的第一台 Mac，我决定用文章的形式，教会她怎么使用 Mac。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近女票要选购一台电脑，一开始并没有考虑 MacBook，于是我们在联想、戴尔、Surface 几台电脑犹豫了很久，但最后还是决定咬咬牙，直接入 MacBook  Pro。考虑到这是她的第一台 Mac，我决定用文章的形式，教会她怎么使用 Mac。</p>
+<!-- more -->
+<h2 id="mac-选购">Mac 选购</h2>
+<p>Mac 是苹果公司面向消费用户的个人电脑产品，相比于 iPhone，Mac 知名度并没有那么高，但是近两年随着 PC 市场的萎靡和 Mac 在软件上的更新改进，使用 Mac 的人已经越来越多。</p>
+<p>Mac 产品线可以分为三条：主机（Mac Pro、Mac mini）、一体机（iMac、iMac Pro）、笔记本电脑（MacBook、MacBook Air、MacBook Pro），就是下图的从左到右。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0033/mac.jpg" alt=""></p>
+<p>购买建议如下：</p>
+<ul>
+<li>Mac mini：已经 5 年没更新，不建议买。</li>
+<li>Mac Pro：主打性能，购买主机的话，建议购买。不过需要考虑到苹果已经宣布会重新设计 Mac Pro，虽然最快也要今年年底甚至更晚，但是还是应该慎重考虑购入。</li>
+<li>iMac：iMac 系列基本是买屏幕送系统。如果想省去配置键鼠、屏幕的烦恼，直接购买 iMac 高分辨率屏幕还是挺不错的</li>
+<li>MacBook：又称为 New MacBook，12 寸，主打轻薄。性能比较一般。</li>
+<li>MacBook Pro：有 13 寸、15 寸两款，主打性能。2017 年新款的 MBP 又将重量降低了很多，虽然和 NB 一样有键盘手感、缺乏 USB-A 接口等问题，但是还是推荐购买。</li>
+<li>MacBook Air：没有 Retina 屏幕，没有 New MacBook 轻薄，很久没更新，不推荐购买。</li>
+</ul>
+<h2 id="mac-配套的键鼠">Mac 配套的键鼠</h2>
+<p><img src="http://chanjh.b0.upaiyun.com/0033/Snipaste_2018-03-03_21-58-15.png" alt=""></p>
+<p>在苹果官网发售的 Mac 配套键鼠有三种：Magic Keyboard（104 键、87 键 两种）、Magic Mouse、Magic Trackpad。都是通过蓝牙与 Mac 连接，如果你购买的是 MacBook 系列，也自带一个触控板。</p>
+<p>个人建议，在 Mac 上多使用触控板，少用鼠标。触控板有大量好用的手势（后面会讲），用着很舒服。不过如果你有大量的拖拉操作，触控板悬空的操作可能让你有些手酸，那我也不建议你购买 Magic Mouse。Magic Mouse 被认为是最没用的苹果产品之一，建议还是重新购买一个鼠标，再配合上触控板操作就完美了。</p>
+<h2 id="开始使用-macos">开始使用 macOS</h2>
+<p>Mac 电脑使用的操作系统被称为 macOS。在 WWDC 2017 之前，该操作系统名字为 OSX，直到后来改为 macOS。</p>
+<p>一个 macOS 桌面可以分为以下几部分：</p>
+<ul>
+<li>菜单栏：左侧为当前活跃窗口的菜单操作，右侧是时间、Wi-Fi 链接等</li>
+<li>Dock 栏：用以放置常驻的快捷方式和正在运行的软件</li>
+<li>桌面内容：用以放置窗口或者文件</li>
+</ul>
+<p><img src="http://chanjh.b0.upaiyun.com/0033/Snipaste_2018-03-05_16-27-07.png" alt=""></p>
+<p>需要注意的是，Dock 栏是分左右两块的。左边是常驻的快捷方式和正在运行的软件，右边也是常驻的快捷方式并包含「最小化的窗口」</p>
+<p>在 macOS 中，可以使用多桌面来显示不同的窗口。这样子，你就可以在不同的桌面放置不同功能的窗口，在 A 桌面放上工作文档，B 桌面打开微博，当老板来的时候，用四指在触控板划过就能从 B 桌面切换到 A 桌面。</p>
+<p>一个 macOS 应用窗口和 Windows 最大的不同在于最小化等按钮布局。macOS 该按钮区在左上角，红黄绿分别代表「关闭」、「最小化」和「全屏」。在 macOS 中，除了这三个，还有另外的两个操作：「隐藏」和「最大化」，操作分别是快捷键「command+h」和双击窗口顶部。</p>
+<p>全屏的窗口会自己占用一个桌面，并且隐藏了菜单栏和 Dock 栏，是最沉侵的显示方式。最大化依然会保留菜单栏和 Dock 栏。</p>
+<p>得益于 macOS 的睡眠低功耗和 SSD 优秀的特性，macOS 一般不需要专门关机，而是直接合盖即可，需要使用的时候开盖即用。十分优雅方便。</p>
+<h2 id="finder-applications">Finder &amp; Applications</h2>
+<p>在 Windows 里，管理文件资源的入口被称为「我的电脑」。在 macOS 里，使用的是 Finder。</p>
+<p>在 Finder 中，使用回车键来重命名，使用 command+O 来打开文件。十分强大的是，可以使用空格键来快速预览一个文件，PDF、Word、JPG、等等都支持该快速预览。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0033/Snipaste_2018-03-05_16-31-32.png" alt=""></p>
+<p>安装和删除 macOS 应用都十分简单，我们将对比 Windows、iOS 两个平台来讲解。</p>
+<p>macOS 也有像 iOS 一样的 App Store，可以直接从应用商店上下载 App。但是 macOS 经过设置之后（在系统安全设置里，将「安全性与隐私」-&gt;「允许以下位置下载的应用」设为「App Store 和被认可的开发者」或「任何」），并不会强制必须从 Mac App Store 上下载。</p>
+<p>macOS 运行的应用为 .app 格式。可以通过 dmg 或者 pkg 包拖拽到文件夹后运行。一般来说，我们会把应用放置在「应用程序」的文件夹里。macOS 还有一个 Launch Pad 的界面，通过四指捏合唤醒。Launch Pad 类似于 iPhone 的手机桌面，里面放置了系统已经安装的所有应用。一般可以在此处打开应用。</p>
+<p>macOS 卸载 App 也十分简单。不像 Windows 需要进入到系统设置中将应用删除，macOS 更像是 iPhone 的操作：直接在文件夹中删除应用即可，系统会自动帮你将应用和它相关的文件夹删除。</p>
+<h2 id="键盘与触摸板">键盘与触摸板</h2>
+<p>Mac 的键盘和 Windows 的键盘只有一点点不一样。在左下角的功能键，Mac 将 alt 换成了 option，将 Windows 键换成 command。Mac 的复制、全选等操作也不是 ctrl+C 这样子，而是 command+C 或者 command+A。看过别人的评论说，这样子的好处用大拇指操作比小拇指会省力和舒服，个人觉得……习惯就好。
+<img src="http://chanjh.b0.upaiyun.com/0033/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202018-03-04%2018.56.37.png" alt="">
+Mac 的触摸板是 macOS 的一大亮点。在「系统偏好设置」-&gt;「触摸板」中，可以看到 macOS 上已经设置的触摸板手势：四指左右桌面切换、三指拖拽、双指滚动……这些手势一旦习惯之后就再也离不开 Mac 的触摸板操作了。</p>
+<p>另外，你也可以定制触摸板的边缘触发动作。将鼠标移动到屏幕的四个角落的时候，可以触发一些动作。</p>
+<h2 id="强大的-spotlight">强大的 Spotlight</h2>
+<p>macOS 上另一个强大的功能是 Spotlight。Spotlight 的唤出方式为 command+空格（可以设置不同快捷键）。Spotlight 可以帮助用户快速的搜索系统内所有的文件、文件夹和应用程序。Spotlight 也可以作为计算器进行数学运算、货币兑换计算、查字典等操作。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0033/Snipaste_2018-03-05_16-35-17.png" alt=""></p>
+<p>可以说，Spotlight 是 macOS 的一个快速高效的入口。运用 Spotlight 的设计思维，macOS 上又衍生出像 LaunchBar、Alfred 等启动器。（PS：感谢微博@yael-W 的指正，LaunchBar 的发布时间是早于 Spotlight 的）</p>
+<h2 id="有趣的-touch-bar">有趣的 Touch Bar</h2>
+<p>2017 年苹果发布的新 MacBook Pro，为它在键盘 Fn 区配置了一个触控条。很遗憾的是我自己的 MacBook 并没有 Touch Bar。</p>
+<p>在系统状态下，Touch Bar 可以代替原有的 Fn 功能区的作用：调整键盘亮度、声音大小等。Touch Bar 给了 macOS 应用开发者们一个定义按钮的空间，比如输入法可以在 Touch Bar 中快速输入 emoji。</p>
+<p>如果你想购买新的 MacBook Pro，那么 Touch Bar 版本是值得入的设备。而如果经费有限，可以考虑购买没有 Touch Bar 的 MacBook Pro 13 寸或者旧款 MacBook Pro。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0033/Snipaste_2018-03-04_20-13-27.png" alt=""></p>
+<hr>
+<ul>
+<li>注：本文配图部分来自于 Apple 官网。</li>
+</ul>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[2017 过了一半，大学过了一半]]></title>
+        <id>https://chanjh.github.io/post/0032</id>
+        <link href="https://chanjh.github.io/post/0032">
+        </link>
+        <updated>2017-07-07T16:10:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>随着六月的到来和期末考的结束，我的大二生活终于结束了，随即吹响的是大三的号角，开始步入大学生活的另一半。</p>
+<p>其实说另一半是很勉强的，因为大四只是名义上的大学生。迈入大学的另一半时间也不再那么等人了。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>随着六月的到来和期末考的结束，我的大二生活终于结束了，随即吹响的是大三的号角，开始步入大学生活的另一半。</p>
+<p>其实说另一半是很勉强的，因为大四只是名义上的大学生。迈入大学的另一半时间也不再那么等人了。</p>
+<!--more-->
+<h2 id="每一次总结像每一份考卷">每一次总结像每一份考卷</h2>
+<p>大学里每个期末都要花上一段时间备考。每到这个时间，我才有机会远离电脑手机，远离社交，留下自己和空白的草稿纸。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0032/IMG_4781.JPG" alt=""></p>
+<p>每个期末我都会在草稿纸里写下我的总结和计划，撕下来收藏起来，这样也坚持了两年。看到自己两年的计划，计划后又总结，觉得自己心里有一份满足感，好像在和每一个自己对话，留下你懂我懂的笑容。</p>
+<p>大学前两年我过的还算顺利。大一玩社团，玩学生会，也搞开发，加入了 iOS 工作室。大二玩独立开发，接了不少外包。除了这些，还写了独立博客，拿了奖学金，参加比赛拿了奖，拿了学校保研资格……这些有我自己的努力，也有前辈和老师的指导，所以我觉得我还是挺幸运的。</p>
+<h2 id="你没看到我的汗水">你没看到我的汗水</h2>
+<p>你只看到我的笑容，却没看到的汗水和泪水。</p>
+<p>一直觉得大学就是个小社会，人与人之间的沟通已经没有高中时候那么纯粹。做事情也不再是想做就做，别人时刻询问你做这件事有什么意义。</p>
+<p>我曾为了赶项目高负荷工作快一个月，曾为了答辩晚上都睡不着觉，曾因为不喜欢做虚无的事情和师兄和老师都耍了脾气，曾因为太过忙碌错过了很多机会到现在都后悔。</p>
+<p>还有很多我本来以为我能做好的事情，最后却平庸带过，留下遗憾。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0032/FullSizeRender.jpg" alt=""></p>
+<h2 id="12-12">1/2 &lt; 1/2</h2>
+<p>我的倒数日应用里一直留着一个到大三的倒数器，截止至今天，大三离我只有 56 天了。大学的另一半对我而言就是「考试结束还有十五分钟」的提示，但考卷却还有一道大题等待完成。</p>
+<p>走小众还是走大众，其实是我心中的一个疑问。进入大学的时候，我告诉自己要放下小众的梦想，努力做一个可以被大众接受的人。</p>
+<p>两年下来大学这份考卷的前部分，我答的好像还算顺利。小众的梦却开始在我心里浮现。做小众的梦可能会被大家不理解，可能会抛弃以前的成就，可能一无所获，可能收获自己眼中的成就得到别人的冷眼。</p>
+<p>我不知道，最后会是大众的我容易被接受，还是小众的我成为真正的我。但是现在我想试试，我想试着把 1/2 &lt; 1/2 做到 1/2 &gt; 1/2。</p>
+<h2 id="做吧但做些什么">做吧，但做些什么</h2>
+<p>大三开始，我要做个自由人。大学的前半部分，我在学校这样的制度里，陷得有点（太）深，所幸的是还有回退的余地。大三开始，我想做一个没有太多束缚的人，在自己安排的时间里完成自己想做的时间。感谢大一大二的我，为未来的我积累了不少经验和能力。</p>
+<p>MoSplash 的开发还是要继续的。1.0 的 MoSplash 给我留下了不少的坑，所以现在 2.0 改动起来每天都可能是一个新的版本，所以 MoSplash 作为我第一个独立开发的上架作品，我还是会继续维护和添加新功能，让它变得更加优秀。</p>
+<p>我还会利用零碎时间，开发一些 iOS 工具类的小应用。这些应用一定是符合我平时使用 iPhone 时遇到的痛点和痒点，开发起来不会花太多时间，又能提升使用 iPhone 的幸福感。</p>
+<p>下半年我还计划开发另一个比较大的独立项目。目前已经选择好了方向，在开始写项目文档需求文档和开发计划，想利用下半年的时间将这个项目运营起来。希望这个项目能更加大众，得到更多人喜欢。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0032/me.jpg" alt=""></p>
+<h2 id="结语">结语</h2>
+<p>我曾经在和我的师弟师妹做分享时候，讲过一句我觉得很装逼的话，就是每一年做一件让自己满意的事情。进入大学到现在，我都是心里怀揣着这样的想法前进的。我是个很讨厌应试教育这套体制的人，但是我还是很感谢高三时候那个我，我觉得我现在这种意志力很多时候是高三时候锻炼出来的。所以祸福相生，谁知道呢。</p>
+<p>大三，还要继续折腾下去。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0032/IMG_1438.JPG" alt=""></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[又到了每年此刻，教你把课程表导入日历]]></title>
+        <id>https://chanjh.github.io/post/0031</id>
+        <link href="https://chanjh.github.io/post/0031">
+        </link>
+        <updated>2017-06-16T06:50:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>今天学校公布了我们下学期的课程表。唉，没想到大三的课程表居然比大二还多！好吧，我也只能乖乖地把课程表整理下，一起导入到日历里。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>今天学校公布了我们下学期的课程表。唉，没想到大三的课程表居然比大二还多！好吧，我也只能乖乖地把课程表整理下，一起导入到日历里。</p>
+<!-- more -->
+<p>其实 App Store 里课程表的应用并不少，各个学校也可能有自己的教务系统爬下来做出来的课程助手，所以管理课程这件事并不是难事。但是谁叫我生来（才怪）就是不喜欢这样一些乱七八糟功能堆积的 App，反而享受做出符合自己需求的玩意儿。所以别企图用 XX 课程助手这样的应用来搞定我。</p>
+<p>将课程表导入到日历管理的好处十分明显：</p>
+<ul>
+<li>统一管理。将课程和其他安排统一管理，方便安排和查看</li>
+<li>节省空间。在 Widget 里只需要留一个日历插件，就能一目了然</li>
+<li>足够装X。嗯……是的。</li>
+</ul>
+<p><img src="http://chanjh.b0.upaiyun.com/0031/%E6%95%88%E6%9E%9C.jpeg" alt=""></p>
+<p>于是我写了一个将课程导入日历的 Python 脚本，这个脚本是我一年前写的，一直想分享但是一直找不到点拿出来分享，今天心情好（才怪），觉得是时候分享了～下面是使用说明。</p>
+<h2 id="脚本概要">脚本概要</h2>
+<p>【<a href="http://chanjh.b0.upaiyun.com/0031/ClassDemo.zip">Demo下载</a>】</p>
+<p>程序总共由两个脚本完成，最后将 ICS 导入日历即可。步骤概要：</p>
+<ul>
+<li>1、使用 excelReader.py 将保存的 classInfo Excel 表格导出容易解析的 conf_classInfo.json</li>
+<li>2、使用 main.py 将配置好的 conf_classTime.json 和生成的 conf_classInfo.json 生成一个 class.ics</li>
+<li>3、将 class.ics 导入手机或者电脑</li>
+<li>4、搞定！</li>
+</ul>
+<h2 id="环境要求">环境要求</h2>
+<p>Python 2.7+</p>
+<h2 id="执行详解">执行详解</h2>
+<p>1、配置 classInfo Excel 表格
+在工作目录下创建一个 classInfo Excel 表格，表格表头有如下参数：
+className：课程名称
+startWeek：起始周
+endWeek：结束周
+weekday：星期
+classTime：第几节。这个参数要配合 conf_classTime.json 文件，下文会讲。
+classroom：教室</p>
+<p>2、配置 conf_classTime.json
+来吧，照猫画虎：</p>
+<pre><code>{
+  &quot;classTime&quot;: [
+    {
+        &quot;name&quot;:&quot;第 1、2 节&quot;,
+        &quot;startTime&quot;:&quot;0830&quot;,
+        &quot;endTime&quot;:&quot;1005&quot;
+    },
+    {
+        &quot;name&quot;:&quot;第 3、4 节&quot;,
+        &quot;startTime&quot;:&quot;1025&quot;,
+        &quot;endTime&quot;:&quot;1200&quot;
+    },
+    {
+        &quot;name&quot;:&quot;第 5、6、7 节&quot;,
+        &quot;startTime&quot;:&quot;1350&quot;,
+        &quot;endTime&quot;:&quot;1615&quot;
+    },
+    {
+        &quot;name&quot;:&quot;第 8、9 节&quot;,
+        &quot;startTime&quot;:&quot;1630&quot;,
+        &quot;endTime&quot;:&quot;1800&quot;
+    },
+    {
+        &quot;name&quot;:&quot;第 10、11、12 节&quot;,
+        &quot;startTime&quot;:&quot;1830&quot;,
+        &quot;endTime&quot;:&quot;2100&quot;
+    }
+  ]
+}
+</code></pre>
+<p>3、运行 excelReader.py 脚本
+终端运行：
+<code>python excelReader.py</code></p>
+<p><img src="http://chanjh.b0.upaiyun.com/0031/excelReader.png" alt="">
+如果 classInfo 表格是按照 Demo 的样式保存的，输入 0 继续即可。如果不是……你改回来就可以。（一个小脚本而已，懒得做那么多容错啦～）
+完成后生成一个 conf_classInfo.json 配置文件</p>
+<p>4、运行 main.py 脚本
+终端运行：
+<code>python main.py</code>
+<img src="http://chanjh.b0.upaiyun.com/0031/main.png" alt="">
+回车后，需要输入两个参数：第一周的星期一日期、提醒时间。
+提醒时间就是在 iOS、Mac 上创建日历时所使用的设置，不知道这样的设置在 Android 和 Windows 是否生效。待测。
+完成后在工作目录下会生成一个 class.ics 文件</p>
+<p>5、导入手机或者电脑</p>
+<p>如果你是 Mac + iOS， 恭喜你，直接点开 class.ics 就可以导入 Mac， 然后等待 iCloud 同步就可以。</p>
+<p>如果想单独导入 iOS，可以用邮件将 ics 发送到你的 iOS 可以收到的邮箱里，在邮箱内打开就可以。</p>
+<p>Android 和 Windows 的导入方法我没试过，不过我觉得应该和 iOS、Mac 差不多的。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0031/%E6%97%A5%E5%8E%86.png" alt=""></p>
+<h2 id="写在最后">写在最后</h2>
+<p>复习，准备考试。各位大学狗，渣油。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[HyperDock：我眼中最好用的 Mac 窗口管理]]></title>
+        <id>https://chanjh.github.io/post/0030</id>
+        <link href="https://chanjh.github.io/post/0030">
+        </link>
+        <updated>2017-05-08T02:50:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>前两天因为很长时间没有整理电脑，256G 的内存快要被撑爆了，无奈之下随手删除了几个平时没怎么打开的 App，结果不小心把一个神器给卸载了，之后使用起 Mac 来就觉得我的电脑不是我的电脑的感觉。这个神器就是 HyperDock——我眼中最好用的 Mac 窗口管理软件。HyperDock 我很早之前就使用了，他强大到让我一直以为我的窗口管理的几个功能是几个不同的 App 来完成的。直到不小心卸载之后又重新装回来才明白它的强大。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>前两天因为很长时间没有整理电脑，256G 的内存快要被撑爆了，无奈之下随手删除了几个平时没怎么打开的 App，结果不小心把一个神器给卸载了，之后使用起 Mac 来就觉得我的电脑不是我的电脑的感觉。这个神器就是 HyperDock——我眼中最好用的 Mac 窗口管理软件。HyperDock 我很早之前就使用了，他强大到让我一直以为我的窗口管理的几个功能是几个不同的 App 来完成的。直到不小心卸载之后又重新装回来才明白它的强大。</p>
+<!-- more -->
+<h2 id="窗口快速布局">窗口快速布局</h2>
+<p><img src="http://chanjh.b0.upaiyun.com/0030/HyperDock1.gif" alt=""></p>
+<p>窗口快速布局的软件有不少，像是比较火的 Moom、开源的 Spectacle 等。其实我只用过 Spectacle 和 HyperDock。没有 HyperDock 的几天我是用 Spectacle 度过日子的。</p>
+<p>相比于 Spectacle，HyperDock 的快捷窗口布局有更多的选择。HyperDock 不仅支持常见的左右、上下分屏、全屏，还支持两种居中方式。不仅如此，HyperDock 的快捷键使用起来也更加友好。control+option 再加方向键的配合就能完成所有的布局操作。对比一下 Spectacle 居然使用 control+option+F 键的组合键完成全屏布局这样操蛋的体验（你不信亲手试试），HyperDock 体验分爆表。</p>
+<h2 id="拖拽也能完成窗口管理">拖拽也能完成窗口管理</h2>
+<p><img src="http://chanjh.b0.upaiyun.com/0030/HyperDock2.gif" alt=""></p>
+<p>使用过 Windows7 的童鞋可能知道，在 Windows 上将窗口拖拽到屏幕的边缘会触发不同的窗口布局动作。左右分别是左分屏和右分屏，上边是全屏，边角是四分屏。安装过 HyperDock 的 Mac 也能让 Mac 的窗口支持这样的拖拽。</p>
+<h2 id="在-dock-栏弯道超车">在 Dock 栏弯道超车</h2>
+<p>要说 HyperDock 最强大的地方，要数在 Dock 栏里的操作了（虽然前面两项我已经觉得很厉害了）。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0030/HyperDock3.gif" alt=""></p>
+<ul>
+<li>
+<p>预览
+将光标移动到 Dock 上的 icon，停留一会，如果该应用有在某个桌面有已经打开的窗口，它会显示出来。如果移动到预览图里，可以预览应用的情况。</p>
+</li>
+<li>
+<p>跨桌面移动窗口
+在窗口里，将窗口拖拽到桌面上时，可以快速将不同桌面的窗口移动到该桌面中。</p>
+</li>
+<li>
+<p>隐藏、最小化
+光标放在应用图标上，上下轻划，可以隐藏或打开该窗口。窗口在不同桌面时则会切换桌面。光标放在预览图上，上下轻划，可以最小化或恢复该窗口。</p>
+</li>
+<li>
+<p>应用扩展
+HyperDock 支持应用扩展，在 Dock 直接操作像 iTunes、日历等应用。</p>
+</li>
+</ul>
+<h2 id="结语">结语</h2>
+<p>美好的事物总是失去的时候才能体会到它的美好。HyperDock 就是这样一款让我突然意识到它的美好的应用。虽然 HyperDock 的图标和官网的设计看起来并不起眼，但是用起来却很给力。<a href="https://bahoom.com/hyperdock">官网</a> $9.95（¥68） 的价格对于这样一款强大到没有它会减分的软件，我觉得是很值的。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[MoSplash | 我的第一款独立 App 上架了]]></title>
+        <id>https://chanjh.github.io/post/0029</id>
+        <link href="https://chanjh.github.io/post/0029">
+        </link>
+        <updated>2017-04-13T16:08:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>MoSplash 是一款无版权图库应用， 在 iPhone 上体验、浏览、搜索高质量无版权图片。</p>
+<p>如果你喜欢寻找不同的壁纸、找寻不同的心情，MoSplash 或许是你的一个选择。</p>
+<p>下载链接在这里：<a href="https://appsto.re/cn/Lwjqib.i">MoSplash 作者是 Jiahao Chen</a></p>
+]]></summary>
+        <content type="html"><![CDATA[<p>MoSplash 是一款无版权图库应用， 在 iPhone 上体验、浏览、搜索高质量无版权图片。</p>
+<p>如果你喜欢寻找不同的壁纸、找寻不同的心情，MoSplash 或许是你的一个选择。</p>
+<p>下载链接在这里：<a href="https://appsto.re/cn/Lwjqib.i">MoSplash 作者是 Jiahao Chen</a></p>
+<!-- more -->
+<p><img src="http://chanjh.b0.upaiyun.com/0029/%E5%B1%95%E7%A4%BA.png" alt=""></p>
+<p><img src="http://chanjh.b0.upaiyun.com/0029/MoSplash_share%E5%89%AF%E6%9C%AC.png" alt=""></p>
+<p><img src="http://chanjh.b0.upaiyun.com/0029/%E5%B1%95%E7%A4%BA%E9%A1%B5.png" alt=""></p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[加上这些干货，让 Workflow 如虎添翼]]></title>
+        <id>https://chanjh.github.io/post/0028</id>
+        <link href="https://chanjh.github.io/post/0028">
+        </link>
+        <updated>2017-03-28T14:07:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>最近关注 iOS 的同学应该都知道一件消息，被大家视为 iOS 上的一款效率神器——Workflow 被苹果公司收购了。Workflow 由四位开发者在 2014 年（当时他们还只是三个人，都还是高中生）开发出来的基于模块化编程、实现工作流自动的效率工具，在 2015 年获得了苹果的 Design Awards，一时间令人瞩目。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>最近关注 iOS 的同学应该都知道一件消息，被大家视为 iOS 上的一款效率神器——Workflow 被苹果公司收购了。Workflow 由四位开发者在 2014 年（当时他们还只是三个人，都还是高中生）开发出来的基于模块化编程、实现工作流自动的效率工具，在 2015 年获得了苹果的 Design Awards，一时间令人瞩目。</p>
+<!-- more -->
+<p>收购消息被放出来当天，Workflow 成为了微博还有各个玩机的社交圈最火的话题。各个媒体资讯有介绍什么是 Workflow 的扫盲贴，有分享大家做好的 Workflow 的干货贴。而且，这两个问题好像受到挺多网站的青睐，借此来介绍 Workflow。但我觉得很多数人看过这两点之后大脑中还是一片迷茫，对 Workflow 并没有一个更广的认识。这篇文章就是从广面上来介绍一些干货，让你更好的使用 Workflow 这款效率神器。</p>
+<p><strong>使用 Workflow 不一定需要这些干货，但是认识这些干货可以把 Workflow 使用的更加得心应手。</strong></p>
+<p><img src="http://chanjh.b0.upaiyun.com/0028/cover.png" alt=""></p>
+<h2 id="认识-url-scheme">认识 URL Scheme</h2>
+<p>中文玩机圈（可能）最好的 URL Scheme 教程应该是 Hum 发表在少数派上的《<a href="https://sspai.com/post/31500">URL Schemes 使用详解</a>》。文章很长，讲的很详尽。想认真了解 iOS 上 URL Scheme 的同学我建议认真通读这篇文章。不想认真认识的同学，或许可以看看我对 URL Scheme 的简单介绍。</p>
+<p>URL Scheme 其实就是一种资源定位符（URL 的中文翻译是「统一资源定位符」）。使用过 Windows 的同学可能试过，在浏览器里输入「C://」时可以直接打开 C 盘目录，这是因为「C://」这个定位符指定到了系统的 C 盘中。同理，「C://windows」就是进入 C 盘 windows 这个目录。</p>
+<p>在 iOS 中，也可以使用 URL 的方式定位到应用中。比如在 Safari 中输入「weixin://」就能打开微信，「weixin://scanqrcode」则是打开微信中的扫一扫。</p>
+<p>所以你知道了，<strong>用 URL Scheme 的方式，可以快速定位到 iOS 应用中指定的功能和位置</strong>。</p>
+<p>听起来 URL Scheme 是一个十分「无敌」又高效让我们在 iOS 中自由穿梭的方法。然而事实并不是的。iOS 的「沙盒机制」使得应用间的联系十分有限。在 iOS 上开发的应用想要使用 URL Scheme <strong>需要开发者自己去适配</strong>，这就意味着比较大的开发成本。像微信这样子的应用，如果每个功能都需要开放一个对外的入口，开发成本就会上升。但是我们都知道，像微信这样的应用是不会开放很多入口的。在微信直接进入某个公众号、小程序目前都没法实现。</p>
+<p>另外，URL Scheme 在苹果的历史中也有着比较暧昧的地位。实际上，URL Scheme 在 iOS 中已经有着很长的历史。苹果对曾经在 iOS5 中砍杀了一堆 Launch 应用，后来在 iOS 10 PB 的时候，苹果曾经关闭了系统的 URL Scheme 入口。苹果对第三方应用使用 URL Scheme 也没有一个比较规范的规定，也就是说有可能你安装的两个应用可能有相同的 URL Scheme。</p>
+<p>更多关于 URL Scheme 传参和 callback 的介绍，可以仔细阅读 Hum 的教程。</p>
+<h2 id="少数派中文-workflow-讨论圈">少数派：中文 Workflow 讨论圈</h2>
+<p><img src="http://chanjh.b0.upaiyun.com/0028/sspai.jpg" alt="">
+▲图片来自少数派</p>
+<p>如果说 Hum 是中文圈对 Workflow 有着数一数二认识的 Power User，那<a href="https://sspai.com">少数派</a>应该是国内对 Workflow 的有着数一数二资源、用户群体的网站。</p>
+<p>挺久之前我回答了知乎上 <a href="https://www.zhihu.com/question/45417983/answer/98927985">iOS 的 Workflow 到底怎么用？</a>的问题。我试图认真回答组织回答这个问题的时候，发现其实少数派上已经有着比较全面的文章介绍了，我再写也不过是重新书写一遍罢了。有一名网友将 Hum 在少数派发布关于 Workflow 的文章打印了出来，已经有一本书那么厚。实际上，在 Workflow 被收购后，Hum 也有重新梳理 Workflow 教程的想法。个人十分期待。</p>
+<p>另外，少数派也上线了一个中文的 Workflow 专栏 <a href="http://workflow.sspai.com/">Workflow Gallery</a>，旨在收集有用的 Workflow 供大家下载。现在他们正在征集你手上正在使用的 Workflow，分享最多和被分享最多的 Workflow 都有机会得到礼品。</p>
+<h2 id="了解更多效率类应用">了解更多效率类应用</h2>
+<p><img src="http://chanjh.b0.upaiyun.com/0028/workflow+.png" alt=""></p>
+<p>Workflow 之所以成为 iOS 效率类应用的代表离不开他能友好的连接很多其他应用，也同时能被其他应用连接。了解其他的效率类工具可以更好的理解 Workflow 的思维。</p>
+<h3 id="pin"><a href="https://itunes.apple.com/cn/app/pin-%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%89%A9%E5%B1%95/id1039643846?mt=8">Pin</a> —— 剪贴板效率工具</h3>
+<p>Pin 是国内开发者钟颖开发的一款围绕剪贴板的效率类应用，获得了苹果 2016 年度十佳 APP。我个人认为，<strong>Pin 是 iOS 上最强的通知中心部件</strong>。如果你想了解更多，可以去试一试这个款应用。</p>
+<h3 id="lcp"><a href="https://itunes.apple.com/cn/app/launch-center-pro-shortcut-launcher-workflows/id532016360?mt=8">LCP</a> —— 高效率启动器</h3>
+<p>Launch Center Pro 是老牌的启动器了，也是最早的 URL Scheme 先行者。LCP 可以做到基于肌肉记忆的高效启动。同时，LCP 还有像定时器的功能，配合 Workflow 使用起来十分高效。</p>
+<h3 id="pythonista"><a href="https://itunes.apple.com/cn/app/pythonista-3/id1085978097?mt=8">Pythonista</a> —— 程序员的 Workflow</h3>
+<p>Pythonista 可以说是程序员的 Workflow。Pythonista 可以像 Workflow 一样，对输入信息进行编程工作流，完成指定的工作流程，又是一款自动化流程的工具。不过 Pythonista 需要使用 Python 这门程序语言，门槛高一些。</p>
+<h3 id="retriever"><a href="https://github.com/cyanzhong/Retriever">Retriever</a> —— 快速查 URL Scheme</h3>
+<p>最后我还有一个压箱底的应用，是由 Pin 的开发者钟颖开发的没有（我估计也不可能）在 App Store 上架的应用：<a href="https://github.com/cyanzhong/Retriever">Retriever</a>。因为并没有在 App store 上架，所以使用起来比较麻烦。你可能需要使用开发工具 Xcode 才能在 iPhone 上运行（并且只能运行一段时间。之后需要重新连接电脑运行代码）。</p>
+<p>Retriever 是可以方便的在 iPhone 上查看本机内 App 的 Plist 文件的应用，也就意味着可以在 iPhone 上直接查看应用的 URL Scheme。</p>
+<p>其他的关于越狱、不越狱的方法查看 URL Scheme，依然可以阅读《<a href="https://sspai.com/post/31500">URL Schemes 使用详解</a>》这篇文章。</p>
+<h2 id="结语">结语</h2>
+<p>其实我们都清楚学习一样工具是必须付出时间和精力的，只是因为互联网的出现让大家变得十分慵懒。Workflow 之所以成功，我想离不开它将工作自动化的成本大大降低了。以前我们想要在计算机上做到工作自动化，想到的只有编程这门槛较高的方式。</p>
+<p>那些觉得 Workflow 难用的人，我觉得有两种，一种是懒得学的人，一种懒得看的人。懒得学的人觉得什么东西都应该放在他面前，他就应该「被应用教会怎么用」，而懒得看的人则是觉得「满屏英语不想用」。</p>
+<p>Workflow 已经在功能的实现帮我们降低了成本，但是 Workflow 其实是一个「自身不带功能的软件」（这句话也是来自 Hum）。Workflow 的功能应该由使用者来决定，而不是开发者。所以，<strong>Workflow 其实跟编程语言一样，需要被学习，而且跟编程一样，Workflow 也不会定义使用的功能。</strong> 如果你不想主动去尝试，那么再多攻略也没有用。</p>
+<p>如果你有更多学习、使用 Workflow 的技巧，欢迎你补充、分享。</p>
+]]></content>
+    </entry>
+    <entry>
+        <title type="html"><![CDATA[我开始写技术博客了，还做了些其他事情]]></title>
+        <id>https://chanjh.github.io/post/0027</id>
+        <link href="https://chanjh.github.io/post/0027">
+        </link>
+        <updated>2017-03-18T02:18:00.000Z</updated>
+        <summary type="html"><![CDATA[<p>ChanTalk 是我的第一个个人博客，依然记得 ChanTalk 的第一篇文章是我进入大学的前一天，在担心着自己进入大学之后有一段时间没有网络可以使用，以及对第一次写博客的欣喜，这两种复杂的心情，我发布了第一篇博客《[ 先于时代还是慢于时代？——Smartisan OS 2.0轻体验 ][1]》。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>ChanTalk 是我的第一个个人博客，依然记得 ChanTalk 的第一篇文章是我进入大学的前一天，在担心着自己进入大学之后有一段时间没有网络可以使用，以及对第一次写博客的欣喜，这两种复杂的心情，我发布了第一篇博客《<a href="http://chanjh.com/post/view/0000" title="先于时代还是慢于时代？——Smartisan OS 2.0轻体验"> 先于时代还是慢于时代？——Smartisan OS 2.0轻体验 </a>》。</p>
+<!-- more -->
+<p>进入大学之后，我对自己更新博客的要求是「至少每两周一更」，除了在某些比较忙碌的月份更新速度跟不上之外，大部分时间 ChanTalk 都能保持更新。</p>
+<p>博客内容也开始有了一些定位。ChanTalk 创立的初衷就像 slogan 表达的一样：「记录思考，分享创意」，在 ChanTalk 里分享的是我日常阅读、玩机之后的心得和一些小小的创意，不局限自己的想象力，不刻意塑造一个很极客的博客。</p>
+<p>ChanTalk 的文章里最火的是《<a href="http://chanjh.com/post/software/0012">Mac 下使用 Aria2 实现迅雷离线和百度云下载</a>》不知道被谁分享到豆瓣、机锋等地方之后，阅读量和点赞数量就不断上升。之后，像《<a href="http://chanjh.com/post/software/0020">iOS 10 PB 初体验——也许你该升级设备了</a>》这样注重体验、《<a href="http://chanjh.com/post/life/0023">我是怎么管理密码的</a>》这样注重创意的文章也都有比较高的阅读量。而像《<a href="http://chanjh.com/post/developer/0024">程序员应该写怎样的博客</a>》和《<a href="http://chanjh.com/post/developer/0026">软件开发的理与美——记 iOS Club 之行</a>》这样写给程序员看的文章，阅读量则比较少。</p>
+<p>ChanTalk 的定位还是那一句话：「记录思考，分享创新」，只是方向从 Aria2c 的教程开始便有了一些改变，便是更加注重数字生活的体验，而开始远离程序员的日常。</p>
+<p>可是我还是一名程序员啊，一名程序员怎能不写写程序员的事情？因此，搭建自己的技术博客成为我必须做的一件事情。</p>
+<h2 id="ioshub">iOSHub</h2>
+<p><img src="http://chanjh.b0.upaiyun.com/0027/ioshub.jpg" alt=""></p>
+<p><a href="https://blog.ioshub.cn">iOSHub</a> 实际上从去年开始我的一个设想。<a href="https://blog.ioshub.cn">iOSHub</a> 的理想状态并不是一个个人博客而已。她的理想状态是集碎片化知识、博客书籍等形式，内容包含开发、设计等与 iOS 关于的一个网站。要实现她的理想状态还有一个遥远的距离，也不知道是否可以真的实现，只能这是个我的一个目标。</p>
+<p><a href="https://blog.ioshub.cn">iOSHub</a> 的主题是分享开发中的理与美。就像在《<a href="http://chanjh.com/post/developer/0024">程序员应该写怎样的博客</a>》一文中提到的一样，我不希望写的技术文章只是生搬其他博客的内容，没有自己的创新点。<strong>优秀的技术博客不是自己的笔记本而已</strong>。</p>
+<p><a href="https://blog.ioshub.cn">iOSHub</a> 博客也不会只限制于写我自己的 iOS 开发知识。我也会不定时的翻译一些我觉得不错的外文文章，设计也好开发也好，我觉得和开发中的美有关的文章，我可能都会考虑翻译。</p>
+<h2 id="mosplash">MoSplash</h2>
+<p>我开始做独立开发者了。MoSplash 就是我的第一个作品。目前还在开发中。</p>
+<p><img src="http://chanjh.b0.upaiyun.com/0027/MoSplash.png" alt=""></p>
+<p>成为独立开发者这个想法一直在我心里回旋。高一时，我第一次接触编程，在那时候的诺基亚 5700 上编写了我的第一个个人 App，但那时候诺基亚已经没落，Android、iPhone 开始称霸世界。高三的时候，我开始关注到微信公众号和背后灵活的开发接口，于是编写了一个查成绩的校园公众号，仅运营半年粉丝量就超过了学校的在校人数（在校生五六千人，粉丝达八千）。</p>
+<p>我喜欢做自己的作品。进入大学之后，iOS 开发成为我学习的方向。大一的时候我进入了 TopView 工作室，接手了几个 iOS 项目，完成了 iOS 开发入门。然而进入了 2017 年，喜欢做自己想做的事情的心灵又再次唤醒，希望能做出自己的产品。</p>
+<p>上个月我参加了苹果公司的 iOS Club 冬令营，那里对创意的尊重和创造者的匠心氛围打动了我，也促使我加快进入 iOS 独立开发的行列。</p>
+<p>MoSplash 还处于开发中。关于 MoSplash 的开发故事我会发布在 <a href="https://blog.ioshub.cn">iOSHub</a> 中。</p>
+<h2 id="最后">最后</h2>
+<p>这就是我最近在做和我想做的事情，希望在 ChanTalk、iOSHub 能和你有更多的互动。
+联系我：
+技术博客：<a href="https://blog.ioshub.cn">iOSHub</a>
+iOSHub 是我的技术博客，主要内容为我在 iOS 开发中发现和探索过程的记录。</p>
+<p>个人博客：<a href="https://chanjh.com">ChanTalk</a>
+知乎专栏：<a href="https://zhuanlan.zhihu.com/ChanTalk">ChanTalk</a>
+ChanTalk 是我的个人博客，分享创意、记录思考。</p>
+<p>微博：<a href="http://weibo.com/bj416">陳某豪</a>
+微博上我会吐槽、分享一些短内容，欢迎关注。</p>
+]]></content>
+    </entry>
+</feed>
