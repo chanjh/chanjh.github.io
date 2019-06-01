@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1558362026519">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1559378524128">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
 
@@ -29,7 +29,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://chanjh.github.io">
-        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1558362026519" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1559378524128" alt="" width="32px" height="32px">
       </a>
       <a href="https://chanjh.github.io">
         <h1 class="site-title">Gill Blog</h1>
@@ -102,7 +102,7 @@
 <li>1、进入系统偏好设置-&gt;帐户-&gt;登陆项</li>
 </ul>
 <p>操作很简单，直接拖任务进去也可以，按底部的 + 号之后添加也可以</p>
-<p><img src="http://chanjh.b0.upaiyun.com/0025/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-30%2018.00.35.png" alt=""></p>
+<p>![](https://chanjh.github.io/post-images/屏幕快照 2017-01-30 18.00.35.png)</p>
 <ul>
 <li>2、利用 /System/Library/StartupItems 和 /Library/StartupItems/ 配置文件</li>
 </ul>
@@ -142,7 +142,7 @@
 <p><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/aa8c459c33167672234fe8b8c163a26953eed_mw_800_wm_1_wmp_3.jpg" alt=""></p>
 <p>然而我发现 Dropbox 的同步经常不理想，只有重启 Dropbox 才能同步完整（这也是我找到比较靠谱的强制刷新 Dropbox 的方法）。如果不刷新则功亏一篑。</p>
 <p>于是有了新的需求：当打开 Mac 时，重启 Dropbox。具体实现如图：</p>
-<p><img src="http://chanjh.b0.upaiyun.com/0025/Artboard.png" alt=""></p>
+<p><img src="https://chanjh.github.io/post-images/Artboard.png" alt=""></p>
 <p>首先编辑 shell 脚本。在桌面（或者其他位置，但注意对应之后 plist 的路径）创建 shell.sh 文件，输入脚本：</p>
 <pre><code>#!/bin/sh
 killall Dropbox # 关闭 Dropbox
@@ -180,7 +180,7 @@ open  /Applications/Dropbox.app # 打开 Dropbox
 <p>因为唤醒 Mac 的时候一般也意味着需要重新连接 wifi，所以变着法子完成了这个需求，也符合我的使用场景。如果你有更贴切的用法，欢迎留言告诉我。</p>
 <h3 id="其他方案">其他方案</h3>
 <p>萌生这个想法的时候我在 slack 群里面问了一下有没有可以直接完成我需求的软件，有个朋友回答了「Hammerspoon」这个软件，但是这个软件使用起来好像比较复杂，所以我放弃了。另外，不使用 Launchd 中 WatchPaths 的方法，也可以使用 Hazel 完成一样的功能。配置如图：</p>
-<p><img src="http://chanjh.b0.upaiyun.com/0025/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-01-30%2021.40.59.png" alt=""></p>
+<p>![](https://chanjh.github.io/post-images/屏幕快照 2017-01-30 21.40.59.png)</p>
 
           </div>
         </div>
