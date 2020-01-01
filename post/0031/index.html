@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1561259384424">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1577867608492">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
 
@@ -35,7 +35,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://chanjh.github.io">
-        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1561259384424" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1577867608492" alt="" width="32px" height="32px">
       </a>
       <a href="https://chanjh.github.io">
         <h1 class="site-title">Gill Blog</h1>
@@ -116,7 +116,7 @@
 <li>节省空间。在 Widget 里只需要留一个日历插件，就能一目了然</li>
 <li>足够装X。嗯……是的。</li>
 </ul>
-<p><img src="https://chanjh.github.io/post-images/%E6%95%88%E6%9E%9C.jpeg" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/%E6%95%88%E6%9E%9C.jpeg" alt=""></figure>
 <p>于是我写了一个将课程导入日历的 Python 脚本，这个脚本是我一年前写的，一直想分享但是一直找不到点拿出来分享，今天心情好（才怪），觉得是时候分享了～下面是使用说明。</p>
 <h2 id="脚本概要">脚本概要</h2>
 <p>【<a href="https://chanjh.github.io/post-images/ClassDemo.zip">Demo下载</a>】</p>
@@ -130,15 +130,15 @@
 <h2 id="环境要求">环境要求</h2>
 <p>Python 2.7+</p>
 <h2 id="执行详解">执行详解</h2>
-<p>1、配置 classInfo Excel 表格
-在工作目录下创建一个 classInfo Excel 表格，表格表头有如下参数：
-className：课程名称
-startWeek：起始周
-endWeek：结束周
-weekday：星期
-classTime：第几节。这个参数要配合 conf_classTime.json 文件，下文会讲。
+<p>1、配置 classInfo Excel 表格<br>
+在工作目录下创建一个 classInfo Excel 表格，表格表头有如下参数：<br>
+className：课程名称<br>
+startWeek：起始周<br>
+endWeek：结束周<br>
+weekday：星期<br>
+classTime：第几节。这个参数要配合 conf_classTime.json 文件，下文会讲。<br>
 classroom：教室</p>
-<p>2、配置 conf_classTime.json
+<p>2、配置 conf_classTime.json<br>
 来吧，照猫画虎：</p>
 <pre><code>{
   &quot;classTime&quot;: [
@@ -170,24 +170,24 @@ classroom：教室</p>
   ]
 }
 </code></pre>
-<p>3、运行 excelReader.py 脚本
-终端运行：
+<p>3、运行 excelReader.py 脚本<br>
+终端运行：<br>
 <code>python excelReader.py</code></p>
-<p><img src="https://chanjh.github.io/post-images/excelReader.png" alt="">
-如果 classInfo 表格是按照 Demo 的样式保存的，输入 0 继续即可。如果不是……你改回来就可以。（一个小脚本而已，懒得做那么多容错啦～）
+<p><img src="https://chanjh.github.io/post-images/excelReader.png" alt=""><br>
+如果 classInfo 表格是按照 Demo 的样式保存的，输入 0 继续即可。如果不是……你改回来就可以。（一个小脚本而已，懒得做那么多容错啦～）<br>
 完成后生成一个 conf_classInfo.json 配置文件</p>
-<p>4、运行 main.py 脚本
-终端运行：
-<code>python main.py</code>
-<img src="https://chanjh.github.io/post-images/main.png" alt="">
-回车后，需要输入两个参数：第一周的星期一日期、提醒时间。
-提醒时间就是在 iOS、Mac 上创建日历时所使用的设置，不知道这样的设置在 Android 和 Windows 是否生效。待测。
+<p>4、运行 main.py 脚本<br>
+终端运行：<br>
+<code>python main.py</code><br>
+<img src="https://chanjh.github.io/post-images/main.png" alt=""><br>
+回车后，需要输入两个参数：第一周的星期一日期、提醒时间。<br>
+提醒时间就是在 iOS、Mac 上创建日历时所使用的设置，不知道这样的设置在 Android 和 Windows 是否生效。待测。<br>
 完成后在工作目录下会生成一个 class.ics 文件</p>
 <p>5、导入手机或者电脑</p>
 <p>如果你是 Mac + iOS， 恭喜你，直接点开 class.ics 就可以导入 Mac， 然后等待 iCloud 同步就可以。</p>
 <p>如果想单独导入 iOS，可以用邮件将 ics 发送到你的 iOS 可以收到的邮箱里，在邮箱内打开就可以。</p>
 <p>Android 和 Windows 的导入方法我没试过，不过我觉得应该和 iOS、Mac 差不多的。</p>
-<p><img src="https://chanjh.github.io/post-images/%E6%97%A5%E5%8E%86.png" alt=""></p>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/%E6%97%A5%E5%8E%86.png" alt=""></figure>
 <h2 id="写在最后">写在最后</h2>
 <p>复习，准备考试。各位大学狗，渣油。</p>
 

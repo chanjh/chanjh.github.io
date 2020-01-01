@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1561259384424">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1577867608492">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
 
@@ -35,7 +35,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://chanjh.github.io">
-        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1561259384424" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1577867608492" alt="" width="32px" height="32px">
       </a>
       <a href="https://chanjh.github.io">
         <h1 class="site-title">Gill Blog</h1>
@@ -124,7 +124,7 @@
             <p>微信公众号有挺多不错的文章，但是在微信上的阅读操作体验一般，保存收藏也很不便。虽然有微信收藏，但是查看麻烦。所以做一个更好的转发保存方式的想法成为我改进使用体验的需求。</p>
 <!-- more -->
 <p>这次开发的微信 Bot 利用微信个人号，使用网页版登录的方式抓取消息，将分享到个人号的链接保存到 Instapaper。</p>
-<p>简易的项目说明直接电梯到我的 GitHub 吧 -&gt; <a href="https://github.com/chanjh/wechat2instapaper">Chanjh — GitHub</a>
+<p>简易的项目说明直接电梯到我的 GitHub 吧 -&gt; <a href="https://github.com/chanjh/wechat2instapaper">Chanjh — GitHub</a><br>
 ![][image-1]</p>
 <h2 id="为什么选择-instapaper">为什么选择 Instapaper</h2>
 <p>目前比较有名、产品比较成功的稍后读软件我认为有三家：印象笔记、Pocket、Instapaper。几个产品各有优劣，也有各自的特点。</p>
@@ -136,18 +136,18 @@
 <p>然后来讲讲，为什么选择微信个人号。微信公众号分三种：订阅号、服务号、企业号，各有不同特点。但总的来说，公众号要实现主动回复，以及快速转发分享，都需要很大的资格认证才可能。作为个人不可能轻易实现。</p>
 <p>个人号开通简单，限制小，只要实现后台抓取处理，就能实现公众号大部分功能。</p>
 <h2 id="操作说明">操作说明</h2>
-<p>首先你要准备两个微信，一个是你的常用账号，一个是你的机器人账号。
-![][image-2]
-▲机器人账号
+<p>首先你要准备两个微信，一个是你的常用账号，一个是你的机器人账号。<br>
+![][image-2]<br>
+▲机器人账号<br>
 配置环境，安装好项目之后，需要对项目进行配置。需要在 instapaper.py 文件中修改你的 instapaper 账号密码、consumer key 和 secret。</p>
-<p>在终端运行 wechat2instapaper.py。用机器人账号扫描下载的二维码，确认登录。
-![][image-3]
-▲打开并扫描 qr.png
-使用常用账号，直接转发图文给机器人号，回复“保存成功”就已经成功保存到你的 instapaper 中了。
-![][image-4]
-▲给机器人账号发送图文
-![][image-5]
-▲终端
+<p>在终端运行 wechat2instapaper.py。用机器人账号扫描下载的二维码，确认登录。<br>
+![][image-3]<br>
+▲打开并扫描 qr.png<br>
+使用常用账号，直接转发图文给机器人号，回复“保存成功”就已经成功保存到你的 instapaper 中了。<br>
+![][image-4]<br>
+▲给机器人账号发送图文<br>
+![][image-5]<br>
+▲终端<br>
 更多细节可以电梯到我的 GitHub  -&gt; <a href="https://github.com/chanjh/wechat2instapaper">Chanjh — GitHub</a></p>
 <h2 id="理想运行环境">理想运行环境</h2>
 <p>机器人号需要一个 Python 的运行环境，以往我的代码都是在 Sae 上存放。但是 Sae 不适合 Python 开发环境。因此这次的开发我直接以自己主机作为运行环境。</p>
@@ -157,10 +157,10 @@
 <p>目前的项目还十分简单，我希望以后能把微信 Bot 开发的更加好玩。看到一些朋友用机器人做群组分析、玩签到，有点像 TG 上的玩法。我会参考他人的玩法，然后自己开发出其他好玩的功能。</p>
 <p>另外，Python 真是一门可以快速使用的语言。用回好多年前在使用的语言，感觉很棒。</p>
 <p>最后感谢 GitHub 上 Ryan Galloway 和 liuwons 的开源项目。我也将我的项目开源，欢迎大家指点。</p>
-<p>[image-1]:	https://chanjh.github.io/post-images/Artboard 1.jpg &quot;封面&quot;
-[image-2]:	https://chanjh.github.io/post-images/Screenshot_2016-03-12-09-56-12.png &quot;机器人账号&quot;
-[image-3]:	https://chanjh.github.io/post-images/QQ20160312-0@2x.png &quot;打开 qr.png&quot;
-[image-4]:	https://chanjh.github.io/post-images/Screenshot_2016-03-12-10-04-52.png &quot;给机器人账号发送图文&quot;
+<p>[image-1]:	https://chanjh.github.io/post-images/Artboard 1.jpg &quot;封面&quot;<br>
+[image-2]:	https://chanjh.github.io/post-images/Screenshot_2016-03-12-09-56-12.png &quot;机器人账号&quot;<br>
+[image-3]:	https://chanjh.github.io/post-images/QQ20160312-0@2x.png &quot;打开 qr.png&quot;<br>
+[image-4]:	https://chanjh.github.io/post-images/Screenshot_2016-03-12-10-04-52.png &quot;给机器人账号发送图文&quot;<br>
 [image-5]:	https://chanjh.github.io/post-images/QQ20160312-1@2x.png &quot;终端&quot;</p>
 
           </div>

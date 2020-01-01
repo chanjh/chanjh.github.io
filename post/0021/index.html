@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1561259384424">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1577867608492">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
 
@@ -35,7 +35,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://chanjh.github.io">
-        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1561259384424" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1577867608492" alt="" width="32px" height="32px">
       </a>
       <a href="https://chanjh.github.io">
         <h1 class="site-title">Gill Blog</h1>
@@ -117,7 +117,7 @@
             <p>最近看了几篇关于阅读的文章，觉得需要重新梳理一下自己在手机上的阅读和阅读后的管理。今天来分享一下怎么将手机上正在阅读的文章自动发送到 Mac 上继续完成阅读。</p>
 <!-- more -->
 <p>这个 Workflow 是在 Hum 在少数派的分享《<a href="http://sspai.com/35242#01">把你的 iOS 设备变成控制 Mac 的「遥控器」</a>》中的例一之上更改的。利用原文中的例子可以实现在 iOS 设备上将文章发送到 Mac 上进行稍后阅读，这个过程的原理如下：</p>
-<p><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/aa8c459c33167672234fe8b8c163a26953eed_mw_800_wm_1_wmp_3.jpg" alt=""></p>
+<figure data-type="image" tabindex="1"><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/aa8c459c33167672234fe8b8c163a26953eed_mw_800_wm_1_wmp_3.jpg" alt=""></figure>
 <p>但是 Hum 的文章中并不支持发送多个链接到 Mac 中打开。也就是说如果你分享了一次但并没有在 Mac 上打开该链接之后就分享了第二个链接，此时 Mac 上只会打开第一个链接而已。基于此我想到了两个改进思路：</p>
 <ul>
 <li>取代到原先 AppleScript 上写死的文档路径，改为参数</li>
@@ -127,14 +127,14 @@
 <p>其实方法一的改进应该是比较简单的，但是我搜索了一下没找到 Hazel 怎么（或者说是否能）传递文件名这个参数，所以更换思路，使用了第二种方法进行改进。</p>
 <p>具体流程：</p>
 <p>Step1：在 iOS 设备看到需要在 Mac 上打开的网页，通过 Workflow 把链接添加到 DropBox 下的 <code>ReadLaterURL.md</code> 文档中（如果没有这个文档会自动帮你创建）。为了分割多个链接。每个链接的最后使用反斜杠说明链接地址已结束。</p>
-<p><img src="https://chanjh.github.io/post-images/IMG_0136.PNG" alt=""></p>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/IMG_0136.PNG" alt=""></figure>
 <ul>
 <li><a href="https://workflow.is/workflows/f10a517952a5426fbd3411a7bba8e94b">我的 Workflow 下载</a></li>
 </ul>
 <p>Step2：在 Hazel 里设置条件触发文件夹，这样发送到这个文件夹里的文件，如果满足条件，Hazel 就会作出你设定好的处理：</p>
-<p><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/b271bca469cb354cb138af93e845b3b053eef_mw_800_wm_1_wmp_3.jpg" alt=""></p>
+<figure data-type="image" tabindex="3"><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/b271bca469cb354cb138af93e845b3b053eef_mw_800_wm_1_wmp_3.jpg" alt=""></figure>
 <p>Step3：Hazel 里的动作名称也就是 <code>Name</code> 这一栏可以是随意的，但剩下的要按要求来做。整体的结果是：当在指定文件夹中，发现名称为 <code>ReadLaterURL</code> 的文件，就执行两个动作：</p>
-<p><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/7b6568b1ce89453d25e6453eea602f8d53ef0_mw_800_wm_1_wmp_3.jpg" alt=""></p>
+<figure data-type="image" tabindex="4"><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/7b6568b1ce89453d25e6453eea602f8d53ef0_mw_800_wm_1_wmp_3.jpg" alt=""></figure>
 <p>第一个动作是获取文本文档内容，作为链接在 Mac 上用 Chrome 打开。就是这一步需要用到 Applescript。第二个动作是前一个动作执行成功后删除文本文档。</p>
 <p>以上步骤大致和 Hum 相似，我也就复制他的描述和图片过来啦~</p>
 <p>Step4：填入核心的 Applescript：</p>
