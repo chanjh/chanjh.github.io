@@ -12,7 +12,7 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
 
 <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
-<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1578979728326">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1579316911717">
 <link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
 
 
@@ -35,7 +35,7 @@
   <div class="site-header">
     <div class="left">
       <a href="https://chanjh.github.io">
-        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1578979728326" alt="" width="32px" height="32px">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1579316911717" alt="" width="32px" height="32px">
       </a>
       <a href="https://chanjh.github.io">
         <h1 class="site-title">Gill Blog</h1>
@@ -145,10 +145,10 @@
 </ul>
 <h2 id="举例唤醒时同步-dropbox">举例：唤醒时同步 Dropbox</h2>
 <p>我曾经介绍过一篇<a href="http://chanjh.com/post/software/0021#content">将文章发送到 Mac 上稍后读</a>。其中曾用 Dropbox 作为中介，将文章发送到 Mac 上阅读。流程如下：</p>
-<figure data-type="image" tabindex="1"><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/aa8c459c33167672234fe8b8c163a26953eed_mw_800_wm_1_wmp_3.jpg" alt=""></figure>
+<figure data-type="image" tabindex="1"><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/aa8c459c33167672234fe8b8c163a26953eed_mw_800_wm_1_wmp_3.jpg" alt="" loading="lazy"></figure>
 <p>然而我发现 Dropbox 的同步经常不理想，只有重启 Dropbox 才能同步完整（这也是我找到比较靠谱的强制刷新 Dropbox 的方法）。如果不刷新则功亏一篑。</p>
 <p>于是有了新的需求：当打开 Mac 时，重启 Dropbox。具体实现如图：</p>
-<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/Artboard.png" alt=""></figure>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/Artboard.png" alt="" loading="lazy"></figure>
 <p>首先编辑 shell 脚本。在桌面（或者其他位置，但注意对应之后 plist 的路径）创建 shell.sh 文件，输入脚本：</p>
 <pre><code>#!/bin/sh
 killall Dropbox # 关闭 Dropbox
