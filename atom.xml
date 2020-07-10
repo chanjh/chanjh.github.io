@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chanjh.github.io</id>
     <title>Gill Blog</title>
-    <updated>2020-02-29T03:50:13.511Z</updated>
+    <updated>2020-07-10T12:00:03.849Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chanjh.github.io"/>
     <link rel="self" href="https://chanjh.github.io/atom.xml"/>
@@ -10,6 +10,55 @@
     <logo>https://chanjh.github.io/images/avatar.png</logo>
     <icon>https://chanjh.github.io/favicon.ico</icon>
     <rights>All rights reserved 2020, Gill Blog</rights>
+    <entry>
+        <title type="html"><![CDATA[我的主力机从 iOS 迁移到 Android]]></title>
+        <id>https://chanjh.github.io/post/0041/</id>
+        <link href="https://chanjh.github.io/post/0041/">
+        </link>
+        <updated>2020-07-01T14:07:17.000Z</updated>
+        <summary type="html"><![CDATA[<p>虽然我是一名 iOS 开发者，但我并不是一个很「忠诚」的果粉。我并不追求最新的苹果设备，也不追求配备一整套的苹果全家桶，甚至至今依然觉得 Apple Watch 不过是一个需要一天一充的玩具表。我对 Android 也保留很多欣赏。其实在刚上大学的时候，我都一直在用 Android。我上大学的第一台手机就是当年的一加第一代手机。</p>
+]]></summary>
+        <content type="html"><![CDATA[<p>虽然我是一名 iOS 开发者，但我并不是一个很「忠诚」的果粉。我并不追求最新的苹果设备，也不追求配备一整套的苹果全家桶，甚至至今依然觉得 Apple Watch 不过是一个需要一天一充的玩具表。我对 Android 也保留很多欣赏。其实在刚上大学的时候，我都一直在用 Android。我上大学的第一台手机就是当年的一加第一代手机。</p>
+<!-- more -->
+<h2 id="机型选择购机经历">机型选择&amp;购机经历</h2>
+<p>时隔多年的今天，当我看到我手上碎屏的 iPhone X，心想要换一台设备时，发现我处在<strong>更换设备的尴尬时间点</strong>。</p>
+<p>如果换 iPhone 吧，最新的旗舰 iPhone 11 系列已经发布不少时间了，很快要发布 iPhone 12。iPhone 11 系列还不支持 5G，买他总有一种使用寿命不长的感觉。如果买上一代旗舰（二手 iPhone Xs），其实能在 iPhone 12 之后，卖一个不差的价格（相对保值），但是 iPhone Xs 的信号极差，因为这点就完全没有购买它的必要。每次看到我同事一进商场 Xs 就没了信号时，总感觉是在活受罪。</p>
+<p>所以我的目光开始转向寻找一台 Android 设备。安卓的机型选择上就多了很多，一加、小米、三星都是我考虑的品牌，恰逢最近是新机发布的时间，我也有机会对比各个品牌的新旧机型。最后抱着买新不买旧的心情，入了安卓机皇——<strong>三星的旗舰：S20 系列</strong>。</p>
+<p>既然选定了机型，接下来就是确定去哪家店买了。恰逢 618，我也对比了几家电商 S20 的优惠力度，<strong>拼多多</strong>毋庸置疑是最舍得砍价的。最后我在拼爹爹以 5100 的价格（京东同期大概是 6000 左右）购买了入门款的 S20</p>
+<h2 id="设备同步">设备同步</h2>
+<p>更换设备最大的压力，是同步设备的数据。你的本地数据越多，那么更换设备的成本就越大。而在今天，大部分的应用程序都支持了云端数据，我相信你的数据除了微信之外，绝大多数内容都可以在记住账号的情况下找回来。</p>
+<p>在 Apple 的生态里，大部分数据都被同步到 iCloud 中，包括照片、账号密码、云盘。同时，因为在 mac 上我主要使用的浏览器是 Chrome，因此我的大部分账号密码是保存在 Google 账号里。所以更换安卓之后，只要连接上 Google（不论是 Chrome 还是 Google App），就可以登陆我的大部分账号。</p>
+<p>所以换机后的步骤大概是</p>
+<ol>
+<li>先安装国内的应用商店，比如酷安、豌豆荚</li>
+<li>下载安装这些商店能找到的应用列表，比如微信、微博等</li>
+<li>上 GitHub 找到某些科学上网工具，安装。</li>
+<li>Google 框架。很开心的是，三星 S20 已经自带 Google 框架，用户无须安装，即可下载使用 Google Play。</li>
+<li>登陆 Google 账号，下载 Chrome 等 App</li>
+<li>开始登陆各个 App，主要是微博微信淘宝这些提供第三方登陆的优先登陆。</li>
+<li>基本上已经同步完成</li>
+</ol>
+<p>另外，我的照片除了备份到 iCloud，还备份了一份到 Google Photo 里，这样在新设备上也能看到照片了。</p>
+<h2 id="上手体验">上手体验</h2>
+<h3 id="1-摄像体验">1. 摄像体验</h3>
+<p>个人感觉，Galaxy S20 拍出来的照片会比 iPhone 更讨好眼球。以前用 iPhone 前置和女朋友自拍时老是被嫌弃是「死亡前置」。现在换 S20 拍出来女朋友会更加喜欢。</p>
+<p>拿女票的 iPhone 11 和我的 S20 简单对比了一下。S20 的广角畸变会比 iPhone 严重一些。广角畸变一般是图片四周因为镜头的缘故，会出现的畸变现象。S20 和 iPhone  在同样的拍摄内容时，S20 开始畸变的范围更大，iPhone 只有在比较接近四周的图像才会开始畸变。不过，S20 的广角会大于 iPhone 11，拍摄内容更多。</p>
+<h3 id="2-samsung-pay">2. Samsung Pay</h3>
+<p>Samsung Pay 是我使用下来最舒服和最常用的功能。Samsung Pay 和 Apple Pay 都可以绑定银行卡，使用 NFC 传感器进行支付，一般我在进出地铁时会使用这种支付方式。但是 Samsung Pay 比 Apple Pay 更友好的是，Samsung Pay 还支持绑定支付宝和微信支付，并且同时支持二者的扫码支付和二维码支付。Samsung Pay 相当于在一级入口里，<strong>整合了所有主流的支持方式</strong>（当然，它也支持绑定公交卡）。用起来只能说：爽。</p>
+<h3 id="3-桌面模式">3. 桌面模式</h3>
+<p>前两天 WWDC 里，苹果宣布要在 mac 上，使用自家的 ARM 架构的 A 系列芯片，这意味着苹果将在系统架构上做到所有的终端设备都统一。也就意味着，你的 iPhone 和 MacBook 的区别会越来越小。iPhone 也能够被轻易地改造为一台 mac 设备。</p>
+<p>移动设备变身为桌面设备这件事，在安卓平台上早就已经出现了。锤子、华为、三星都有自己的桌面模式。</p>
+<p>我试用了一下三星的桌面模式（Dex），总体的体验还是比较舒服的。桌面允许你多个窗口，在更大的设备上运行安卓应用。Dex 对应用的兼容还是不错的。有部分应用（比如 Chrome、飞书）支持在这个模式下展示更多的内容。有部分应用（比如微信读书），会在应用内锁定窗口大小，导致不能被缩放。</p>
+<p>使用 Dex 还偶尔会出现连接不稳定的现象。我在 Gobigger 和 AOC 的显示器上都遇到过。因为我大部分使用 Dex 都是为了看看剧，偶现的断连还是很影响体验的。</p>
+<h3 id="4-安卓的通病">4. 安卓的通病</h3>
+<p>我感觉 S20 上有两个安卓比较常见、也比较严重的毛病：<strong>防误触做不好、没有统一推送</strong></p>
+<p>S20 真的太容易误触了……特别是我左手使用的时候，非常容易点到左下角的按钮。容易出现的现象是刷微博的时候，点到 Tab Bar，然后就滚回最上面重新刷新…… 这种时候你可以想象我有多恼火。</p>
+<p>另外一个问题出现在推送上。唉，因为国情的缘故，我们无法直接使用 Google 的统一推送，于是各家都有自己的推送通道。我不清楚三星和软件厂商们是怎么对接的，但是在我刚上手的这段时间，推送经常丢，导致我得时不时主动打开应用。</p>
+<p>最后我找到的解决办法，是将我的 IM 应用设置为允许自启动就可以了。不过这样也会有两个问题，一是自启动应该会增加耗电，二是我不可能所有 App 都自启动呀，这样还是会丢信息……</p>
+<h2 id="最后">最后</h2>
+<p>如果要给 S20 评分，我大概会给 7.5 分（满分 10 分）。作为对比，我的 iPhoneX 会是 7 分，iPhone 11 Pro 会是 8.5 分。其实其他都还好，但是一想到这个推送的问题，我就巴不得 iPhone 12 上市，让我早点回到苹果的怀抱里</p>
+]]></content>
+    </entry>
     <entry>
         <title type="html"><![CDATA[吾家有猫初长成]]></title>
         <id>https://chanjh.github.io/post/0040/</id>
@@ -452,48 +501,6 @@ classroom：教室</p>
 <figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/%E6%97%A5%E5%8E%86.png" alt="" loading="lazy"></figure>
 <h2 id="写在最后">写在最后</h2>
 <p>复习，准备考试。各位大学狗，渣油。</p>
-]]></content>
-    </entry>
-    <entry>
-        <title type="html"><![CDATA[HyperDock：我眼中最好用的 Mac 窗口管理]]></title>
-        <id>https://chanjh.github.io/post/0030/</id>
-        <link href="https://chanjh.github.io/post/0030/">
-        </link>
-        <updated>2017-05-08T02:50:00.000Z</updated>
-        <summary type="html"><![CDATA[<p>前两天因为很长时间没有整理电脑，256G 的内存快要被撑爆了，无奈之下随手删除了几个平时没怎么打开的 App，结果不小心把一个神器给卸载了，之后使用起 Mac 来就觉得我的电脑不是我的电脑的感觉。这个神器就是 HyperDock——我眼中最好用的 Mac 窗口管理软件。HyperDock 我很早之前就使用了，他强大到让我一直以为我的窗口管理的几个功能是几个不同的 App 来完成的。直到不小心卸载之后又重新装回来才明白它的强大。</p>
-]]></summary>
-        <content type="html"><![CDATA[<p>前两天因为很长时间没有整理电脑，256G 的内存快要被撑爆了，无奈之下随手删除了几个平时没怎么打开的 App，结果不小心把一个神器给卸载了，之后使用起 Mac 来就觉得我的电脑不是我的电脑的感觉。这个神器就是 HyperDock——我眼中最好用的 Mac 窗口管理软件。HyperDock 我很早之前就使用了，他强大到让我一直以为我的窗口管理的几个功能是几个不同的 App 来完成的。直到不小心卸载之后又重新装回来才明白它的强大。</p>
-<!-- more -->
-<h2 id="窗口快速布局">窗口快速布局</h2>
-<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/HyperDock1.gif" alt="" loading="lazy"></figure>
-<p>窗口快速布局的软件有不少，像是比较火的 Moom、开源的 Spectacle 等。其实我只用过 Spectacle 和 HyperDock。没有 HyperDock 的几天我是用 Spectacle 度过日子的。</p>
-<p>相比于 Spectacle，HyperDock 的快捷窗口布局有更多的选择。HyperDock 不仅支持常见的左右、上下分屏、全屏，还支持两种居中方式。不仅如此，HyperDock 的快捷键使用起来也更加友好。control+option 再加方向键的配合就能完成所有的布局操作。对比一下 Spectacle 居然使用 control+option+F 键的组合键完成全屏布局这样操蛋的体验（你不信亲手试试），HyperDock 体验分爆表。</p>
-<h2 id="拖拽也能完成窗口管理">拖拽也能完成窗口管理</h2>
-<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/HyperDock2.gif" alt="" loading="lazy"></figure>
-<p>使用过 Windows7 的童鞋可能知道，在 Windows 上将窗口拖拽到屏幕的边缘会触发不同的窗口布局动作。左右分别是左分屏和右分屏，上边是全屏，边角是四分屏。安装过 HyperDock 的 Mac 也能让 Mac 的窗口支持这样的拖拽。</p>
-<h2 id="在-dock-栏弯道超车">在 Dock 栏弯道超车</h2>
-<p>要说 HyperDock 最强大的地方，要数在 Dock 栏里的操作了（虽然前面两项我已经觉得很厉害了）。</p>
-<figure data-type="image" tabindex="3"><img src="https://chanjh.github.io/post-images/HyperDock3.gif" alt="" loading="lazy"></figure>
-<ul>
-<li>
-<p>预览<br>
-将光标移动到 Dock 上的 icon，停留一会，如果该应用有在某个桌面有已经打开的窗口，它会显示出来。如果移动到预览图里，可以预览应用的情况。</p>
-</li>
-<li>
-<p>跨桌面移动窗口<br>
-在窗口里，将窗口拖拽到桌面上时，可以快速将不同桌面的窗口移动到该桌面中。</p>
-</li>
-<li>
-<p>隐藏、最小化<br>
-光标放在应用图标上，上下轻划，可以隐藏或打开该窗口。窗口在不同桌面时则会切换桌面。光标放在预览图上，上下轻划，可以最小化或恢复该窗口。</p>
-</li>
-<li>
-<p>应用扩展<br>
-HyperDock 支持应用扩展，在 Dock 直接操作像 iTunes、日历等应用。</p>
-</li>
-</ul>
-<h2 id="结语">结语</h2>
-<p>美好的事物总是失去的时候才能体会到它的美好。HyperDock 就是这样一款让我突然意识到它的美好的应用。虽然 HyperDock 的图标和官网的设计看起来并不起眼，但是用起来却很给力。<a href="https://bahoom.com/hyperdock">官网</a> $9.95（¥68） 的价格对于这样一款强大到没有它会减分的软件，我觉得是很值的。</p>
 ]]></content>
     </entry>
 </feed>
