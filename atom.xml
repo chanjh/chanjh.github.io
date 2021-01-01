@@ -2,7 +2,7 @@
 <feed xmlns="http://www.w3.org/2005/Atom">
     <id>https://chanjh.github.io</id>
     <title>Gill Blog</title>
-    <updated>2021-01-01T02:30:03.497Z</updated>
+    <updated>2021-01-01T02:49:47.875Z</updated>
     <generator>https://github.com/jpmonette/feed</generator>
     <link rel="alternate" href="https://chanjh.github.io"/>
     <link rel="self" href="https://chanjh.github.io/atom.xml"/>
@@ -12,8 +12,8 @@
     <rights>All rights reserved 2021, Gill Blog</rights>
     <entry>
         <title type="html"><![CDATA[2021，请温柔以待]]></title>
-        <id>https://chanjh.github.io/post/2021qing-wen-rou-yi-dai/</id>
-        <link href="https://chanjh.github.io/post/2021qing-wen-rou-yi-dai/">
+        <id>https://chanjh.github.io/post/0043/</id>
+        <link href="https://chanjh.github.io/post/0043/">
         </link>
         <updated>2021-01-01T02:28:27.000Z</updated>
         <summary type="html"><![CDATA[<p>2020 年终究还是过去了。它是不是最坏的一年、抑或是未来十年里最好的一年，我都不知道，但我相信在绝大多人心里，2020 年都可能会是此生无法轻易忘记的一年。</p>
