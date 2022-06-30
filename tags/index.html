@@ -1,0 +1,218 @@
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+        <div class="content-container">
+          
+          <div class="tags-container">
+            
+              <a class="tag" href="https://chanjh.github.io/tag/mac/">Mac</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/ying-jian/">硬件</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/gou-ji/">购机</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/personal/">个人</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/ipad/">iPad</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/ios/">iOS</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/ji-zhang/">记账</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/moneywiz/">moneywiz</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/zi-dong-hua/">自动化</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/workflow/">workflow</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/app/">app</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/zhi-nan/">指南</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/kai-fa-zhe/">开发者</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/chen-mou-hao/">陈某豪</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/jiao-cheng/">教程</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/du-li-kai-fa/">独立开发</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/ji-zhu/">技术</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/pei-xun/">培训</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/apple/">Apple</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/mi-ma-guan-li/">密码管理</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/an-quan/">安全</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/iphone/">iPhone</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/ti-yan/">体验</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/yin-le/">音乐</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/li-qi/">利器</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/wei-xin/">微信</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/xiao-mi/">小米</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/bi-ji-ben/">笔记本</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/markdown/">Markdown</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/android/">Android</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/ping-mu/">屏幕</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/smartisan/">Smartisan</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/chui-zi/">锤子</a>
+            
+              <a class="tag" href="https://chanjh.github.io/tag/rom/">ROM</a>
+            
+          </div>
+
+        </div>
+
+        <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+      </div>
+      <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+    </div>
+  </body>
+</html>

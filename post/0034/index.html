@@ -1,0 +1,265 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>我做的一些 Workflow | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">我做的一些 Workflow</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2018-03-09</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/ios/">
+                    iOS
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/zi-dong-hua/">
+                    自动化
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/workflow/">
+                    workflow
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/app/">
+                    app
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>Workflow 是 iOS 平台上一款明星应用。Workflow 使用了「模块化编程」的思想，我们在 Workflow 里可以快捷、模块化地将一个工作流固定下来。比如你先复制了内容，然后替换了里面的文字，再把文字发送出去或者保存到日历。我在「<a href="https://zhuanlan.zhihu.com/p/26145402">加上这些干货，让 Workflow 如虎添翼</a>」里介绍了一些 Workflow 周边的工具。</p>
+<p>这篇文章将介绍一些我个人做并且常用的 Workflow，可供大家参考使用。</p>
+<!-- more -->
+<p>![](https://chanjh.github.io/post-images/我做的一些 Workflow.png)</p>
+<h2 id="支付助手">支付助手</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/b3c8a050a1664550abc0a02edb21bde9">支付助手</a></p>
+<p>在中国互联网两大巨头——支付宝、微信的推动下，我们进入了「移动支付」的时代。到处可见的微信支付或者支付宝钱包，加上逢年过节的各类褥羊毛活动，现在我们已经离不开移动支付。</p>
+<p>支付助手可以在 Workflow 中选择适合的支付方式，道理也很简单，就是使用了对应支付方式的 URL Scheme。</p>
+<p>我还写了支付助手的 JSBox 版本，下载链接：<a href="https://xteko.com/redir?url=https://raw.githubusercontent.com/cyanzhong/xTeko/master/extension-scripts/pay-helper.js&amp;icon=141">pay-helper</a></p>
+<p>不过由于微信付款码并没有对应的 URL Scheme，现在还没办法直接打开。</p>
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/%E6%94%AF%E4%BB%98%E5%8A%A9%E6%89%8B.png" alt="" loading="lazy"></figure>
+<h2 id="成功日记">成功日记</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/248267e6e0cd414ea49e250b59f1f903">成功日记</a></p>
+<p>成功日记的灵感来自于《小狗钱钱》这本书。书中一只名叫「钱钱」的小狗教会了一个小女孩关于理财的道理。他让小女孩记录每天做的成功的事情，在小女孩遇到问题的时候，他又鼓励女孩翻开成功日记，激励自己。</p>
+<p>使用成功日记 Workflow 时，你可以选择本次输入的条目数，接着分别输入内容，运行后可以保存到 Bear 中。</p>
+<p>如果你不是使用 Bear，你可以将服务更换为适合你的。</p>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/%E6%88%90%E5%8A%9F%E6%97%A5%E8%AE%B0.png" alt="" loading="lazy"></figure>
+<h2 id="截图管理">截图管理</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/da1fc0bf76f7401c95d959eaf59c31fe">Edit or Del</a></p>
+<p>手机已经是我们生活的一部分，而即时通讯和社交占领了我们终端使用的绝大多数时间。在浏览信息、发现有趣的事情过程中，截图分享也成为我们的日常操作。</p>
+<p>很多时候，截图之后需要进行一定的裁剪和标注。另外，截图分享之后一般不再有保存的需求。在 iOS 11 出来之前，iOS 上根本没有所谓的截图管理。在 Android，截图后会出现一条通知，你可以在通知栏中对最截图进行删除等操作。</p>
+<p>本 Workflow 灵感就是来自 Android 上的操作，你可以对相册中最新的一张图片选择要删除还是编辑操作，即时处理每一张截图。</p>
+<p>在 iOS 11 之后，本 Workflow 在实用性已经下降。不过在操作快捷性和编辑工具自由度选择上，Workflow 还是更加好些。</p>
+<figure data-type="image" tabindex="3"><img src="https://chanjh.github.io/post-images/%E6%88%AA%E5%9B%BE%E7%AE%A1%E7%90%86.png" alt="" loading="lazy"></figure>
+<h2 id="open-in-mac">Open in Mac</h2>
+<p>Workflow 链接：<a href="https://workflow.is/workflows/fee1454f2d8b43ac8e645440387dae28">Open in Mac</a></p>
+<p>这其实是之前的文章「<a href="https://zhuanlan.zhihu.com/p/22215312">将文章发送到 Mac 上稍后读</a>」中的 Workflow。</p>
+<p>我们可能会遇到这样的场景：阅读的文章可能有大文件或者长视频，需要打开电脑来阅读，不过 Mac 并不在身边，不能 Handoff 过去。这时候只能先拷贝链接，在提醒事项添加任务，然后指定你回到 Mac 身边的时候，提醒自己打开。</p>
+<p>这样子可以解决问题但不够自动化，这个 Workflow 就是借助 Dropbox 和 Hazel，来完成分享到 Mac，稍后打开 Mac 时自动打开。</p>
+<p>如果 Dropbox 有时候同步不及时，也许你可以再看看这篇文章：<a href="https://zhuanlan.zhihu.com/p/25049770">利用 Launchd 定制 Mac 启动任务</a></p>
+<p>![](https://chanjh.github.io/post-images/Open in Mac.png)</p>
+<h2 id="最后">最后</h2>
+<p>Workflow 是一款功能强大，使用简单的应用。如果你有更多有趣的 Workflow，欢迎到评论区内分享～</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0033/">
+              <h3 class="post-title">
+                下一篇：写给女友的 Mac 入门指南（入门）
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

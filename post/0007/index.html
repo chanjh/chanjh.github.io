@@ -1,0 +1,280 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>人人都应该懂一点 Markdown | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://chanjh.github.io/post-images/photo-1432821596592-e2c18b78144f.jpg')">
+            </div>
+          
+          <h2 class="post-title">人人都应该懂一点 Markdown</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2015-12-08</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/markdown/">
+                    Markdown
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                    教程
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <blockquote>
+<p>今天才知道 Markdown 是 Aaron Swartz 参与设计的，这让我对 Markdown 的感受又加上一分。 Aaron Swartz 也许以后我们可以再聊聊，想了解他的可以看看电影<a href="http://movie.douban.com/subject/25785114/">互联网之子(豆瓣)</a>。</p>
+</blockquote>
+<!-- more -->
+<p>最近接触了很多文字工作者，自己也分配了更多时间精力在文字工作上，越多地使用文字我就越感觉到 Markdown 的那些优秀之处。</p>
+<p>我知道一篇文章内要系统地讲完 Markdown 这门学问是很难的，但是我还是会迫不及待地分享我使用 Markdown 的感受，原因很简单，那就是他真的很好用。</p>
+<p>Markdown 是什么？怎么用？为什么要人人用？这篇文章我来一一为你解答。</p>
+<h2 id="一-markdown-与写作">一、Markdown 与写作</h2>
+<p>我的博客离不开 Markdown，甚至我的博客的诞生也离不开 Markdown ，因为我写的第一篇博文就是用 Markdown 编写、再转化为 HTML 的。到现在，我在 farbox 上写作也是使用 Markdown 来写文章。</p>
+<p>可以看到，很多网站都支持了 Markdown ，一些应用内的文档操作也支持了 Markdown，Markdown 作为文字创造的便捷工具被越来越多人接受。至今我还是认为，文字工作者不应该不认识 Markdown。</p>
+<h2 id="二-markdown-是什么">二、Markdown 是什么</h2>
+<p>我这里不想用很官方的定义去解释 Markdown 的含义。从个人的角度来说，Markdown 就是能够将文章常用的排版，比如标题副标题、序号、粗体居中、插入链接图片表格等等操作，简单地使用其 Markdown 的语法实现出来。Markdown 其实是一种标记语言。</p>
+<h2 id="三-怎么使用-markdown">三、怎么使用 Markdown？</h2>
+<h3 id="1了解-markdown-最常用的语法">1.了解 Markdown 最常用的语法</h3>
+<ul>
+<li># 标签</li>
+</ul>
+<p>在 Markdown 里，用不同数量的井号（注意，跟编程语言一样，markdown 使用的是英语字符）来代表不同等级的标题。一个为第一标题，字号最大，两个为第二标题，字号次之，以此类推。</p>
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/1.pic.jpg" alt="" loading="lazy"></figure>
+<ul>
+<li>* 标签</li>
+</ul>
+<p>星号标签用来进行列表的排序。生成无序的列表。</p>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/2.pic.jpg" alt="" loading="lazy"></figure>
+<ul>
+<li>插入图片与链接、插入表格</li>
+</ul>
+<figure data-type="image" tabindex="3"><img src="https://chanjh.github.io/post-images/3.pic.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="4"><img src="https://chanjh.github.io/post-images/4.pic.jpg" alt="" loading="lazy"></figure>
+<p>更多详细的 Markdown 语法可以参考 <a href="http://wowubuntu.com/markdown/#list">Markdown 中文版语法说明</a>。</p>
+<h3 id="2下载一个-markdown-的文本编辑器">2.下载一个 Markdown 的文本编辑器</h3>
+<p>目前支持 Markdown 语法的文本编辑器还是不少，推荐几个在不同平台比较热门的编辑器。</p>
+<p><strong>Android 平台</strong></p>
+<p>在手机上主要用 Markdown 来轻量处理文字生产和文章排版（Markdown 本身就很轻），之前的文章<a href="http://chanjh.win/post/app-ti-yan/2015-11-29">Android 上这些 Apps 你不能错过</a> 系列里介绍了<a href="http://www.smartisan.com/apps/notes">锤子便签</a>和 <a href="http://www.wandoujia.com/apps/com.ryeeeeee.markdownx?utm_source=sspai_searchapi&amp;utm_campaign=biz&amp;utm_medium=searchapi">MarkdownX</a> 。日常的使用中我比较多的使用锤子便签。</p>
+<p><strong>iOS 平台</strong></p>
+<p>iOS 平台有 <a href="https://itunes.apple.com/cn/app/byword/id482063361?mt=8&amp;ign-mpt=uo%3D4">Byword</a>、<a href="https://itunes.apple.com/cn/app/ulysses-for-ipad/id950335311?mt=8&amp;ign-mpt=uo%3D4">Ulysses</a>、<a href="https://itunes.apple.com/cn/app/ia-writer/id775737172?mt=8&amp;ign-mpt=uo%3D4">iA Writer</a> 等优秀的 Markdown 编辑器，他们都同时支持 Mac、iOS 双平台，但都不是免费的。当然，上面提到的<a href="http://www.smartisan.com/apps/notes">锤子便签</a>也是有 iOS 版本的。</p>
+<p><strong>Mac 平台</strong></p>
+<p>在 Mac 上，我比较常用的是 <a href="http://typora.io/">Typora</a> 和 <a href="http://25.io/mou/">Mou</a>。Mou 支持 Markdown 语法和排版双屏输出，还能将文章转化成 HTML 的格式。而 Typora 则是以即时生成为长，输入的 Markdown 标签可以即时生成排版。</p>
+<p>Mou：</p>
+<figure data-type="image" tabindex="5"><img src="https://chanjh.github.io/post-images/5.pic_hd.jpg" alt="" loading="lazy"></figure>
+<p><strong>Windows 平台</strong></p>
+<p>Windows 平台下的 Markdown 我没用过，网上有推荐 <a href="http://code52.org/DownmarkerWPF/">Markdown Pad</a> 和 <a href="http://cloose.github.io/CuteMarkEd/">CuteMarkEd</a>，大家可以试一下。真的觉得有推荐的，可以发评论跟我们分享一下。</p>
+<p><strong>Web</strong></p>
+<p>Web 平台使用比较少，但是书签里面一直收藏着 <a href="https://www.zybuluo.com/mdeditor">Cmd Markdown</a> ，因为他上面也有很多语法参考，忘记的时候我会打开来。另外国内的 <a href="http://www.jianshu.com/">简书</a> 也支持了 Markdown。</p>
+<figure data-type="image" tabindex="6"><img src="https://chanjh.github.io/post-images/6.pic_hd.jpg" alt="" loading="lazy"></figure>
+<h3 id="3编辑保存吧">3.编辑保存吧！</h3>
+<p>编辑之后可以凭借 Markdown 本身的灵活性，根据你的需要把 Markdown 转化你需要的状态，无论是 Html 还是 Word 文档。Markdown 本身就是一份纯文本，保存你的 Markdown ，以后只需对标签进行简单修改，马上能进行排版的更改。</p>
+<h2 id="四-markdown-给文字工作者带来了什么">四、Markdown 给文字工作者带来了什么</h2>
+<p>两个字：便捷</p>
+<p>Markdown 的语法使得对编辑器的要求降低，于是编辑器变得更轻量，界面更简洁；语法的简洁易操作也使得编辑者排版操作更加快捷与方便。Markdown 让文字工作者更加专注于文字内容，以往的需要复杂操作的排版也能在写作中完成。</p>
+<p>总之，Markdown 让文字创造变得纯粹。</p>
+<h2 id="五-了解更多关于-markdown">五、了解更多关于 Markdown</h2>
+<p>一篇文章对了解和认识 Markdown 来说还是十分局限，推荐大家读读一些作者对 Markdown 的使用感受。</p>
+<ul>
+<li><a href="http://sspai.com/25137">认识与入门 Markdown</a></li>
+<li><a href="http://apple4us.com/2012/02/why-writers-should-use-markdown/">为什么作家应该用 Markdown 保存自己的文稿</a></li>
+<li><a href="http://sspai.com/30770">测评：为什么我要把 Byword 作为主力 Markdown 编辑器？</a></li>
+<li><a href="http://www.zhihu.com/question/20409634">怎样引导新手使用 Markdown</a></li>
+</ul>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0006/">
+              <h3 class="post-title">
+                下一篇：那些推荐 App 的资讯源
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

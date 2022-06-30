@@ -1,0 +1,262 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>树莓派 3 初体验 | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">树莓派 3 初体验</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2016-04-02</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/ti-yan/">
+                    体验
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/ying-jian/">
+                    硬件
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>在上一篇文章<a href="http://chanjh.com/post/developer/0015#content">利用微信个人号自动保存图文到 Instapaper</a>里我开了个脑洞，就是让微信个人号成为私人助理。那怎么把这个程序跑起来，我选择了使用树莓派作为我的 WEB 服务器。</p>
+<!-- more -->
+<p>刚好在上个月，树莓派发布了他的全新一代 Raspberry 3B 开发板。3B 的大小和上一代相比并没有差别，处理器性能上，3B 由原来的 900MHz 的 32 位处理器升级到了 64 位的 4 核 1.2GHz ARM Cortex-A53 处理器，传闻有 50% 以上的提升。同时， 3B 自带了 802.11n Wi-Fi 和 蓝牙 4.0 功能，省去了另外购买模块的钱。</p>
+<p>此次我购买的是全新的 Raspberry 3B，同时考虑到性能提高可能带来更大的发热，于是购买了外壳+风扇的组合进行散热。因为自带 WiFi 就免去购买 WiFi 的钱。组装好的树莓派长度和 iPhone5 屏幕长度相似，宽度约 5 厘米。</p>
+<p><img src="https://chanjh.github.io/post-images/IMG_20160324_171245.jpg" alt="树莓派" loading="lazy"><br>
+▲树莓派<br>
+下面我来讲讲使用树莓派 3B 的一些初体验吧。</p>
+<h1 id="安装系统respbian">安装系统（Respbian）</h1>
+<p>在 Mac 下烧写树莓派的卡很简单，在终端内就能实现。</p>
+<ul>
+<li>下载安装 <a href="https://www.sdcard.org/downloads/formatter_4/index.html">SD Card Formatter</a>，插入 SD 卡后打开软件格式化对应卡。</li>
+<li>进入 <a href="https://www.raspberrypi.org/downloads">RaspberryPi Downloads</a> 下载新版 Respbian。解压得到一个 img 包</li>
+<li>终端输入：<code>df -h</code> 依据磁盘大小找到你的 SD 卡，比如我是 <code>/dev/disk2s1</code>。如果 SD 卡有多个分区（如disk2s2），你应该执行：<code>diskutil unmount /dev/disk2s2</code> 卸载分区</li>
+<li>终端执行：<code>sudo dd bs=4m if=/你的系统镜像目录/2016-03-18-raspbian-jessie.img of=/dev/rdisk2</code>。disk2  是你 SD 卡盘，注意不要搞错了。输入你的 Mac 开机密码就开始烧卡了。</li>
+<li>烧卡完成后输入：<code>diskutil unmountDisk /dev/disk2</code> 卸载设备</li>
+</ul>
+<p>至此烧卡完毕。把卡插入树莓派，插上电源就能正常开机了。看了很多网上的教程，似乎在树莓派 3 之前的版本在第一次启动时都会进入 rasp-config，但是我的并不会，可能是新版的 ROM 省掉了这个部分。</p>
+<h1 id="没有显示器使用树莓派">没有显示器使用树莓派</h1>
+<p>主板+外壳+风扇+2.5A 电源已经是三百块，玩树莓派难道还一定需要一个显示器吗？答案显然是否定的~在没有外接显示器的情况下怎么使用树莓派呢？答案是借助一根网线。</p>
+<p>借助网线先把树莓派连上网，进入路由器后台，找到 DHCP 服务，在列表中找到 raspberry 就能找到树莓派的 IP。</p>
+<p>固定化内网 IP 也比较简单,在 DHCP 服务中将 IP 和 MAC 地址绑定即可。</p>
+<h1 id="使用-ssh-登录">使用 SSH 登录</h1>
+<p>有了树莓派 IP 之后你就能使用 SSH 登录树莓派了。对于 Mac，在与树莓派同一网络条件下，进入终端输入：<code>ssh pi@IP 地址</code>，回车后要求输入密码，树莓派的初始密码是raspberry。输入之后回车就能进入 ssh 了。</p>
+<h1 id="使用-vnc-进入图形化界面">使用 VNC 进入图形化界面</h1>
+<p>一开始我认为 raspbian 是一个完全命令行的操作系统，但是实际使用的时候才知道他是带有图形化界面的。有图形化界面就可以在 SSH 下使用 VNC 进入图形化界面。</p>
+<ul>
+<li>在 Mac 中下载 <a href="www.realvnc.com">RealVNC</a>，并在官网上获取一个免费的账号吧。</li>
+<li>在树莓派输入：<code>sudo apt-get install tightvncserver </code></li>
+<li>运行：<code>vncserver :1</code> 第一次使用时会提示输入八位数的密码</li>
+<li>在 RelaVNC 输入 VNC Server 为 IP：1</li>
+<li>输入登录密码即可</li>
+</ul>
+<h1 id="小白遇到的那些问题">小白遇到的那些问题</h1>
+<p>第一次接触树莓派，第一次玩 SSH，虽然说树莓派还是比较简单易上手的，但是我在使用中还是遇到不少的问题……</p>
+<ul>
+<li>
+<p>内存卡有坏块，刷机失败<br>
+这个问题真是让我苦恼了不久。一开始以为接电然后接网线就可以使用了，结果因为内存卡有坏块无法正常开机，一直搞不懂什么原因，后来接了显示器才慢慢解决。所以一开始还是有个外接显示器比较有安全感。</p>
+</li>
+<li>
+<p>校园网没有公网 ip，无法外网连接<br>
+买树莓派的时候是希望让他成为我的 web 服务器，可以远程操控，但是遇到我的网络环境是在校园网，没有公网的 ip，不用直接使用端口映射。最近几天比较忙，这个问题还没有解决，还在进一步摸索中……</p>
+</li>
+</ul>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0015/">
+              <h3 class="post-title">
+                下一篇：利用微信个人号自动保存图文到 Instapaper
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

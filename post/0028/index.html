@@ -1,0 +1,238 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>加上这些干货，让 Workflow 如虎添翼 | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">加上这些干货，让 Workflow 如虎添翼</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2017-03-28</span>
+            
+          </div>
+          <div class="post-content">
+            <p>最近关注 iOS 的同学应该都知道一件消息，被大家视为 iOS 上的一款效率神器——Workflow 被苹果公司收购了。Workflow 由四位开发者在 2014 年（当时他们还只是三个人，都还是高中生）开发出来的基于模块化编程、实现工作流自动的效率工具，在 2015 年获得了苹果的 Design Awards，一时间令人瞩目。</p>
+<!-- more -->
+<p>收购消息被放出来当天，Workflow 成为了微博还有各个玩机的社交圈最火的话题。各个媒体资讯有介绍什么是 Workflow 的扫盲贴，有分享大家做好的 Workflow 的干货贴。而且，这两个问题好像受到挺多网站的青睐，借此来介绍 Workflow。但我觉得很多数人看过这两点之后大脑中还是一片迷茫，对 Workflow 并没有一个更广的认识。这篇文章就是从广面上来介绍一些干货，让你更好的使用 Workflow 这款效率神器。</p>
+<p><strong>使用 Workflow 不一定需要这些干货，但是认识这些干货可以把 Workflow 使用的更加得心应手。</strong></p>
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/cover.png" alt="" loading="lazy"></figure>
+<h2 id="认识-url-scheme">认识 URL Scheme</h2>
+<p>中文玩机圈（可能）最好的 URL Scheme 教程应该是 Hum 发表在少数派上的《<a href="https://sspai.com/post/31500">URL Schemes 使用详解</a>》。文章很长，讲的很详尽。想认真了解 iOS 上 URL Scheme 的同学我建议认真通读这篇文章。不想认真认识的同学，或许可以看看我对 URL Scheme 的简单介绍。</p>
+<p>URL Scheme 其实就是一种资源定位符（URL 的中文翻译是「统一资源定位符」）。使用过 Windows 的同学可能试过，在浏览器里输入「C://」时可以直接打开 C 盘目录，这是因为「C://」这个定位符指定到了系统的 C 盘中。同理，「C://windows」就是进入 C 盘 windows 这个目录。</p>
+<p>在 iOS 中，也可以使用 URL 的方式定位到应用中。比如在 Safari 中输入「weixin://」就能打开微信，「weixin://scanqrcode」则是打开微信中的扫一扫。</p>
+<p>所以你知道了，<strong>用 URL Scheme 的方式，可以快速定位到 iOS 应用中指定的功能和位置</strong>。</p>
+<p>听起来 URL Scheme 是一个十分「无敌」又高效让我们在 iOS 中自由穿梭的方法。然而事实并不是的。iOS 的「沙盒机制」使得应用间的联系十分有限。在 iOS 上开发的应用想要使用 URL Scheme <strong>需要开发者自己去适配</strong>，这就意味着比较大的开发成本。像微信这样子的应用，如果每个功能都需要开放一个对外的入口，开发成本就会上升。但是我们都知道，像微信这样的应用是不会开放很多入口的。在微信直接进入某个公众号、小程序目前都没法实现。</p>
+<p>另外，URL Scheme 在苹果的历史中也有着比较暧昧的地位。实际上，URL Scheme 在 iOS 中已经有着很长的历史。苹果对曾经在 iOS5 中砍杀了一堆 Launch 应用，后来在 iOS 10 PB 的时候，苹果曾经关闭了系统的 URL Scheme 入口。苹果对第三方应用使用 URL Scheme 也没有一个比较规范的规定，也就是说有可能你安装的两个应用可能有相同的 URL Scheme。</p>
+<p>更多关于 URL Scheme 传参和 callback 的介绍，可以仔细阅读 Hum 的教程。</p>
+<h2 id="少数派中文-workflow-讨论圈">少数派：中文 Workflow 讨论圈</h2>
+<p><img src="https://chanjh.github.io/post-images/sspai.jpg" alt="" loading="lazy"><br>
+▲图片来自少数派</p>
+<p>如果说 Hum 是中文圈对 Workflow 有着数一数二认识的 Power User，那<a href="https://sspai.com">少数派</a>应该是国内对 Workflow 的有着数一数二资源、用户群体的网站。</p>
+<p>挺久之前我回答了知乎上 <a href="https://www.zhihu.com/question/45417983/answer/98927985">iOS 的 Workflow 到底怎么用？</a>的问题。我试图认真回答组织回答这个问题的时候，发现其实少数派上已经有着比较全面的文章介绍了，我再写也不过是重新书写一遍罢了。有一名网友将 Hum 在少数派发布关于 Workflow 的文章打印了出来，已经有一本书那么厚。实际上，在 Workflow 被收购后，Hum 也有重新梳理 Workflow 教程的想法。个人十分期待。</p>
+<p>另外，少数派也上线了一个中文的 Workflow 专栏 <a href="http://workflow.sspai.com/">Workflow Gallery</a>，旨在收集有用的 Workflow 供大家下载。现在他们正在征集你手上正在使用的 Workflow，分享最多和被分享最多的 Workflow 都有机会得到礼品。</p>
+<h2 id="了解更多效率类应用">了解更多效率类应用</h2>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/workflow+.png" alt="" loading="lazy"></figure>
+<p>Workflow 之所以成为 iOS 效率类应用的代表离不开他能友好的连接很多其他应用，也同时能被其他应用连接。了解其他的效率类工具可以更好的理解 Workflow 的思维。</p>
+<h3 id="pin"><a href="https://itunes.apple.com/cn/app/pin-%E5%89%AA%E8%B4%B4%E6%9D%BF%E6%89%A9%E5%B1%95/id1039643846?mt=8">Pin</a> —— 剪贴板效率工具</h3>
+<p>Pin 是国内开发者钟颖开发的一款围绕剪贴板的效率类应用，获得了苹果 2016 年度十佳 APP。我个人认为，<strong>Pin 是 iOS 上最强的通知中心部件</strong>。如果你想了解更多，可以去试一试这个款应用。</p>
+<h3 id="lcp"><a href="https://itunes.apple.com/cn/app/launch-center-pro-shortcut-launcher-workflows/id532016360?mt=8">LCP</a> —— 高效率启动器</h3>
+<p>Launch Center Pro 是老牌的启动器了，也是最早的 URL Scheme 先行者。LCP 可以做到基于肌肉记忆的高效启动。同时，LCP 还有像定时器的功能，配合 Workflow 使用起来十分高效。</p>
+<h3 id="pythonista"><a href="https://itunes.apple.com/cn/app/pythonista-3/id1085978097?mt=8">Pythonista</a> —— 程序员的 Workflow</h3>
+<p>Pythonista 可以说是程序员的 Workflow。Pythonista 可以像 Workflow 一样，对输入信息进行编程工作流，完成指定的工作流程，又是一款自动化流程的工具。不过 Pythonista 需要使用 Python 这门程序语言，门槛高一些。</p>
+<h3 id="retriever"><a href="https://github.com/cyanzhong/Retriever">Retriever</a> —— 快速查 URL Scheme</h3>
+<p>最后我还有一个压箱底的应用，是由 Pin 的开发者钟颖开发的没有（我估计也不可能）在 App Store 上架的应用：<a href="https://github.com/cyanzhong/Retriever">Retriever</a>。因为并没有在 App store 上架，所以使用起来比较麻烦。你可能需要使用开发工具 Xcode 才能在 iPhone 上运行（并且只能运行一段时间。之后需要重新连接电脑运行代码）。</p>
+<p>Retriever 是可以方便的在 iPhone 上查看本机内 App 的 Plist 文件的应用，也就意味着可以在 iPhone 上直接查看应用的 URL Scheme。</p>
+<p>其他的关于越狱、不越狱的方法查看 URL Scheme，依然可以阅读《<a href="https://sspai.com/post/31500">URL Schemes 使用详解</a>》这篇文章。</p>
+<h2 id="结语">结语</h2>
+<p>其实我们都清楚学习一样工具是必须付出时间和精力的，只是因为互联网的出现让大家变得十分慵懒。Workflow 之所以成功，我想离不开它将工作自动化的成本大大降低了。以前我们想要在计算机上做到工作自动化，想到的只有编程这门槛较高的方式。</p>
+<p>那些觉得 Workflow 难用的人，我觉得有两种，一种是懒得学的人，一种懒得看的人。懒得学的人觉得什么东西都应该放在他面前，他就应该「被应用教会怎么用」，而懒得看的人则是觉得「满屏英语不想用」。</p>
+<p>Workflow 已经在功能的实现帮我们降低了成本，但是 Workflow 其实是一个「自身不带功能的软件」（这句话也是来自 Hum）。Workflow 的功能应该由使用者来决定，而不是开发者。所以，<strong>Workflow 其实跟编程语言一样，需要被学习，而且跟编程一样，Workflow 也不会定义使用的功能。</strong> 如果你不想主动去尝试，那么再多攻略也没有用。</p>
+<p>如果你有更多学习、使用 Workflow 的技巧，欢迎你补充、分享。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0027/">
+              <h3 class="post-title">
+                下一篇：我开始写技术博客了，还做了些其他事情
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

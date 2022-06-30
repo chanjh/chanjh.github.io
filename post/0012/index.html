@@ -1,0 +1,270 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Mac 下使用 Aria2 实现迅雷离线和百度云下载 | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">Mac 下使用 Aria2 实现迅雷离线和百度云下载</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2016-02-01</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/mac/">
+                    Mac
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                    教程
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>上一次在少数派上看到了一篇关于 Aria2 配置的文章（<a href="http://sspai.com/32167">Mac 上使用百度网盘很烦躁？花点时间配置 aria2 吧</a>），教程里主要是使用命令行的方式配置，很多人（包括我）看到命令行就退却了。今天我花点时间重新认识并配置了一下 Aria2，发现其实可以很简单，很小白。</p>
+<!-- more -->
+<p>Aria2 是什么？Aria2 本质是一个下载工具，支持多协议、多来源。对我来说，Aria2 就是一种几乎支持所有下载方式的工具。</p>
+<p>为什么要使用 Aria2 ？Aria2 本身运行时占用资源就低，而且一个做两个下载器能做的事情，再加上 Mac 上迅雷和百度云（QQ 旋风压根没有 Mac 版）体验差。Why not Aria2？</p>
+<p>下面我来一步步教你，怎么在 Mac 配置 Aria2。</p>
+<ul>
+<li>
+<p>0.下载安装 Aria2<br>
+目前 Aria2 的版本是 1.19.3，你可以通过这里下载：<a href="https://github.com/tatsuhiro-t/aria2/releases/tag/release-1.19.3" title="Aria2 V1.19.3 下载">Aria2 V1.19.3 下载</a><br>
+Aria2 官网会及时更新新版本：<a href="https://aria2.github.io/" title="Aria2 官网">Aria2 官网</a><br>
+注意：Aria2 同时支持 Windows、Mac、Android。在下载界面选择 .dmg 包下载 Mac 版。下载后打开，双击 aria2 开始安装。</p>
+</li>
+<li>
+<p>1.下载配置文件<br>
+关于配置文件的详细说明：<a href="http://aria2c.com/usage.html" title="在这里">在这里</a>，想了解可以参考一下。不想了解可以继续看教程：<br>
+下载链接：<a href="https://chanjh.github.io/post-images/aria2c_file.zip" title="aria2c_file.zip">aria2c_file.zip</a><br>
+解压，打开 aria2c.conf，将第二行的 <code>dir=/Users/XXX/Downloads</code> 中 XXX 换成你的用户名，这里是指定了下载目录，你可以根据需要更改。<br>
+接着打开终端（terminal），输入：<code>mkdir ~/.aria2</code>，此时在 /Users/XXX 下会生成一个 .aria2 隐藏文件夹，不急不急，继续看教程。<br>
+接着你需要让 Mac 显示隐藏文件夹，教程在这里：<a href="http://sspai.com/26273" title="Mac 基础教程：如何让 Finder 显示隐藏文件和文件夹">Mac 基础教程：如何让 Finder 显示隐藏文件和文件夹</a>。现在你可以把 aria2c.conf 文件拖入 /Users/XXX/.aria2 （XXX 是你的用户名，.aria2 是一个隐藏文件夹）接着把刚刚解压里的 aria2c 文件夹整个拖入 /Applications 目录下。</p>
+</li>
+<li>
+<p>2.运行 Aria2<br>
+终端中输入：<code>aria2c</code> 回车。<br>
+现在你的 Aria2 就能开始下载了。如果不想使用迅雷离线或是百度云，你可以直接跳到下面一步。</p>
+</li>
+<li>
+<p>3.配置迅雷离线&amp;百度云</p>
+</li>
+</ul>
+<p>迅雷离线：<br>
+下载 chrome 插件：<a href="https://chrome.google.com/webstore/detail/thunderlixianassistant/eehlmkfpnagoieibahhcghphdbjcdmen?hl=zh-CN" title="迅雷离线助手">迅雷离线助手</a>。安装之后，打开<a href="http://dynamic.cloud.vip.xunlei.com/" title="迅雷离线">迅雷离线</a>，登录之后，点击左上角的蓝色齿轮按钮，进入设置。在弹出来的窗口中，将path设置为： http://127.0.0.1:6800/jsonrpc<br>
+保存后，这样迅雷离线就设置完毕了。</p>
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/%E8%BF%85%E9%9B%B7%E7%A6%BB%E7%BA%BF%E8%AE%BE%E7%BD%AE.png" alt="迅雷离线设置" title="迅雷离线设置" loading="lazy"></figure>
+<p>百度云：<br>
+下载 chrome 插件：<a href="https://chrome.google.com/webstore/detail/baiduexporter/mjaenbjdjmgolhoafkohbhhbaiedbkno" title="Mac 基础教程：如何让 Finder 显示隐藏文件和文件夹">BaiduExporter</a>。安装之后，点击「导出下载」-&gt;「设置」。<br>
+将 User-Agent 设置为：netdisk;5.2.7;PC;PC-Windows;6.2.9200;WindowsBaiduYunGuanJia<br>
+referer 设置为：http://pan.baidu.com/disk/home<br>
+保存，搞定。</p>
+<ul>
+<li>4.使用 webui-aria2 控制 Aria2<br>
+打开 <a href="http://ziahamza.github.io/webui-aria2/" title="webui-aria2">webui-aria2</a>，显示「Successfully connected to Aria2 ……」就是成功连接上啦。<br>
+点击左上角 Add 添加下载任务。<br>
+<img src="https://chanjh.github.io/post-images/webui.png" alt="webui" title="webui" loading="lazy"><br>
+使用迅雷离线：<br>
+在迅雷离线中，选中任务，点击上方的「批量导出」，选择 YAAW。OK，返回 webui 是不是有任务下载了。<br>
+<img src="https://chanjh.github.io/post-images/%E8%BF%85%E9%9B%B7%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA.png" alt="迅雷批量导出" title="迅雷批量导出" loading="lazy"><br>
+使用百度云：<br>
+在百度云网盘中，选中任务，点击上方的「导出下载」，选择 ARIA2 RPC。返回 webui 是不是有任务下载了。<br>
+<img src="https://chanjh.github.io/post-images/%E7%99%BE%E5%BA%A6%E4%BA%91%E6%89%B9%E9%87%8F%E5%AF%BC%E5%87%BA.png" alt="百度云批量导出" title="百度云批量导出" loading="lazy"></li>
+<li>5.设置开机自启动 Aria2<br>
+点击 Mac 左上角的苹果 logo，进入系统偏好设置。点击左下倒数第二个的「用户与群组」，再点击上面的「登录项」。此时，在终端输入：<code>open /usr/local/aria2/bin/</code> 会弹出一个窗口，将里面的aria2c 文件拖入到刚刚的「登录项」窗口内，将它打勾。OK，这样就能正常的开机启动啦。</li>
+</ul>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0010/">
+              <h3 class="post-title">
+                下一篇：分享几个免费的图片资源站
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

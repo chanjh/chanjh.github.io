@@ -1,0 +1,243 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>HyperDock：我眼中最好用的 Mac 窗口管理 | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">HyperDock：我眼中最好用的 Mac 窗口管理</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2017-05-08</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/mac/">
+                    Mac
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>前两天因为很长时间没有整理电脑，256G 的内存快要被撑爆了，无奈之下随手删除了几个平时没怎么打开的 App，结果不小心把一个神器给卸载了，之后使用起 Mac 来就觉得我的电脑不是我的电脑的感觉。这个神器就是 HyperDock——我眼中最好用的 Mac 窗口管理软件。HyperDock 我很早之前就使用了，他强大到让我一直以为我的窗口管理的几个功能是几个不同的 App 来完成的。直到不小心卸载之后又重新装回来才明白它的强大。</p>
+<!-- more -->
+<h2 id="窗口快速布局">窗口快速布局</h2>
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/HyperDock1.gif" alt="" loading="lazy"></figure>
+<p>窗口快速布局的软件有不少，像是比较火的 Moom、开源的 Spectacle 等。其实我只用过 Spectacle 和 HyperDock。没有 HyperDock 的几天我是用 Spectacle 度过日子的。</p>
+<p>相比于 Spectacle，HyperDock 的快捷窗口布局有更多的选择。HyperDock 不仅支持常见的左右、上下分屏、全屏，还支持两种居中方式。不仅如此，HyperDock 的快捷键使用起来也更加友好。control+option 再加方向键的配合就能完成所有的布局操作。对比一下 Spectacle 居然使用 control+option+F 键的组合键完成全屏布局这样操蛋的体验（你不信亲手试试），HyperDock 体验分爆表。</p>
+<h2 id="拖拽也能完成窗口管理">拖拽也能完成窗口管理</h2>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/HyperDock2.gif" alt="" loading="lazy"></figure>
+<p>使用过 Windows7 的童鞋可能知道，在 Windows 上将窗口拖拽到屏幕的边缘会触发不同的窗口布局动作。左右分别是左分屏和右分屏，上边是全屏，边角是四分屏。安装过 HyperDock 的 Mac 也能让 Mac 的窗口支持这样的拖拽。</p>
+<h2 id="在-dock-栏弯道超车">在 Dock 栏弯道超车</h2>
+<p>要说 HyperDock 最强大的地方，要数在 Dock 栏里的操作了（虽然前面两项我已经觉得很厉害了）。</p>
+<figure data-type="image" tabindex="3"><img src="https://chanjh.github.io/post-images/HyperDock3.gif" alt="" loading="lazy"></figure>
+<ul>
+<li>
+<p>预览<br>
+将光标移动到 Dock 上的 icon，停留一会，如果该应用有在某个桌面有已经打开的窗口，它会显示出来。如果移动到预览图里，可以预览应用的情况。</p>
+</li>
+<li>
+<p>跨桌面移动窗口<br>
+在窗口里，将窗口拖拽到桌面上时，可以快速将不同桌面的窗口移动到该桌面中。</p>
+</li>
+<li>
+<p>隐藏、最小化<br>
+光标放在应用图标上，上下轻划，可以隐藏或打开该窗口。窗口在不同桌面时则会切换桌面。光标放在预览图上，上下轻划，可以最小化或恢复该窗口。</p>
+</li>
+<li>
+<p>应用扩展<br>
+HyperDock 支持应用扩展，在 Dock 直接操作像 iTunes、日历等应用。</p>
+</li>
+</ul>
+<h2 id="结语">结语</h2>
+<p>美好的事物总是失去的时候才能体会到它的美好。HyperDock 就是这样一款让我突然意识到它的美好的应用。虽然 HyperDock 的图标和官网的设计看起来并不起眼，但是用起来却很给力。<a href="https://bahoom.com/hyperdock">官网</a> $9.95（¥68） 的价格对于这样一款强大到没有它会减分的软件，我觉得是很值的。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0029/">
+              <h3 class="post-title">
+                下一篇：MoSplash | 我的第一款独立 App 上架了
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

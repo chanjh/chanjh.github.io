@@ -1,0 +1,504 @@
+
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0015/">
+        <h2 class="post-title">利用微信个人号自动保存图文到 Instapaper</h2>
+      </a>
+      <div class="post-abstract">
+        <p>微信公众号有挺多不错的文章，但是在微信上的阅读操作体验一般，保存收藏也很不便。虽然有微信收藏，但是查看麻烦。所以做一个更好的转发保存方式的想法成为我改进使用体验的需求。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2016-03-12</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/wei-xin/">
+                微信
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/ti-yan/">
+                体验
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/kai-fa-zhe/">
+                开发者
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0014/">
+        <h2 class="post-title">SAE 指北|使用 Git 代码仓库管理</h2>
+      </a>
+      <div class="post-abstract">
+        <p>SAE 云应用在使用上有一个很好的优点就是不像操作虚拟主机一样需要很多知识去操作，能够快速的搭建 Web 应用。已经搭载好的开发环境、容易上手的代码管理、便宜的价格让它成为入门级的首选之一。然而随着 SAE 的发展，云应用也做了一些调整。前两天发现在云应用上创建新的应用之后已经不支持默认的代码管理，只支持 Git 和 SVN 代码仓库（只能二选一，且选择之后无法更换）。上次已经教过[在 Mac 上使用 PhpStorm 部署你的代码 ][1] ，今天我带来直接使用命令行,使用 Git 来管理 SAE 的代码。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2016-02-29</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/kai-fa-zhe/">
+                开发者
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                教程
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0013/">
+        <h2 class="post-title">剪贴板工具 Paste 2 Beta 版抢先体验（附送邀请码）</h2>
+      </a>
+      <div class="post-abstract">
+        <p>Paste 是 OS X 上一个好看又好用的剪贴板工具。在很多时候我们需要在不同应用之间剪切和粘贴内容。原生的剪贴板只允许我们使用最近一次剪贴的内容，而 Paste 解决了这一个问题，让我们能够操作历史记录的剪贴内容。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2016-02-16</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/app/">
+                APP
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/mac/">
+                Mac
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0012/">
+        <h2 class="post-title">Mac 下使用 Aria2 实现迅雷离线和百度云下载</h2>
+      </a>
+      <div class="post-abstract">
+        <p>上一次在少数派上看到了一篇关于 Aria2 配置的文章（[Mac 上使用百度网盘很烦躁？花点时间配置 aria2 吧][1]），教程里主要是使用命令行的方式配置，很多人（包括我）看到命令行就退却了。今天我花点时间重新认识并配置了一下 Aria2，发现其实可以很简单，很小白。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2016-02-01</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/mac/">
+                Mac
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                教程
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0010/">
+        <h2 class="post-title">分享几个免费的图片资源站</h2>
+      </a>
+      <div class="post-abstract">
+        <p>写博客的时候经常需要做一些配图，平时自己的电脑和手机的桌面壁纸也经常性的需要更换，图片资源显得格外重要。对一些 bloger 来说，配图的图片来源要求又十分高，不能侵犯照片所有者的权利。于是，像 500px 这样子的社区通过收费的方式，提供一些优质的照片和授权，但是并不是说不存在免费的照片社区。今天我来介绍几个免费高质量的图片资源站。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2016-01-29</span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0009/">
+        <h2 class="post-title">在 Mac 上使用 PhpStorm 部署你的代码</h2>
+      </a>
+      <div class="post-abstract">
+        <p>对现在很多程序员来说，代码都会存放在云服务器或者像 Github 等代码托管平台上。目前来说，我做的项目的代码主要存放在新浪云应用 SAE 上，很长一段时间内我对搭载本地开发环境并不熟悉，代码往往在本地编写，再复制粘贴或者打包上传到服务器上，显然这样的方法很重复低效。今天我来讲讲我使用 SVN 部署我的代码的过程，也算是一个教程了吧。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2015-12-24</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/mac/">
+                Mac
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                教程
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0008/">
+        <h2 class="post-title">观点 | 小米为何进军笔记本市场？</h2>
+      </a>
+      <div class="post-abstract">
+        <blockquote>
+<p>昨晚第一次作为 ZEALER Plus 社区每周最强话题的主持人在社区里跟大家互动，这次选中的话题是「<a href="http://plus.zealer.com/post/6375">小米笔记本会成为年轻人的第一款笔记本吗？</a>」，借此契机我想可以聊聊我对小米进军笔电市场的看法。</p>
+<p>文章有点长，算是我开的一次脑洞。</p>
+</blockquote>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2015-12-19</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/xiao-mi/">
+                小米
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/bi-ji-ben/">
+                笔记本
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0007/">
+        <h2 class="post-title">人人都应该懂一点 Markdown</h2>
+      </a>
+      <div class="post-abstract">
+        <blockquote>
+<p>今天才知道 Markdown 是 Aaron Swartz 参与设计的，这让我对 Markdown 的感受又加上一分。 Aaron Swartz 也许以后我们可以再聊聊，想了解他的可以看看电影<a href="http://movie.douban.com/subject/25785114/">互联网之子(豆瓣)</a>。</p>
+</blockquote>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2015-12-08</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/markdown/">
+                Markdown
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                教程
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://chanjh.github.io/post/0007/">
+        <div class="feature-container" style="background-image: url('https://chanjh.github.io/post-images/photo-1432821596592-e2c18b78144f.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0006/">
+        <h2 class="post-title">那些推荐 App 的资讯源</h2>
+      </a>
+      <div class="post-abstract">
+        <blockquote>
+<p>这篇文章来自我在知乎上的一个回答「<a href="http://www.zhihu.com/question/30977753/answer/75070945">有哪些推荐 App 的 App？</a>」平时自己订阅了不少 App推荐的资讯，于是趁此机会分享一下吧。</p>
+</blockquote>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2015-12-05</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/app/">
+                APP
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://chanjh.github.io/post/0006/">
+        <div class="feature-container" style="background-image: url('https://chanjh.github.io/post-images/photo-1440439307159-c3afc8a8e4ff副本.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0005/">
+        <h2 class="post-title">Android 上这些 Apps 你不能错过（二）</h2>
+      </a>
+      <div class="post-abstract">
+        <p>推荐一些平时使用的比较频繁的 Android apps，尽量推荐的是只有 Android 平台才有的 Apps。以后会不定期的推荐在不同平台使用的、有趣的 Apps。</p>
+<p>本期推荐：带壳截图、MarkdownX、AirDroid、Snapseed</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2015-11-29</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/android/">
+                Android
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/app/">
+                APP
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://chanjh.github.io/post/0005/">
+        <div class="feature-container" style="background-image: url('https://chanjh.github.io/post-images/未标题-12.jpg')">
+        </div>
+      </a>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+    <a href="https://chanjh.github.io/page/3/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
+    <a href="https://chanjh.github.io/page/5/" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
+  
+</div>
+
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

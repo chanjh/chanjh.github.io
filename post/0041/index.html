@@ -1,0 +1,264 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>我的主力机从 iOS 迁移到 Android | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">我的主力机从 iOS 迁移到 Android</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2020-07-01</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/personal/">
+                    个人
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/ying-jian/">
+                    硬件
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/gou-ji/">
+                    购机
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>虽然我是一名 iOS 开发者，但我并不是一个很「忠诚」的果粉。我并不追求最新的苹果设备，也不追求配备一整套的苹果全家桶，甚至至今依然觉得 Apple Watch 不过是一个需要一天一充的玩具表。我对 Android 也保留很多欣赏。其实在刚上大学的时候，我都一直在用 Android。我上大学的第一台手机就是当年的一加第一代手机。</p>
+<!-- more -->
+<h2 id="机型选择购机经历">机型选择&amp;购机经历</h2>
+<p>时隔多年的今天，当我看到我手上碎屏的 iPhone X，心想要换一台设备时，发现我处在<strong>更换设备的尴尬时间点</strong>。</p>
+<p>如果换 iPhone 吧，最新的旗舰 iPhone 11 系列已经发布不少时间了，很快要发布 iPhone 12。iPhone 11 系列还不支持 5G，买他总有一种使用寿命不长的感觉。如果买上一代旗舰（二手 iPhone Xs），其实能在 iPhone 12 之后，卖一个不差的价格（相对保值），但是 iPhone Xs 的信号极差，因为这点就完全没有购买它的必要。每次看到我同事一进商场 Xs 就没了信号时，总感觉是在活受罪。</p>
+<p>所以我的目光开始转向寻找一台 Android 设备。安卓的机型选择上就多了很多，一加、小米、三星都是我考虑的品牌，恰逢最近是新机发布的时间，我也有机会对比各个品牌的新旧机型。最后抱着买新不买旧的心情，入了安卓机皇——<strong>三星的旗舰：S20 系列</strong>。</p>
+<p>既然选定了机型，接下来就是确定去哪家店买了。恰逢 618，我也对比了几家电商 S20 的优惠力度，<strong>拼多多</strong>毋庸置疑是最舍得砍价的。最后我在拼爹爹以 5100 的价格（京东同期大概是 6000 左右）购买了入门款的 S20</p>
+<h2 id="设备同步">设备同步</h2>
+<p>更换设备最大的压力，是同步设备的数据。你的本地数据越多，那么更换设备的成本就越大。而在今天，大部分的应用程序都支持了云端数据，我相信你的数据除了微信之外，绝大多数内容都可以在记住账号的情况下找回来。</p>
+<p>在 Apple 的生态里，大部分数据都被同步到 iCloud 中，包括照片、账号密码、云盘。同时，因为在 mac 上我主要使用的浏览器是 Chrome，因此我的大部分账号密码是保存在 Google 账号里。所以更换安卓之后，只要连接上 Google（不论是 Chrome 还是 Google App），就可以登陆我的大部分账号。</p>
+<p>所以换机后的步骤大概是</p>
+<ol>
+<li>先安装国内的应用商店，比如酷安、豌豆荚</li>
+<li>下载安装这些商店能找到的应用列表，比如微信、微博等</li>
+<li>上 GitHub 找到某些科学上网工具，安装。</li>
+<li>Google 框架。很开心的是，三星 S20 已经自带 Google 框架，用户无须安装，即可下载使用 Google Play。</li>
+<li>登陆 Google 账号，下载 Chrome 等 App</li>
+<li>开始登陆各个 App，主要是微博微信淘宝这些提供第三方登陆的优先登陆。</li>
+<li>基本上已经同步完成</li>
+</ol>
+<p>另外，我的照片除了备份到 iCloud，还备份了一份到 Google Photo 里，这样在新设备上也能看到照片了。</p>
+<h2 id="上手体验">上手体验</h2>
+<h3 id="1-摄像体验">1. 摄像体验</h3>
+<p>个人感觉，Galaxy S20 拍出来的照片会比 iPhone 更讨好眼球。以前用 iPhone 前置和女朋友自拍时老是被嫌弃是「死亡前置」。现在换 S20 拍出来女朋友会更加喜欢。</p>
+<p>拿女票的 iPhone 11 和我的 S20 简单对比了一下。S20 的广角畸变会比 iPhone 严重一些。广角畸变一般是图片四周因为镜头的缘故，会出现的畸变现象。S20 和 iPhone  在同样的拍摄内容时，S20 开始畸变的范围更大，iPhone 只有在比较接近四周的图像才会开始畸变。不过，S20 的广角会大于 iPhone 11，拍摄内容更多。</p>
+<h3 id="2-samsung-pay">2. Samsung Pay</h3>
+<p>Samsung Pay 是我使用下来最舒服和最常用的功能。Samsung Pay 和 Apple Pay 都可以绑定银行卡，使用 NFC 传感器进行支付，一般我在进出地铁时会使用这种支付方式。但是 Samsung Pay 比 Apple Pay 更友好的是，Samsung Pay 还支持绑定支付宝和微信支付，并且同时支持二者的扫码支付和二维码支付。Samsung Pay 相当于在一级入口里，<strong>整合了所有主流的支持方式</strong>（当然，它也支持绑定公交卡）。用起来只能说：爽。</p>
+<h3 id="3-桌面模式">3. 桌面模式</h3>
+<p>前两天 WWDC 里，苹果宣布要在 mac 上，使用自家的 ARM 架构的 A 系列芯片，这意味着苹果将在系统架构上做到所有的终端设备都统一。也就意味着，你的 iPhone 和 MacBook 的区别会越来越小。iPhone 也能够被轻易地改造为一台 mac 设备。</p>
+<p>移动设备变身为桌面设备这件事，在安卓平台上早就已经出现了。锤子、华为、三星都有自己的桌面模式。</p>
+<p>我试用了一下三星的桌面模式（Dex），总体的体验还是比较舒服的。桌面允许你多个窗口，在更大的设备上运行安卓应用。Dex 对应用的兼容还是不错的。有部分应用（比如 Chrome、飞书）支持在这个模式下展示更多的内容。有部分应用（比如微信读书），会在应用内锁定窗口大小，导致不能被缩放。</p>
+<p>使用 Dex 还偶尔会出现连接不稳定的现象。我在 Gobigger 和 AOC 的显示器上都遇到过。因为我大部分使用 Dex 都是为了看看剧，偶现的断连还是很影响体验的。</p>
+<h3 id="4-安卓的通病">4. 安卓的通病</h3>
+<p>我感觉 S20 上有两个安卓比较常见、也比较严重的毛病：<strong>防误触做不好、没有统一推送</strong></p>
+<p>S20 真的太容易误触了……特别是我左手使用的时候，非常容易点到左下角的按钮。容易出现的现象是刷微博的时候，点到 Tab Bar，然后就滚回最上面重新刷新…… 这种时候你可以想象我有多恼火。</p>
+<p>另外一个问题出现在推送上。唉，因为国情的缘故，我们无法直接使用 Google 的统一推送，于是各家都有自己的推送通道。我不清楚三星和软件厂商们是怎么对接的，但是在我刚上手的这段时间，推送经常丢，导致我得时不时主动打开应用。</p>
+<p>最后我找到的解决办法，是将我的 IM 应用设置为允许自启动就可以了。不过这样也会有两个问题，一是自启动应该会增加耗电，二是我不可能所有 App 都自启动呀，这样还是会丢信息……</p>
+<h2 id="最后">最后</h2>
+<p>如果要给 S20 评分，我大概会给 7.5 分（满分 10 分）。作为对比，我的 iPhoneX 会是 7 分，iPhone 11 Pro 会是 8.5 分。其实其他都还好，但是一想到这个推送的问题，我就巴不得 iPhone 12 上市，让我早点回到苹果的怀抱里</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0040/">
+              <h3 class="post-title">
+                下一篇：吾家有猫初长成
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

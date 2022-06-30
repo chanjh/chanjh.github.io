@@ -1,0 +1,266 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>利用微信个人号自动保存图文到 Instapaper | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">利用微信个人号自动保存图文到 Instapaper</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2016-03-12</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/wei-xin/">
+                    微信
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/ti-yan/">
+                    体验
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/kai-fa-zhe/">
+                    开发者
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>微信公众号有挺多不错的文章，但是在微信上的阅读操作体验一般，保存收藏也很不便。虽然有微信收藏，但是查看麻烦。所以做一个更好的转发保存方式的想法成为我改进使用体验的需求。</p>
+<!-- more -->
+<p>这次开发的微信 Bot 利用微信个人号，使用网页版登录的方式抓取消息，将分享到个人号的链接保存到 Instapaper。</p>
+<p>简易的项目说明直接电梯到我的 GitHub 吧 -&gt; <a href="https://github.com/chanjh/wechat2instapaper">Chanjh — GitHub</a><br>
+![][image-1]</p>
+<h2 id="为什么选择-instapaper">为什么选择 Instapaper</h2>
+<p>目前比较有名、产品比较成功的稍后读软件我认为有三家：印象笔记、Pocket、Instapaper。几个产品各有优劣，也有各自的特点。</p>
+<p>印象笔记对网页直接进行剪裁保存，官方有一个公众号可以直接转发并保存，保存比较方便。但是大象的整体臃肿，排版、使用都显得比较重，阅读不便。</p>
+<p>Pocket 是我目前主要在用的稍后读软件。Pocket 对网页的保存使用的是保存住文章的链接，因此如果文章被删除就无法继续查看。而且 Pocket 在微信公众号分享比较麻烦，不能直接转发。</p>
+<p>Instapaper 是我最近才开始用的软件。In 保存的网页同印象一样是剪裁保存。但是保存的排版优于印象。Instapaper 对微信公众号的排版也（感觉）优于 Pocket。Instapaper 也没有方便的微信分享方式。</p>
+<h2 id="为什么选择微信个人号">为什么选择微信个人号</h2>
+<p>先讲讲为什么选择微信。显然，一开始的目的是为了更好的保存微信公众号的文章。由于微信的封闭性，图文的分享十分不便。用贴近微信本身的方式去分享保存，显然更加方便。印象笔记虽然有一个比较好的分享方式，但是印象本身不适合作为一个「稍后阅读」的软件，排版和阅读不友好。所以另开一个分享方式成为我的需求。</p>
+<p>然后来讲讲，为什么选择微信个人号。微信公众号分三种：订阅号、服务号、企业号，各有不同特点。但总的来说，公众号要实现主动回复，以及快速转发分享，都需要很大的资格认证才可能。作为个人不可能轻易实现。</p>
+<p>个人号开通简单，限制小，只要实现后台抓取处理，就能实现公众号大部分功能。</p>
+<h2 id="操作说明">操作说明</h2>
+<p>首先你要准备两个微信，一个是你的常用账号，一个是你的机器人账号。<br>
+![][image-2]<br>
+▲机器人账号<br>
+配置环境，安装好项目之后，需要对项目进行配置。需要在 instapaper.py 文件中修改你的 instapaper 账号密码、consumer key 和 secret。</p>
+<p>在终端运行 wechat2instapaper.py。用机器人账号扫描下载的二维码，确认登录。<br>
+![][image-3]<br>
+▲打开并扫描 qr.png<br>
+使用常用账号，直接转发图文给机器人号，回复“保存成功”就已经成功保存到你的 instapaper 中了。<br>
+![][image-4]<br>
+▲给机器人账号发送图文<br>
+![][image-5]<br>
+▲终端<br>
+更多细节可以电梯到我的 GitHub  -&gt; <a href="https://github.com/chanjh/wechat2instapaper">Chanjh — GitHub</a></p>
+<h2 id="理想运行环境">理想运行环境</h2>
+<p>机器人号需要一个 Python 的运行环境，以往我的代码都是在 Sae 上存放。但是 Sae 不适合 Python 开发环境。因此这次的开发我直接以自己主机作为运行环境。</p>
+<p>但是我的电脑不可能 24 小时开机联网，机器人不能 24 小时待命那就失去了他的意义。借用虚拟主机的费用比较大暂时没考虑。目前的想法是买一个树莓派，在上面搭载运行环境。</p>
+<p>等我下决定剁手买的时候，再跟大家分享我在树莓派上的使用吧。</p>
+<h2 id="项目之后">项目之后</h2>
+<p>目前的项目还十分简单，我希望以后能把微信 Bot 开发的更加好玩。看到一些朋友用机器人做群组分析、玩签到，有点像 TG 上的玩法。我会参考他人的玩法，然后自己开发出其他好玩的功能。</p>
+<p>另外，Python 真是一门可以快速使用的语言。用回好多年前在使用的语言，感觉很棒。</p>
+<p>最后感谢 GitHub 上 Ryan Galloway 和 liuwons 的开源项目。我也将我的项目开源，欢迎大家指点。</p>
+<p>[image-1]:	https://chanjh.github.io/post-images/Artboard 1.jpg &quot;封面&quot;<br>
+[image-2]:	https://chanjh.github.io/post-images/Screenshot_2016-03-12-09-56-12.png &quot;机器人账号&quot;<br>
+[image-3]:	https://chanjh.github.io/post-images/QQ20160312-0@2x.png &quot;打开 qr.png&quot;<br>
+[image-4]:	https://chanjh.github.io/post-images/Screenshot_2016-03-12-10-04-52.png &quot;给机器人账号发送图文&quot;<br>
+[image-5]:	https://chanjh.github.io/post-images/QQ20160312-1@2x.png &quot;终端&quot;</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0014/">
+              <h3 class="post-title">
+                下一篇：SAE 指北|使用 Git 代码仓库管理
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

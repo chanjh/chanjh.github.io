@@ -1,0 +1,279 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>我是怎么管理密码的 | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">我是怎么管理密码的</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2016-09-13</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/mi-ma-guan-li/">
+                    密码管理
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/an-quan/">
+                    安全
+                    
+                      ，
+                    
+                  </a>
+                
+                  <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                    教程
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>九月初有两件关于安全的事件引起了网友们的讨论：一件是 Dropbox 密码外泄事件，暴露了大量用户密码；一件是知乎平台串号现象，用户登录后发现进入了其他人的账号了。我在微博发表了我担忧。</p>
+<p>然而就在我发完微博的当晚，我的微博账号就出现了一次异地异常登录。第二天醒来通过私信提醒收到了警告，当天我就更改了密码。微博账号是我常用的第三方登录账号，他的暴露代表我大量的账号已经掌握在其他人手中。</p>
+<!-- more -->
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/WechatIMG572.jpg" alt="" loading="lazy"></figure>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/WechatIMG58.jpeg" alt="" loading="lazy"></figure>
+<p>事件还没完，今天我又收到了 UC 优视的短信通知，提示我的账号出现异常登录现象。UC 是我还在使用塞班的时候注册的账号，虽然他的密码加密方式并不同与现在我的大部分密码，但是连它都被异常登录了，我感觉我的世界真的是岌岌可危。</p>
+<figure data-type="image" tabindex="3"><img src="https://chanjh.github.io/post-images/WechatIMG592.jpg" alt="" loading="lazy"></figure>
+<p>现在我已经更换了我的很多大号的密码，这次事件也让我更加明白到密码的重要性，我也总结一下我的密码管理方式，方便大家参考。</p>
+<h2 id="密码都是怎么被破解的">密码都是怎么被破解的</h2>
+<p>如果你是一个使用类似「abc123456」密码的同学，我劝你就真的要好好思考并修改你的密码了。在改密码前，我们先认识下别人是破解到你的密码的。<br>
+黑客在骇一个人的账号时，通常有两种破解方法：暴力破解和社工库破解。暴力破解容易理解，就是用计算机逐个地尝试可能存在的密码搭配。不过这个有两个缺点：消耗大量计算资源以及登录系统的登录保护机制（比如验证码）。<br>
+另一个破解叫社工库破解密码，便是通过从网络黑市交易，获得用户某些网站已经被盗取的个人消息，通过统计规律（大部分人习惯使用的密码是由自己或朋友等的姓名、生日等信息的搭配）破解出密码的可能。如果一个网站的大量用户信息被外泄，那就是最好的社工库。所以，当类似去年的网易邮箱、今年的 Dropbox 密码外泄，都会引起连锁的账号安全。</p>
+<h2 id="密码的分类管理">密码的分类管理</h2>
+<p>社工库的可怕之处在于用户无法保证每个平台都能做到绝对的安全，因此多平台共用一个密码实际上是加大了安全隐患，也为盗号带来方便。所以，密码管理的第一个要诀就是：</p>
+<ul>
+<li><strong>尽量减少密码的多次使用</strong></li>
+</ul>
+<p>那是不是如果有一百个平台就应该准备一百个不同的密码？你要是有这能力我不反对……这个问题就牵扯到密码管理的第二个要诀：</p>
+<ul>
+<li><strong>大平台一定要有独立的密码</strong></li>
+</ul>
+<p>哪些平台是大平台？三类：支付、社交和常用第三方登录。比如我自身的情况就是：支付宝、微信、微博和 Google。这四个平台我设置的密码互不相同，也不会和其他密码重复。<br>
+支付平台的重要性不言而喻；社交类应用通常有比较多的个人信息，也容易造成诈骗等风险；而第三方登录账号则被使用在很多其他应用。国内的应用我一般会选择微博登录，国外我会选择 Google，这就引出密码管理的第三个要诀：</p>
+<ul>
+<li><strong>尽量选择第三方登录而不是注册新账号</strong></li>
+</ul>
+<h2 id="密码加密诀窍">密码加密诀窍</h2>
+<p>按照上面的管理方式，可以把密码大致分为以下四种：</p>
+<ul>
+<li>最重要的账号：支付社交第三方</li>
+<li>可以第三方登录的</li>
+<li>需要独立注册的</li>
+<li>注册一次就不会再回来用的</li>
+</ul>
+<p>前两类的管理方式我已经讲过，最棘手的是第三类账号，它意味着你需要管理很多不一样的密码，但是又不能简单且相同。解决以上问题就需要接下来的内容：加密密码。<br>
+什么是加密密码？就是将<strong>将原先简单密码加入算法形成只有自己知道的密码运算和解读方式</strong>，懂得密码学的同学可能马上就能明白这个意思，不懂也没关系，参考我对密码的加密方式：</p>
+<ul>
+<li>使用无意义字符串</li>
+<li>为密码加入算法</li>
+</ul>
+<p>使用无意义的字符串就是避免使用你和朋友的「姓名缩写」「生日」「出生地」「简单字符串」等内容，而是使用一个你和自己约定的字符串加入到密码中。比如你是一个程序员，每天写最多的内容是指针，那可以加入「zz」；某天看到习大大的文章，刚好在加密密码，这次用「xdd」加入密码中。这样没有什么逻辑的字符串加密密码，比起姓名等信息更难被盗。</p>
+<p>接着是加密算法，就是在基础密码上加上只有你知道的运算公式。这个公式最好是一次多项的运算，太复杂你也容易遗忘。比如你的密码是：xdd19880808，加密算法是 (X+1)*2 ，那么密码就是：xdd40882828。这个算法和进位方式你只要记在心里，就能推算出一个密码。使用不同的公式和组合就能产生不同密码。不过我建议：</p>
+<ul>
+<li><strong>第三类密码不要超过五个</strong></li>
+</ul>
+<p>否则，你在登录第三方平台的时候，会浪费大量时间。至于第一类密码其实也可以用上述方法产生。</p>
+<h2 id="可以使用第三方密码管理">可以使用第三方密码管理</h2>
+<p>我目前使用最多的密码管理有两个：1Password 和 Chrome。两者各有利弊，Chrome 在 Mac 是使用本地密码（就是 Mac 打开时候的登录密码）来加密的、使用 Google 账号同步的（所以我说 Google 账号很重要），1Password 的一账号管理所有密码在我看来其实还是有点危险，所以我只使用它的部分功能。两个软件的更多说明我这里也不展开来讲，不过我有以下的使用习惯：</p>
+<ul>
+<li>用浏览器登录过的账号密码都会由 Chrome 统一管理</li>
+<li>最后一类密码我会用 1Password 产生随机密码，不污染我的密码库</li>
+<li>1Password 存放一些我在手机上经常登录的账号</li>
+</ul>
+<p>以上就是我的密码管理哲学，可能只是为你提供一个密码管理的思路，希望能够帮助为你在密码管理上提供一点帮助。如果你更好的思路或者密码管理方式，欢迎你留言告诉我。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0022/">
+              <h3 class="post-title">
+                下一篇：为碎片化阅读制定阅文笔记 Workflow
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

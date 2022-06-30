@@ -1,0 +1,291 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>利用 Launchd 定制 Mac 启动任务 | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">利用 Launchd 定制 Mac 启动任务</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2017-01-30</span>
+            
+          </div>
+          <div class="post-content">
+            <p>设置 Mac 的开机启动任务并不麻烦，搜索一下就能找到很多方法。但是如果是给 Mac 添加「唤醒」启动任务，似乎答案就会少了很多。这里的「唤醒」和「开机」是两个分开的事情，「开机」就是让 Mac 进入系统的过程，「唤醒」则是将已经启动的系统恢复的过程，我把他们统称为「Mac 启动」 。</p>
+<p>今天想给 Mac 设置一个功能就是： 在唤醒 Mac 时，运行 Shell 脚本完成自定义的任务 。摸索了一下，找到了我认为最好的解决方案。</p>
+<!-- more -->
+<p>本文纲要：</p>
+<p>[TOC]</p>
+<h2 id="设置-mac-启动选项的几种方法">设置 Mac 启动选项的几种方法</h2>
+<p>先分别介绍一下我了解到 Mac 设置启动任务的方式：</p>
+<ul>
+<li>1、进入系统偏好设置-&gt;帐户-&gt;登陆项</li>
+</ul>
+<p>操作很简单，直接拖任务进去也可以，按底部的 + 号之后添加也可以</p>
+<p>![](https://chanjh.github.io/post-images/屏幕快照 2017-01-30 18.00.35.png)</p>
+<ul>
+<li>2、利用 /System/Library/StartupItems 和 /Library/StartupItems/ 配置文件</li>
+</ul>
+<p>在这两个对应目录下，可以添加以下两种内容：可执行程序和 StartupParameters.plist  文件（需要有权限）</p>
+<ul>
+<li>3、利用 Launchd 系统初始化进程配置</li>
+</ul>
+<p>Launchd 是 Mac 下用于初始化操作系统的关键进程。通过启动硬盘指定目录下的配置文件，来完成启动任务。这些文件为 plist，本质上是 XML。</p>
+<h2 id="launchd-配置">Launchd 配置</h2>
+<h3 id="目录配置">目录配置</h3>
+<p>Mac 下 Launchd 指定目录有：</p>
+<ul>
+<li>~/Library/LaunchAgents</li>
+<li>/Library/LaunchAgents</li>
+<li>/Library/LaunchDaemons</li>
+<li>/System/Library/LaunchAgents</li>
+<li>/System/Library/LaunchDaemons</li>
+</ul>
+<p>其中的区别：</p>
+<ul>
+<li>/System/Library 目录下存放的是系统文件</li>
+<li>/Library 、~/Library/ 目录是用户存放的第三方软件</li>
+<li>LaunchDaemons 是用户未登陆前就启动的服务</li>
+<li>LaunchAgents 是用户登陆后启动的服务</li>
+</ul>
+<h3 id="plist-配置">Plist 配置</h3>
+<p>这里列举几个比较有用的配置关键字：</p>
+<ul>
+<li>Label - 标识符，用来表示该任务的唯一性</li>
+<li>Program - 程序名称，用来说明运行哪个程序、脚本</li>
+<li>ProgramArguments  - 数组程序名，同上，只是可以运行多个程序</li>
+<li>WatchPaths - 监控路径，当路径文件有变化是运行程序，也是数组</li>
+<li>RunAtLoad - 是否在加载的同时启动</li>
+</ul>
+<h2 id="举例唤醒时同步-dropbox">举例：唤醒时同步 Dropbox</h2>
+<p>我曾经介绍过一篇<a href="http://chanjh.com/post/software/0021#content">将文章发送到 Mac 上稍后读</a>。其中曾用 Dropbox 作为中介，将文章发送到 Mac 上阅读。流程如下：</p>
+<figure data-type="image" tabindex="1"><img src="http://cdn.sspai.com/attachment/thumbnail/2016/08/23/aa8c459c33167672234fe8b8c163a26953eed_mw_800_wm_1_wmp_3.jpg" alt="" loading="lazy"></figure>
+<p>然而我发现 Dropbox 的同步经常不理想，只有重启 Dropbox 才能同步完整（这也是我找到比较靠谱的强制刷新 Dropbox 的方法）。如果不刷新则功亏一篑。</p>
+<p>于是有了新的需求：当打开 Mac 时，重启 Dropbox。具体实现如图：</p>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/Artboard.png" alt="" loading="lazy"></figure>
+<p>首先编辑 shell 脚本。在桌面（或者其他位置，但注意对应之后 plist 的路径）创建 shell.sh 文件，输入脚本：</p>
+<pre><code>#!/bin/sh
+killall Dropbox # 关闭 Dropbox
+sleep 10 
+open  /Applications/Dropbox.app # 打开 Dropbox
+</code></pre>
+<p>在 Mac 上当 WI-FI 变化时，/Library/Preferences/SystemConfiguration/  下有几个文件会有变化，在 Launchd 中监控文件夹变化。</p>
+<p>进入 <code>~/Library/LaunchAgents</code>，原地复制随意一份 plist 出来，然后将内容改为：</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;UTF-8&quot;?&gt;
+&lt;!DOCTYPE plist PUBLIC &quot;-//Apple//DTD PLIST 1.0//EN&quot; &quot;http://www.apple.com/DTDs/PropertyList-1.0.dtd&quot;&gt;
+&lt;plist version=&quot;1.0&quot;&gt;
+    &lt;dict&gt;
+        &lt;key&gt;Label&lt;/key&gt;
+        &lt;string&gt;com.chanjh.wificheck&lt;/string&gt;
+        &lt;key&gt;Program&lt;/key&gt;
+        &lt;string&gt;/Users/XXXXX/Desktop/shell.sh&lt;/string&gt;
+        &lt;key&gt;WatchPaths&lt;/key&gt;
+        &lt;array&gt;
+                &lt;string&gt;/Library/Preferences/SystemConfiguration&lt;/string&gt;
+        &lt;/array&gt;
+        &lt;key&gt;RunAtLoad&lt;/key&gt;
+        &lt;true/&gt;
+    &lt;/dict&gt;
+&lt;/plist&gt;
+</code></pre>
+<p>注意，XXXXX 应该替换为 Mac 的用户名。「com.chanjh.wificheck」 可以更换为任意其他内容，保证不会重复就行。将这个 Plist 文件保存，文件名和 Label 一致，保存在 <code>~/Library/LaunchAgents</code> 中。</p>
+<p>如果你有装 Xcode 的话，编辑 Plist 就比较简单。</p>
+<p>然后需要加载 plist，终端输入：<br>
+<code>launchctl load ~/Library/LaunchAgents/com.chanjh.wificheck</code><br>
+<code>launchctl start com.chanjh.wifikeeper</code><br>
+然后重连 Wifi 测试一下，就大功告成啦。</p>
+<p>卸载可以使用命令：<br>
+<code>launchctl unload ~/Library/LaunchAgents/com.chanjh.wifikeeper.plist</code><br>
+<code>launchctl stop com.chanjh.wifikeeper</code></p>
+<p>因为唤醒 Mac 的时候一般也意味着需要重新连接 wifi，所以变着法子完成了这个需求，也符合我的使用场景。如果你有更贴切的用法，欢迎留言告诉我。</p>
+<h3 id="其他方案">其他方案</h3>
+<p>萌生这个想法的时候我在 slack 群里面问了一下有没有可以直接完成我需求的软件，有个朋友回答了「Hammerspoon」这个软件，但是这个软件使用起来好像比较复杂，所以我放弃了。另外，不使用 Launchd 中 WatchPaths 的方法，也可以使用 Hazel 完成一样的功能。配置如图：</p>
+<p>![](https://chanjh.github.io/post-images/屏幕快照 2017-01-30 21.40.59.png)</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0024/">
+              <h3 class="post-title">
+                下一篇：程序员应该写怎样的博客
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

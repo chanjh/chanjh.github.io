@@ -1,0 +1,532 @@
+
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        
+        
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0035/">
+        <h2 class="post-title">开始记账吧，它并没想象中那么难</h2>
+      </a>
+      <div class="post-abstract">
+        <p>今天是一年一度的「双十一」剁手节，不知道你在今天或者双十一这段期间买了多少东西？我今年双十一（好像）比往年理性了很多，先是在预热的时候，买了副耳机；前两天看到支付宝的 App Store 充值九折活动，给 Apple ID 充了点余额；今天白天又买了一直想买的 <a href="https://wiz.money/">MoneyWiz 3</a> Premium —— 一个跨平台的记账工具。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2018-11-11</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/ios/">
+                iOS
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/ji-zhang/">
+                记账
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/moneywiz/">
+                moneywiz
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://chanjh.github.io/post/0035/">
+        <div class="feature-container" style="background-image: url('https://chanjh.github.io/post-images/Group.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0034/">
+        <h2 class="post-title">我做的一些 Workflow</h2>
+      </a>
+      <div class="post-abstract">
+        <p>Workflow 是 iOS 平台上一款明星应用。Workflow 使用了「模块化编程」的思想，我们在 Workflow 里可以快捷、模块化地将一个工作流固定下来。比如你先复制了内容，然后替换了里面的文字，再把文字发送出去或者保存到日历。我在「<a href="https://zhuanlan.zhihu.com/p/26145402">加上这些干货，让 Workflow 如虎添翼</a>」里介绍了一些 Workflow 周边的工具。</p>
+<p>这篇文章将介绍一些我个人做并且常用的 Workflow，可供大家参考使用。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2018-03-09</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/ios/">
+                iOS
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/zi-dong-hua/">
+                自动化
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/workflow/">
+                workflow
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/app/">
+                app
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0033/">
+        <h2 class="post-title">写给女友的 Mac 入门指南（入门）</h2>
+      </a>
+      <div class="post-abstract">
+        <p>最近女票要选购一台电脑，一开始并没有考虑 MacBook，于是我们在联想、戴尔、Surface 几台电脑犹豫了很久，但最后还是决定咬咬牙，直接入 MacBook  Pro。考虑到这是她的第一台 Mac，我决定用文章的形式，教会她怎么使用 Mac。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2018-03-05</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/mac/">
+                Mac
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/ying-jian/">
+                硬件
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/gou-ji/">
+                购机
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/zhi-nan/">
+                指南
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0032/">
+        <h2 class="post-title">2017 过了一半，大学过了一半</h2>
+      </a>
+      <div class="post-abstract">
+        <p>随着六月的到来和期末考的结束，我的大二生活终于结束了，随即吹响的是大三的号角，开始步入大学生活的另一半。</p>
+<p>其实说另一半是很勉强的，因为大四只是名义上的大学生。迈入大学的另一半时间也不再那么等人了。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2017-07-08</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/kai-fa-zhe/">
+                开发者
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/chen-mou-hao/">
+                陈某豪
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+      <a href="https://chanjh.github.io/post/0032/">
+        <div class="feature-container" style="background-image: url('https://chanjh.github.io/post-images/cover.png')">
+        </div>
+      </a>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0031/">
+        <h2 class="post-title">又到了每年此刻，教你把课程表导入日历</h2>
+      </a>
+      <div class="post-abstract">
+        <p>今天学校公布了我们下学期的课程表。唉，没想到大三的课程表居然比大二还多！好吧，我也只能乖乖地把课程表整理下，一起导入到日历里。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2017-06-16</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                教程
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0030/">
+        <h2 class="post-title">HyperDock：我眼中最好用的 Mac 窗口管理</h2>
+      </a>
+      <div class="post-abstract">
+        <p>前两天因为很长时间没有整理电脑，256G 的内存快要被撑爆了，无奈之下随手删除了几个平时没怎么打开的 App，结果不小心把一个神器给卸载了，之后使用起 Mac 来就觉得我的电脑不是我的电脑的感觉。这个神器就是 HyperDock——我眼中最好用的 Mac 窗口管理软件。HyperDock 我很早之前就使用了，他强大到让我一直以为我的窗口管理的几个功能是几个不同的 App 来完成的。直到不小心卸载之后又重新装回来才明白它的强大。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2017-05-08</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/mac/">
+                Mac
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0029/">
+        <h2 class="post-title">MoSplash | 我的第一款独立 App 上架了</h2>
+      </a>
+      <div class="post-abstract">
+        <p>MoSplash 是一款无版权图库应用， 在 iPhone 上体验、浏览、搜索高质量无版权图片。</p>
+<p>如果你喜欢寻找不同的壁纸、找寻不同的心情，MoSplash 或许是你的一个选择。</p>
+<p>下载链接在这里：<a href="https://appsto.re/cn/Lwjqib.i">MoSplash 作者是 Jiahao Chen</a></p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2017-04-14</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/ios/">
+                iOS
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/kai-fa-zhe/">
+                开发者
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0028/">
+        <h2 class="post-title">加上这些干货，让 Workflow 如虎添翼</h2>
+      </a>
+      <div class="post-abstract">
+        <p>最近关注 iOS 的同学应该都知道一件消息，被大家视为 iOS 上的一款效率神器——Workflow 被苹果公司收购了。Workflow 由四位开发者在 2014 年（当时他们还只是三个人，都还是高中生）开发出来的基于模块化编程、实现工作流自动的效率工具，在 2015 年获得了苹果的 Design Awards，一时间令人瞩目。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2017-03-28</span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0027/">
+        <h2 class="post-title">我开始写技术博客了，还做了些其他事情</h2>
+      </a>
+      <div class="post-abstract">
+        <p>ChanTalk 是我的第一个个人博客，依然记得 ChanTalk 的第一篇文章是我进入大学的前一天，在担心着自己进入大学之后有一段时间没有网络可以使用，以及对第一次写博客的欣喜，这两种复杂的心情，我发布了第一篇博客《[ 先于时代还是慢于时代？——Smartisan OS 2.0轻体验 ][1]》。</p>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2017-03-18</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/du-li-kai-fa/">
+                独立开发
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/ji-zhu/">
+                技术
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+<section class="post-item">
+    <div class="content">
+      <a href="https://chanjh.github.io/post/0026/">
+        <h2 class="post-title">软件开发的理与美——记 iOS Club 之行</h2>
+      </a>
+      <div class="post-abstract">
+        <blockquote>
+<p>真正伟大的人还会继续向前，直到找到问题的关键和深层次原因，然后再拿出一个优雅的、堪称完美的有效方案。-- Steve Jobs</p>
+</blockquote>
+
+      </div>
+      <div class="post-info">
+        <span><i class="icon icon-calendar-outline"></i> 2017-02-24</span>
+        
+          <span>
+            <i class="icon icon-pricetags-outline"></i>
+            
+              <a href="https://chanjh.github.io/tag/pei-xun/">
+                培训
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/apple/">
+                Apple
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/ios/">
+                iOS
+                
+                  ，
+                
+              </a>
+            
+              <a href="https://chanjh.github.io/tag/kai-fa-zhe/">
+                开发者
+                
+              </a>
+            
+          </span>
+        
+      </div>
+    </div>
+    
+  </section>
+
+
+<div class="pagination-container">
+  
+    <a href="https://chanjh.github.io/" class="prev"><i class="icon-arrow-ios-back-outline"></i> 上一页</a>
+  
+  
+    <a href="https://chanjh.github.io/page/3/" class="next">下一页 <i class="icon-arrow-ios-forward-outline"></i></a>
+  
+</div>
+
+
+      </div>
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+
+
+  </body>
+</html>

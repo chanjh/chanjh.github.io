@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>又到了每年此刻，教你把课程表导入日历 | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+          <h2 class="post-title">又到了每年此刻，教你把课程表导入日历</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2017-06-16</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/jiao-cheng/">
+                    教程
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>今天学校公布了我们下学期的课程表。唉，没想到大三的课程表居然比大二还多！好吧，我也只能乖乖地把课程表整理下，一起导入到日历里。</p>
+<!-- more -->
+<p>其实 App Store 里课程表的应用并不少，各个学校也可能有自己的教务系统爬下来做出来的课程助手，所以管理课程这件事并不是难事。但是谁叫我生来（才怪）就是不喜欢这样一些乱七八糟功能堆积的 App，反而享受做出符合自己需求的玩意儿。所以别企图用 XX 课程助手这样的应用来搞定我。</p>
+<p>将课程表导入到日历管理的好处十分明显：</p>
+<ul>
+<li>统一管理。将课程和其他安排统一管理，方便安排和查看</li>
+<li>节省空间。在 Widget 里只需要留一个日历插件，就能一目了然</li>
+<li>足够装X。嗯……是的。</li>
+</ul>
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/%E6%95%88%E6%9E%9C.jpeg" alt="" loading="lazy"></figure>
+<p>于是我写了一个将课程导入日历的 Python 脚本，这个脚本是我一年前写的，一直想分享但是一直找不到点拿出来分享，今天心情好（才怪），觉得是时候分享了～下面是使用说明。</p>
+<h2 id="脚本概要">脚本概要</h2>
+<p>【<a href="https://chanjh.github.io/post-images/ClassDemo.zip">Demo下载</a>】</p>
+<p>程序总共由两个脚本完成，最后将 ICS 导入日历即可。步骤概要：</p>
+<ul>
+<li>1、使用 excelReader.py 将保存的 classInfo Excel 表格导出容易解析的 conf_classInfo.json</li>
+<li>2、使用 main.py 将配置好的 conf_classTime.json 和生成的 conf_classInfo.json 生成一个 class.ics</li>
+<li>3、将 class.ics 导入手机或者电脑</li>
+<li>4、搞定！</li>
+</ul>
+<h2 id="环境要求">环境要求</h2>
+<p>Python 2.7+</p>
+<h2 id="执行详解">执行详解</h2>
+<p>1、配置 classInfo Excel 表格<br>
+在工作目录下创建一个 classInfo Excel 表格，表格表头有如下参数：<br>
+className：课程名称<br>
+startWeek：起始周<br>
+endWeek：结束周<br>
+weekday：星期<br>
+classTime：第几节。这个参数要配合 conf_classTime.json 文件，下文会讲。<br>
+classroom：教室</p>
+<p>2、配置 conf_classTime.json<br>
+来吧，照猫画虎：</p>
+<pre><code>{
+  &quot;classTime&quot;: [
+    {
+        &quot;name&quot;:&quot;第 1、2 节&quot;,
+        &quot;startTime&quot;:&quot;0830&quot;,
+        &quot;endTime&quot;:&quot;1005&quot;
+    },
+    {
+        &quot;name&quot;:&quot;第 3、4 节&quot;,
+        &quot;startTime&quot;:&quot;1025&quot;,
+        &quot;endTime&quot;:&quot;1200&quot;
+    },
+    {
+        &quot;name&quot;:&quot;第 5、6、7 节&quot;,
+        &quot;startTime&quot;:&quot;1350&quot;,
+        &quot;endTime&quot;:&quot;1615&quot;
+    },
+    {
+        &quot;name&quot;:&quot;第 8、9 节&quot;,
+        &quot;startTime&quot;:&quot;1630&quot;,
+        &quot;endTime&quot;:&quot;1800&quot;
+    },
+    {
+        &quot;name&quot;:&quot;第 10、11、12 节&quot;,
+        &quot;startTime&quot;:&quot;1830&quot;,
+        &quot;endTime&quot;:&quot;2100&quot;
+    }
+  ]
+}
+</code></pre>
+<p>3、运行 excelReader.py 脚本<br>
+终端运行：<br>
+<code>python excelReader.py</code></p>
+<p><img src="https://chanjh.github.io/post-images/excelReader.png" alt="" loading="lazy"><br>
+如果 classInfo 表格是按照 Demo 的样式保存的，输入 0 继续即可。如果不是……你改回来就可以。（一个小脚本而已，懒得做那么多容错啦～）<br>
+完成后生成一个 conf_classInfo.json 配置文件</p>
+<p>4、运行 main.py 脚本<br>
+终端运行：<br>
+<code>python main.py</code><br>
+<img src="https://chanjh.github.io/post-images/main.png" alt="" loading="lazy"><br>
+回车后，需要输入两个参数：第一周的星期一日期、提醒时间。<br>
+提醒时间就是在 iOS、Mac 上创建日历时所使用的设置，不知道这样的设置在 Android 和 Windows 是否生效。待测。<br>
+完成后在工作目录下会生成一个 class.ics 文件</p>
+<p>5、导入手机或者电脑</p>
+<p>如果你是 Mac + iOS， 恭喜你，直接点开 class.ics 就可以导入 Mac， 然后等待 iCloud 同步就可以。</p>
+<p>如果想单独导入 iOS，可以用邮件将 ics 发送到你的 iOS 可以收到的邮箱里，在邮箱内打开就可以。</p>
+<p>Android 和 Windows 的导入方法我没试过，不过我觉得应该和 iOS、Mac 差不多的。</p>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/%E6%97%A5%E5%8E%86.png" alt="" loading="lazy"></figure>
+<h2 id="写在最后">写在最后</h2>
+<p>复习，准备考试。各位大学狗，渣油。</p>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0030/">
+              <h3 class="post-title">
+                下一篇：HyperDock：我眼中最好用的 Mac 窗口管理
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>

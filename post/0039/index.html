@@ -1,0 +1,241 @@
+
+<!DOCTYPE html>
+<html>
+  <head>
+    
+<meta charset="utf-8" >
+
+<title>说说 iPadOS | Gill Blog</title>
+<meta name="description" content="相信有趣的力量">
+
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+<link rel="shortcut icon" href="https://chanjh.github.io/favicon.ico?v=1656549626803">
+<link rel="stylesheet" href="https://chanjh.github.io/styles/main.css">
+
+
+  
+
+  
+    <link rel="stylesheet" href="https://unpkg.com/disqusjs@1.1/dist/disqusjs.css" />
+  
+
+
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<script src="https://cdn.bootcss.com/highlight.js/9.12.0/highlight.min.js"></script>
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-156447871-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-156447871-1');
+</script>
+
+
+  </head>
+  <body>
+    <div id="app" class="main">
+      <div class="site-header-container">
+  <div class="site-header">
+    <div class="left">
+      <a href="https://chanjh.github.io">
+        <img class="avatar" src="https://chanjh.github.io/images/avatar.png?v=1656549626803" alt="" width="32px" height="32px">
+      </a>
+      <a href="https://chanjh.github.io">
+        <h1 class="site-title">Gill Blog</h1>
+      </a>
+    </div>
+    <div class="right">
+      <transition name="fade">
+        <i class="icon" :class="{ 'icon-close-outline': menuVisible, 'icon-menu-outline': !menuVisible }" @click="menuVisible = !menuVisible"></i>
+      </transition>
+    </div>
+  </div>
+</div>
+
+<transition name="fade">
+  <div class="menu-container" style="display: none;" v-show="menuVisible">
+    <div class="menu-list">
+      
+        
+          <a href="/" class="menu purple-link">
+            首页
+          </a>
+        
+      
+        
+          <a href="/archives" class="menu purple-link">
+            归档
+          </a>
+        
+      
+        
+          <a href="/tags" class="menu purple-link">
+            标签
+          </a>
+        
+      
+        
+          <a href="/post/about" class="menu purple-link">
+            关于
+          </a>
+        
+      
+        
+          <a href="/atom.xml" class="menu purple-link">
+            订阅
+          </a>
+        
+      
+    </div>
+  </div>
+</transition>
+
+
+      <div class="content-container">
+        <div class="post-detail">
+          
+            <div class="feature-container" style="background-image: url('https://chanjh.github.io/post-images/0039.png')">
+            </div>
+          
+          <h2 class="post-title">说说 iPadOS</h2>
+          <div class="post-info post-detail-info">
+            <span><i class="icon-calendar-outline"></i> 2019-06-14</span>
+            
+              <span>
+                <i class="icon-pricetags-outline"></i>
+                
+                  <a href="https://chanjh.github.io/tag/ipad/">
+                    iPad
+                    
+                  </a>
+                
+              </span>
+            
+          </div>
+          <div class="post-content">
+            <p>在我整理今年 WWDC 新系统功能亮点的时候，我发现 iOS13 本身的亮点屈指可数，我比较关注的更新只有 Dark Mode 一点。但当我开始做 iPadOS 的功能总结时，一下子就能写出很多值得关注的新 feature 来：Multiwindow、文本的三指操作、滑动选区、文件系统、桌面级别的 Safari …… 全新的 iPadOS 脱胎于 iOS，又具有 macOS 的能力，与其说它参考了 macOS 的能力，不如说是自然而然学习了它的兄弟系统的交互。我想，iPadOS 会是 iOS 系统这么多年来迈出的最重要的一步。</p>
+<!-- more -->
+<h2 id="mutiwindow">Mutiwindow</h2>
+<p>iOS 11 为 iPad 带来了 Drag &amp; Drop，奠定了 iPad 上一个全新的基础交互。而支持多窗口是则是 iPadOS 为下一代 iPad 带来的强大功能。</p>
+<p>iPad 的多窗口功能最初要追溯到 iOS 9 版本上。当时的「多窗口」就已经具备现在的大部分功能，只不过 iOS 9 上 iPad 还没有引入现在类似 macOS 的 Dock 任务栏，交互和现在有一些差异。iPadOS 之前的多窗口，其实正确说法是「多任务」，即一个 iPad 界面可以同时开启两个应用程序。你同时使用两个程序，再加上 iOS 11 的 Drag &amp; Drop，就能在两个程序之间通讯。</p>
+<figure data-type="image" tabindex="1"><img src="https://chanjh.github.io/post-images/1560992117336.png" alt="" loading="lazy"></figure>
+<p>iPadOS 上的多窗口不同以往，这次的更新支持了同一个应用内的多窗口多任务，应用开发者可以根据场景，提供给用户新建窗口的功能。这种体验的更新，就像以前你在 iPad 上，只能同时打开一个 Word，但现在你可以同时打开多个 Word 窗口，并且使用快速浏览预览它们。这就给了 Word、Email 这类软件更多的想象的空间。当然，我相信会有很多开发者会基于这个能力，想出更多的玩法来。</p>
+<p>细想 iPadOS 的 Mutiwindow，你可以说是一种新的能力，但它的兄弟 iOS 和 macOS ，你会发现是如此相似。Dock 查看多任务、Split View 进行窗口调整、类似 iPhoneX 的多任务和快速切换…… Mutiwindow 感觉是「突如其来」，却又「顺理成章」。</p>
+<figure data-type="image" tabindex="2"><img src="https://chanjh.github.io/post-images/1560571183220.PNG" alt="" loading="lazy"></figure>
+<h2 id="新的文本交互">新的文本交互</h2>
+<p>WWDC 上，iPadOS 很大一部分的演示是用备忘录完成的。苹果也为备忘录带来了一些新的功能：滑动选区、三指复制/粘贴/撤销操作。</p>
+<p>使用 iPad 办公被大家称为「轻办公」，而适合「轻办公」场景就是文字工作。编辑、撰稿人、Blogger 都很适合带上 iPad 来完成工作。这也不难解释为什么苹果会使用比较大的篇幅在备忘录里演示功能。</p>
+<p>iPadOS 新的文本交互，是对 iPad 高频场景的「触屏交互能力」的补充。使用 iPad 的场景其实有两个：用手指或 Pencil 触屏、使用键盘。如果我们把 iPadOS 的文本交互新功能放到键盘上，会发现其实每一个功能都已经有键盘快捷可以完成了：选区不就是光标+Shift，撤销就是 command+z，复制粘贴就更不用说了吧。所以说 iPadOS 上针对文本交互（对开发者来讲，具体是包括了 UITextView 和 WebView）的更新，是苹果对 iPad 的高频场景——文字工作的在触屏下的补充。</p>
+<figure data-type="image" tabindex="3"><img src="https://chanjh.github.io/post-images/1560991899862.png" alt="" loading="lazy"></figure>
+<p>我之所以会关注文本交互，是因为我的工作就是开发一个富文本编译器。iPadOS 的一部分能力其实我们在它推出之前就已经开发过，也被证明是有一定的市场价值的。我也相信文字工作依然会 iPad 在接下来一年最主要的工作场景。</p>
+<h2 id="文件管理">文件管理</h2>
+<p>苹果提出让 iPad 带上生产力，最晚可以说是 iOS 11 提出的吧，也不少在出宣传上暗示 iPad 的性能要高于大部分 PC。但就是这个「生产力工具」、秒杀大部分 PC 的 iPad，居然两年来都是不支持读取 U 盘的文件（除了图片），你说气不气。所以这次 iPadOS File 终于支持读取 U 盘这种 21 世纪初发明的数据传输介质了，真是「巨大的更新」。</p>
+<p>玩笑归玩笑。File 除了支持了读取 U 盘，还支持 zip 格式、文档标签、文档服务器（iPadOS Beat 1 版本暂不支持）。虽然距离 PC 上的文件管理还有很多差距，但总算补齐了这个短板。</p>
+<figure data-type="image" tabindex="4"><img src="https://chanjh.github.io/post-images/1560992025350.jpeg" alt="" loading="lazy"></figure>
+<h2 id="其他更新">其他更新</h2>
+<p>Safari 桌面级浏览：苹果终于是让 iPad Safari 做了它该做的事情。试问你自己，在电脑操作的大部分时间是不是都花在浏览器上了？</p>
+<p>长按手势：iOS 13 和 iPadOS 针对没有 3D Touch 的设备都开启了长按手势识别，替代了桌面和原生应用的 3D Touch 功能。现在在 iPad 上长按应用图标就可以唤出和 iPhone 上一样的 3D Touch 菜单了。可以代表着 3D Touch 在苹果战略地位已经下降。</p>
+<p>Sidecar：iPad 可以成为 macOS 的外接显示器，并且支持触摸操作。可以把 iPad 当数位板用了。</p>
+<p>PencilKit：开发者可以基于 Apple Penkit 开发出更多的能力来。值得期待。</p>
+<blockquote>
+<p>本文部分图片来源 developer.apple.com</p>
+</blockquote>
+
+          </div>
+        </div>
+
+        
+          <div class="next-post">
+            <a class="purple-link" href="https://chanjh.github.io/post/0038/">
+              <h3 class="post-title">
+                下一篇：一年搬了三次家
+              </h3>
+            </a>
+          </div>
+          
+      </div>
+
+      
+        
+
+        
+          <div id="disqus_thread"></div>
+        
+      
+
+      <div class="site-footer">
+  <div class="slogan">相信有趣的力量</div>
+  <div class="social-container">
+    
+      
+        <a href="https://github.com/chanjh" target="_blank">
+          <i class="fab fa-github"></i>
+        </a>
+      
+    
+      
+    
+      
+        <a href="http://weibo.com/bj416" target="_blank">
+          <i class="fab fa-weibo"></i>
+        </a>
+      
+    
+      
+        <a href="https://zhuanlan.zhihu.com/ChanTalk" target="_blank">
+          <i class="fab fa-zhihu"></i>
+        </a>
+      
+    
+      
+    
+  </div>
+  Powered by <a href=\"https://github.com/getgridea/gridea\" target=\"_blank\">Gridea</a>
+</div>
+
+
+    </div>
+    <script type="application/javascript">
+
+hljs.initHighlightingOnLoad()
+
+var app = new Vue({
+  el: '#app',
+  data: {
+    menuVisible: false,
+  },
+})
+
+</script>
+
+
+  
+  
+
+  
+    <script src="https://unpkg.com/disqusjs@1.1/dist/disqus.js"></script>
+    <script>
+
+    var options = {
+      shortname: 'chantalk',
+      apikey: 'Fo9s1WsUsfLB90QTkdnz2qViZoDBZW76AtFiUQaUTVGoAvaS4ZLmpASvKN2kIPWG',
+    }
+    if ('https://disqus.skk.moe/disqus/') {
+      options.api = 'https://disqus.skk.moe/disqus/'
+    }
+    var dsqjs = new DisqusJS(options)
+
+    </script>
+  
+
+
+
+
+  </body>
+</html>
